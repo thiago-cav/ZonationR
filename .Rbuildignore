@@ -1,5 +1,11 @@
-^Zonation5R\.Rproj$
+^ZonationR\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^README_files$
+^vignettes/articles$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^codecov\.yml$

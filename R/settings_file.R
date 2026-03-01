@@ -1,17 +1,25 @@
-#' Create a Settings File for Zonation 5 Analysis
+#' Create a settings file for a Zonation Analysis
 #'
 #' This function generates a settings file with various parameters related to
-#' the input data and analysis configuration. The resulting settings
-#' file is saved with a `.z5` extension and can be used directly in the Zonation 5 software.
+#' the input data and analysis configuration. The resulting settings file is
+#' saved with a `.z5` extension and can be used directly in the Zonation
+#' software.
 #'
 #' @param feature_list_file A character string specifying the feature list file.
-#'                  This is a compulsory parameter.
-#' @param external_solution_file A character string specifying the full path and/or name of the external solution file.
-#' @param analysis_area_mask_layer A character string specifying the full path and/or name of the analysis area mask layer file.
-#' @param hierarchic_mask_layer A character string specifying the full path and/or name of the hierarchic mask layer file.
-#' @param cost_layer A character string specifying the full path and/or name of the cost layer file.
+#'   This is a compulsory parameter.
+#' @param external_solution_file A character string specifying the full path
+#'   and/or name of the external solution file.
+#' @param analysis_area_mask_layer A character string specifying the full path
+#'   and/or name of the analysis area mask layer file.
+#' @param hierarchic_mask_layer A character string specifying the full path
+#'   and/or name of the hierarchic mask layer file.
+#' @param cost_layer A character string specifying the full path and/or name of
+#'   the cost layer file.
 #'
 #' @returns A `.z5` file containing the specified settings.
+#'
+#' @seealso
+#' [feature_list()], [command_file()]
 #'
 #' @export
 #'

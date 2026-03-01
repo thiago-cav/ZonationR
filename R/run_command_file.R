@@ -1,11 +1,11 @@
-#' Run Zonation 5
+#' Run a Zonation command file
 #'
-#' This function runs a Zonation 5 analysis directly from R by executing a command
-#' file located in the specified folder. On Windows, the function looks for a single
-#' `.cmd` file; on Linux, it looks for a single `.sh` file.
+#' This function runs a Zonation 5 analysis directly from R by executing a
+#' command file located in the specified folder. On Windows, the function looks
+#' for a single `.cmd` file; on Linux, it looks for a single `.sh` file.
 #'
 #' @param folder A character string specifying the path to the folder containing
-#' the Zonation command file.
+#'   the Zonation command file.
 #'
 #' @export
 #'

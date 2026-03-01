@@ -2,7 +2,7 @@
 % Please edit documentation in R/run_command_file.R
 \name{run_command_file}
 \alias{run_command_file}
-\title{Run Zonation 5}
+\title{Run a Zonation command file}
 \usage{
 run_command_file(folder)
 }
@@ -11,9 +11,9 @@ run_command_file(folder)
 the Zonation command file.}
 }
 \description{
-This function runs a Zonation 5 analysis directly from R by executing a command
-file located in the specified folder. On Windows, the function looks for a single
-\code{.cmd} file; on Linux, it looks for a single \code{.sh} file.
+This function runs a Zonation 5 analysis directly from R by executing a
+command file located in the specified folder. On Windows, the function looks
+for a single \code{.cmd} file; on Linux, it looks for a single \code{.sh} file.
 }
 \examples{
 \dontrun{

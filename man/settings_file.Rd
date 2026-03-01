@@ -2,7 +2,7 @@
 % Please edit documentation in R/settings_file.R
 \name{settings_file}
 \alias{settings_file}
-\title{Create a Settings File for Zonation 5 Analysis}
+\title{Create a settings file for a Zonation Analysis}
 \usage{
 settings_file(
   feature_list_file,
@@ -16,24 +16,32 @@ settings_file(
 \item{feature_list_file}{A character string specifying the feature list file.
 This is a compulsory parameter.}
 
-\item{external_solution_file}{A character string specifying the full path and/or name of the external solution file.}
+\item{external_solution_file}{A character string specifying the full path
+and/or name of the external solution file.}
 
-\item{analysis_area_mask_layer}{A character string specifying the full path and/or name of the analysis area mask layer file.}
+\item{analysis_area_mask_layer}{A character string specifying the full path
+and/or name of the analysis area mask layer file.}
 
-\item{hierarchic_mask_layer}{A character string specifying the full path and/or name of the hierarchic mask layer file.}
+\item{hierarchic_mask_layer}{A character string specifying the full path
+and/or name of the hierarchic mask layer file.}
 
-\item{cost_layer}{A character string specifying the full path and/or name of the cost layer file.}
+\item{cost_layer}{A character string specifying the full path and/or name of
+the cost layer file.}
 }
 \value{
 A \code{.z5} file containing the specified settings.
 }
 \description{
 This function generates a settings file with various parameters related to
-the input data and analysis configuration. The resulting settings
-file is saved with a \code{.z5} extension and can be used directly in the Zonation 5 software.
+the input data and analysis configuration. The resulting settings file is
+saved with a \code{.z5} extension and can be used directly in the Zonation
+software.
 }
 \examples{
 \dontrun{
 settings_file(feature_list_file = "feature_list.txt")
 }
+}
+\seealso{
+\code{\link[=feature_list]{feature_list()}}, \code{\link[=command_file]{command_file()}}
 }
