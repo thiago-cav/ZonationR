@@ -14,12 +14,22 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
 Imports: 
     dplyr,
+    fs,
+    magrittr,
     ggplot2,
+    htmlwidgets,
+    janitor,
+    plotly,
+    readr,
     rlang,
+    stringr,
     terra,
+    tibble,
     tidyr,
-    utils
-Suggests: 
+    utils,
+    viridis,
+    ggspatial
+Suggests:
     knitr,
     mockery,
     rmarkdown,
@@ -28,5 +38,4 @@ Suggests:
 Config/testthat/edition: 3
 URL: https://github.com/thiago-cav/ZonationR, https://thiago-cav.github.io/ZonationR/
 BugReports: https://github.com/thiago-cav/ZonationR/issues
-VignetteBuilder: knitr
 Config/Needs/website: rmarkdown
