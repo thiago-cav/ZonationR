@@ -34,7 +34,14 @@
 #'   writes \code{dir/sz_output/<graph_name>.png} or \code{.html} as appropriate.
 #'
 #' @importFrom readr read_table
-#' @keywords internal
+#' @importFrom dplyr select contains starts_with rename mutate recode
+#' @importFrom tidyr pivot_longer
+#' @importFrom magrittr %>%
+#' @importFrom stringr str_extract
+#' @importFrom ggplot2 ggplot aes geom_line scale_x_continuous scale_y_continuous
+#'   theme_light theme element_rect element_text element_line guides guide_legend
+#'   labs facet_wrap
+#' @export
 sz_graph_group_curves <-
   function(dir,
            output_folder_name,
@@ -47,6 +54,8 @@ sz_graph_group_curves <-
            interactive_graph = FALSE
   ) {
 
+    Representation <- Rank <- Group <- NULL
+    
     group_curves_path <- file.path(dir, output_folder_name, "group_curves.csv")
 
     if (!file.exists(group_curves_path)) {
@@ -92,7 +101,7 @@ sz_graph_group_curves <-
       v_fun <- v_fun %>%
         mutate(Group = as.character(Group)) %>%
         mutate(Group = recode(Group,
-                              !!!setNames(group_names, unique(v_fun$Group))))
+                              !!!base::setNames(group_names, unique(v_fun$Group))))
     }
     
     # Check colors pallete
@@ -147,8 +156,8 @@ sz_graph_group_curves <-
       )
     }
     
-    if(interactive_graph) {
-      plot_zonation_curves <- ggplotly(plot_zonation_curves)
+    if (interactive_graph) {
+      plot_zonation_curves <- plotly::ggplotly(plot_zonation_curves)
     }
     
     if (interactive_graph && save_graph) {

@@ -20,6 +20,7 @@
 #'
 #' @importFrom readr read_table
 #' @importFrom dplyr bind_rows
+#' @importFrom utils write.csv
 #' @export
 sz_cost <- function(dir,
                     output_folder_name,

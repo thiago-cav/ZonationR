@@ -60,4 +60,3 @@ and draws a line plot of representation vs priority rank by group. Optionally
 renames groups, uses faceting, saves as PNG, or produces an interactive
 plotly graph (and saves as HTML).
 }
-\keyword{internal}

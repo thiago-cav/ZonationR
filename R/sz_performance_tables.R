@@ -29,6 +29,9 @@
 #'
 #' @importFrom rlang .data
 #' @importFrom magrittr %>%
+#' @importFrom utils write.csv
+#' @importFrom dplyr filter pull bind_rows select all_of mutate everything
+#' @importFrom tibble tibble
 #' @export
 sz_performance_tables <- function(dir,
                                   output_folder_name,
@@ -46,25 +49,24 @@ sz_performance_tables <- function(dir,
   for (i in seq_along(landscape_prop)) {
     filter_data <-
       feat_curves %>%
-      mutate(minimun_value = abs(rank  - landscape_prop[i])) %>%
-      filter(minimun_value == min(minimun_value)) %>%
-      dplyr::select(-minimun_value) %>%
-      mutate(rank = landscape_prop[i])
-    
-    # Negative weighted features
+      dplyr::mutate(minimun_value = abs(.data$rank - landscape_prop[i])) %>%
+      dplyr::filter(.data$minimun_value == min(.data$minimun_value)) %>%
+      dplyr::select(-.data$minimun_value) %>%
+      dplyr::mutate(rank = landscape_prop[i])
+
     neg_weighted_features <-
       feat_list %>%
-      dplyr::filter(weight < 0) %>%
-      pull(filename)
+      dplyr::filter(.data$weight < 0) %>%
+      dplyr::pull(.data$filename)
     
     # If there are negative values ...
     if (length(neg_weighted_features) > 0) {
       
       filter_data_neg <-
         filter_data %>%
-        dplyr::select(rank, all_of(neg_weighted_features)) %>%
-        mutate(weight_type = "negative") %>%
-        dplyr::select(rank, weight_type, everything())
+        dplyr::select(.data$rank, dplyr::all_of(neg_weighted_features)) %>%
+        dplyr::mutate(weight_type = "negative") %>%
+        dplyr::select(.data$rank, .data$weight_type, dplyr::everything())
       
       # Convert to percentage and invert values (100 - x)
       filter_data_neg[1, 3:ncol(filter_data_neg)] <-
@@ -72,7 +74,7 @@ sz_performance_tables <- function(dir,
       
       # Salve a data.frame of negative-weighted features
       res_specific_features_neg <-
-        bind_rows(res_specific_features_neg, filter_data_neg)
+        dplyr::bind_rows(res_specific_features_neg, filter_data_neg)
       
       # Summarise negative values
       neg_vals <-
@@ -100,9 +102,9 @@ sz_performance_tables <- function(dir,
 
     filter_data_pos <-
       filter_data %>%
-      dplyr::select(rank, all_of(pos_weighted_features)) %>%
-      mutate(weight_type = "positive") %>%
-      dplyr::select(rank, weight_type, everything())
+      dplyr::select(.data$rank, dplyr::all_of(pos_weighted_features)) %>%
+      dplyr::mutate(weight_type = "positive") %>%
+      dplyr::select(.data$rank, .data$weight_type, dplyr::everything())
     
     # Convert to percentage
     filter_data_pos[1, 3:ncol(filter_data_pos)] <-
@@ -110,7 +112,7 @@ sz_performance_tables <- function(dir,
     
     # Salve a data.frame of positive-weighted features
     res_specific_features_pos <-
-      bind_rows(res_specific_features_pos, filter_data_pos)
+      dplyr::bind_rows(res_specific_features_pos, filter_data_pos)
     
     # Summarise positive values
     pos_vals <-
