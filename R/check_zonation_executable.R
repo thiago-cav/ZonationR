@@ -88,7 +88,7 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
     if (file.exists(exe_path)) {
       # Normalize path for consistent comparison across platforms
       if (os == "Windows") {
-        return(normalizePath(exe_path, winslash = "\\\\", mustWork = TRUE))
+        return(normalizePath(exe_path, winslash = "\\", mustWork = TRUE))
       } else {
         return(normalizePath(exe_path, winslash = "/", mustWork = TRUE))
       }
@@ -99,7 +99,7 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
       exe_path_alt <- file.path(path, exe_name_alt)
       if (file.exists(exe_path_alt)) {
         if (os == "Windows") {
-          return(normalizePath(exe_path_alt, winslash = "\\\\", mustWork = TRUE))
+          return(normalizePath(exe_path_alt, winslash = "\\", mustWork = TRUE))
         } else {
           return(normalizePath(exe_path_alt, winslash = "/", mustWork = TRUE))
         }
