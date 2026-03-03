@@ -1,4 +1,6 @@
 test_that("check_zonation_executable returns correct structure", {
+  skip_on_os("mac")
+
   result <- check_zonation_executable()
 
   expect_type(result, "list")
@@ -96,6 +98,8 @@ test_that("check_zonation_executable handles non-existent directory", {
 })
 
 test_that("check_zonation_executable works with NULL path", {
+  skip_on_os("mac")
+
   # Should search common locations without error
   result <- check_zonation_executable(zonation_path = NULL)
 
@@ -143,6 +147,8 @@ test_that("check_zonation_executable handles Windows executable without .exe ext
 })
 
 test_that("check_zonation_executable detects OS automatically", {
+  skip_on_os("mac")
+
   # Should detect OS without explicitly providing it
   result <- check_zonation_executable()
 

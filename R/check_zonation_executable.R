@@ -86,14 +86,23 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
     # Check for primary executable name
     exe_path <- file.path(path, exe_name)
     if (file.exists(exe_path)) {
-      return(exe_path)
+      # Normalize path for consistent comparison across platforms
+      if (os == "Windows") {
+        return(normalizePath(exe_path, winslash = "\\\\", mustWork = TRUE))
+      } else {
+        return(normalizePath(exe_path, winslash = "/", mustWork = TRUE))
+      }
     }
 
     # Check for alternative executable name
     if (exe_name != exe_name_alt) {
       exe_path_alt <- file.path(path, exe_name_alt)
       if (file.exists(exe_path_alt)) {
-        return(exe_path_alt)
+        if (os == "Windows") {
+          return(normalizePath(exe_path_alt, winslash = "\\\\", mustWork = TRUE))
+        } else {
+          return(normalizePath(exe_path_alt, winslash = "/", mustWork = TRUE))
+        }
       }
     }
 
@@ -144,7 +153,8 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
     zonation_path <- path.expand(zonation_path)
     found_executable <- check_executable_at_path(zonation_path, exe_name, exe_name_alt)
     if (!is.null(found_executable)) {
-      found_path <- zonation_path
+      # Derive directory from normalized executable path
+      found_path <- dirname(found_executable)
     }
   } else {
     # No user-provided path: check common locations
@@ -152,7 +162,7 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
       path <- path.expand(path)
       found_executable <- check_executable_at_path(path, exe_name, exe_name_alt)
       if (!is.null(found_executable)) {
-        found_path <- path
+        found_path <- dirname(found_executable)
         break
       }
     }
