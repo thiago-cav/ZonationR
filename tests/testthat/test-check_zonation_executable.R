@@ -39,8 +39,14 @@ test_that("check_zonation_executable finds executable in provided path (Windows)
   result <- check_zonation_executable(zonation_path = tmp_dir, os = "Windows")
 
   expect_true(result$found)
-  expect_equal(result$path, normalizePath(tmp_dir))
-  expect_equal(result$executable, normalizePath(exe_path))
+  expect_equal(
+    normalizePath(result$path, winslash = "/"),
+    normalizePath(tmp_dir, winslash = "/")
+  )
+  expect_equal(
+    normalizePath(result$executable, winslash = "/"),
+    normalizePath(exe_path, winslash = "/")
+  )
   expect_equal(result$os, "Windows")
   expect_true(grepl("found", result$message, ignore.case = TRUE))
 })
@@ -63,8 +69,14 @@ test_that("check_zonation_executable finds executable in provided path (Linux)",
   result <- check_zonation_executable(zonation_path = tmp_dir, os = "Linux")
 
   expect_true(result$found)
-  expect_equal(result$path, normalizePath(tmp_dir))
-  expect_equal(result$executable, normalizePath(exe_path))
+  expect_equal(
+    normalizePath(result$path, winslash = "/"),
+    normalizePath(tmp_dir, winslash = "/")
+  )
+  expect_equal(
+    normalizePath(result$executable, winslash = "/"),
+    normalizePath(exe_path, winslash = "/")
+  )
   expect_equal(result$os, "Linux")
   expect_true(grepl("found", result$message, ignore.case = TRUE))
 })
@@ -143,7 +155,10 @@ test_that("check_zonation_executable handles Windows executable without .exe ext
   result <- check_zonation_executable(zonation_path = tmp_dir, os = "Windows")
 
   expect_true(result$found)
-  expect_equal(result$executable, normalizePath(exe_path))
+  expect_equal(
+    normalizePath(result$executable, winslash = "/"),
+    normalizePath(exe_path, winslash = "/")
+  )
 })
 
 test_that("check_zonation_executable detects OS automatically", {
