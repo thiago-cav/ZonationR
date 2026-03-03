@@ -197,6 +197,11 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
     }
   }
 
+  if (!is.null(found_executable)) {
+    # Normalize path for Windows and consistency
+    found_executable <- normalizePath(found_executable, winslash = "\\", mustWork = TRUE)
+  }
+
   # Return results
   return(list(
     found = !is.null(found_executable),
