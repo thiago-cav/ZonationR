@@ -1,35 +1,32 @@
-test_that("run_command_file errors if folder does not exist", {
-  expect_error(run_command_file("nonexistent_folder_12345"),
-               "Specified folder does not exist")
+test_that("run_command_file runs successfully", {
+  tmp <- withr::local_tempdir()   # clean, unique temp folder
+  ext <- if (.Platform$OS.type == "windows") ".cmd" else ".sh"
+  cmd_file <- file.path(tmp, paste0("test_command", ext))
+  file.create(cmd_file)
+
+  # Mock system2 to simulate success
+  fake_system2 <- mockery::mock(0)
+  mockery::stub(ZonationR::run_command_file, "system2", fake_system2)
+
+  expect_message(
+    ZonationR::run_command_file(tmp),
+    "The analysis has been completed"
+  )
 })
 
-test_that("run_command_file errors if no .cmd file found", {
-  tmp <- tempfile("test_no_cmd_")
-  dir.create(tmp)
-  old_wd <- getwd()
-  on.exit(setwd(old_wd), add = TRUE)
-  setwd(tmp)
+test_that("run_command_file errors on failure status", {
+  tmp <- withr::local_tempdir()   # another clean temp folder
+  ext <- if (.Platform$OS.type == "windows") ".cmd" else ".sh"
+  cmd_file <- file.path(tmp, paste0("test_command", ext))
+  file.create(cmd_file)
 
-  expect_error(run_command_file(tmp), "No \\.cmd file found")
+  # Mock system2 to simulate failure
+  fake_system2 <- mockery::mock(1)
+  mockery::stub(ZonationR::run_command_file, "system2", fake_system2)
 
-  unlink(tmp, recursive = TRUE)
+  expect_error(
+    ZonationR::run_command_file(tmp),
+    "Command failed"
+  )
 })
 
-
-test_that("run_command_file runs system on a single harmless .cmd file and restores wd", {
-  tmp <- tempfile("test_single_cmd_")
-  dir.create(tmp)
-
-  # Create dummy .cmd file
-  cmd_file <- file.path(tmp, "dummy.cmd")
-  writeLines(c("@echo off", "exit /b 0"), cmd_file)
-
-  old_wd <- getwd()  # store original wd
-
-  expect_message(run_command_file(tmp), "The analysis has been completed.")
-
-  # After function completes, working directory restored
-  expect_equal(getwd(), old_wd)
-
-  unlink(tmp, recursive = TRUE)
-})

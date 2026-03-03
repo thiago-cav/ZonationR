@@ -1,19 +1,28 @@
 #' Create a feature list from raster files
 #'
-#' This function generates a feature list from raster files in a specified directory,
-#' adding optional attributes to the list based on user-defined parameters. The resulting
-#' feature list is written to a text file. Supported raster formats include GeoTIFF
-#' (.tif, .tiff), ERDAS Imagine (.img), and ASCII Grid (.asc).
+#' This function generates a feature list from raster files in a specified
+#' directory, adding optional attributes to the list based on user-defined
+#' parameters. The resulting feature list is written to a text file. Supported
+#' raster formats include GeoTIFF (.tif, .tiff), ERDAS Imagine (.img), and ASCII
+#' Grid (.asc).
 #'
 #'
-#' @param spp_file_dir A character string specifying the directory containing the raster files.
-#' @param weight An optional numeric vector (`float`) to assign weights to the features in the list.
-#' @param group An optional integer vector (`int`) representing the output group number for each raster.
-#' @param threshold An optional numeric vector (`float`) representing the threshold value below which
-#'                  input files are cut to zero.
+#' @param spp_file_dir A character string specifying the directory containing
+#'   the raster files.
+#' @param weight An optional numeric vector (`float`) to assign weights to the
+#'   features in the list.
+#' @param group An optional integer vector (`int`) representing the output group
+#'   number for each raster.
+#' @param threshold An optional numeric vector (`float`) representing threshold
+#'   values for each raster. If thresholding is applied, values in the input
+#'   raster below the threshold are set to zero. Layers that contain only zeros
+#'   after thresholding are removed from the analysis.
 #'
-#' @returns A text file containing a feature list of rasters along with any additional attributes
-#'          specified by the user.
+#' @returns A text file containing a feature list of rasters along with any
+#'   additional attributes specified by the user.
+#'
+#' @seealso
+#' [settings_file()], [command_file()]
 #'
 #' @importFrom utils write.table
 #'

@@ -1,6 +1,12 @@
-^Zonation5R\.Rproj$
+^ZonationR\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^README_files$
 Makefile
+^vignettes/articles$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$
+^codecov\.yml$

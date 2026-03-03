@@ -2,7 +2,7 @@
 % Please edit documentation in R/command_file.R
 \name{command_file}
 \alias{command_file}
-\title{Create a Zonation 5 Command File}
+\title{Create a Zonation command File}
 \usage{
 command_file(
   os = "Windows",
@@ -15,31 +15,37 @@ command_file(
 )
 }
 \arguments{
-\item{os}{Operating system. Default is "Windows"; set to "Linux" if using a Linux system.}
+\item{os}{Operating system. Default is "Windows"; set to "Linux" if using a
+Linux system.}
 
-\item{zonation_path}{The specification for the path where Zonation 5 is installed.}
+\item{zonation_path}{The specification for the path where Zonation 5 is
+installed.}
 
-\item{flags}{Flags that control which analysis options are used. Used to include single letter codes
-that switch analysis options on. Available options are: a, w, g, h, x, X, t.}
+\item{flags}{Flags that control which analysis options are used. Used to
+include single letter codes that switch analysis options on. Available
+options are: a, w, g, h, x, X, t.}
 
 \item{marginal_loss_mode}{Character string specifying the marginal loss rule.
-Available options are "CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", and "RAND". Default is "CAZ2".}
+Available options are "CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", and "RAND".
+Default is "CAZ2".}
 
-\item{gui_activated}{This parameter controls whether the Graphical User Interface (GUI)
-is launched when running the command file. The default is TRUE (GUI activated).}
+\item{gui_activated}{This parameter controls whether the Graphical User
+Interface (GUI) is launched when running the command file. The default is
+TRUE (GUI activated).}
 
-\item{settings_file}{Character string specifying the settings file.
-Default is "settings_file.z5".}
+\item{settings_file}{Character string specifying the settings file. Default
+is "settings_file.z5".}
 
-\item{output_dir}{A character string specifying the name of the output directory
-where the analysis results will be saved. Default is "output".}
+\item{output_dir}{A character string specifying the name of the output
+directory where the analysis results will be saved. Default is "output".}
 }
 \value{
-The Zonation 5 command file.
+A Zonation command file containing the specified analysis options.
 }
 \description{
-This function generates a command file for running Zonation 5 and specifies
-the analysis options and related parameters. The file is saved with a \code{.cmd} (Windows) or \code{.sh} (Linux) suffix.
+This function generates a command file for running Zonation and specifies
+the analysis options and related parameters. The file is saved with a \code{.cmd}
+(Windows) or \code{.sh} (Linux) suffix.
 }
 \examples{
 \dontrun{
@@ -53,4 +59,7 @@ command_file(
   gui_activated = FALSE
 )
 }
+}
+\seealso{
+\code{\link[=feature_list]{feature_list()}}, \code{\link[=settings_file]{settings_file()}}
 }

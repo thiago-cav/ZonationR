@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(Zonation5R)
+library(ZonationR)
 
-test_check("Zonation5R")
+test_check("ZonationR")

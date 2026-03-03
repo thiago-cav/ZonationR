@@ -2,17 +2,18 @@
 % Please edit documentation in R/run_command_file.R
 \name{run_command_file}
 \alias{run_command_file}
-\title{Run Zonation 5}
+\title{Run a Zonation command file}
 \usage{
 run_command_file(folder)
 }
 \arguments{
-\item{folder}{A character string specifying the path to the folder containing the \code{.cmd} file.}
+\item{folder}{A character string specifying the path to the folder containing
+the Zonation command file.}
 }
 \description{
-This function runs a Zonation 5 analysis directly from R by executing a \code{.cmd} file
-located in the specified folder. If multiple \code{.cmd} files are present, it stops with an error,
-requiring only one \code{.cmd} file to be in the folder.
+This function runs a Zonation 5 analysis directly from R by executing a
+command file located in the specified folder. On Windows, the function looks
+for a single \code{.cmd} file; on Linux, it looks for a single \code{.sh} file.
 }
 \examples{
 \dontrun{

@@ -1,22 +1,31 @@
-#' Create a Zonation 5 Command File
+#' Create a Zonation command File
 #'
-#' This function generates a command file for running Zonation 5 and specifies
-#' the analysis options and related parameters. The file is saved with a `.cmd` (Windows) or `.sh` (Linux) suffix.
+#' This function generates a command file for running Zonation and specifies
+#' the analysis options and related parameters. The file is saved with a `.cmd`
+#' (Windows) or `.sh` (Linux) suffix.
 #'
-#' @param os Operating system. Default is "Windows"; set to "Linux" if using a Linux system.
-#' @param zonation_path The specification for the path where Zonation 5 is installed.
-#' @param flags Flags that control which analysis options are used. Used to include single letter codes
-#'      that switch analysis options on. Available options are: a, w, g, h, x, X, t.
+#' @param os Operating system. Default is "Windows"; set to "Linux" if using a
+#'   Linux system.
+#' @param zonation_path The specification for the path where Zonation 5 is
+#'   installed.
+#' @param flags Flags that control which analysis options are used. Used to
+#'   include single letter codes that switch analysis options on. Available
+#'   options are: a, w, g, h, x, X, t.
 #' @param marginal_loss_mode Character string specifying the marginal loss rule.
-#'      Available options are "CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", and "RAND". Default is "CAZ2".
-#' @param gui_activated This parameter controls whether the Graphical User Interface (GUI)
-#'      is launched when running the command file. The default is TRUE (GUI activated).
-#' @param settings_file Character string specifying the settings file.
-#'        Default is "settings_file.z5".
-#' @param output_dir A character string specifying the name of the output directory
-#'      where the analysis results will be saved. Default is "output".
+#'   Available options are "CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", and "RAND".
+#'   Default is "CAZ2".
+#' @param gui_activated This parameter controls whether the Graphical User
+#'   Interface (GUI) is launched when running the command file. The default is
+#'   TRUE (GUI activated).
+#' @param settings_file Character string specifying the settings file. Default
+#'   is "settings_file.z5".
+#' @param output_dir A character string specifying the name of the output
+#'   directory where the analysis results will be saved. Default is "output".
 #'
-#' @return The Zonation 5 command file.
+#' @returns A Zonation command file containing the specified analysis options.
+#'
+#' @seealso
+#' [feature_list()], [settings_file()]
 #'
 #' @examples
 #' \dontrun{

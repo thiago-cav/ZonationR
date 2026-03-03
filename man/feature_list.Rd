@@ -7,27 +7,36 @@
 feature_list(spp_file_dir, weight = NULL, group = NULL, threshold = NULL)
 }
 \arguments{
-\item{spp_file_dir}{A character string specifying the directory containing the raster files.}
+\item{spp_file_dir}{A character string specifying the directory containing
+the raster files.}
 
-\item{weight}{An optional numeric vector (\code{float}) to assign weights to the features in the list.}
+\item{weight}{An optional numeric vector (\code{float}) to assign weights to the
+features in the list.}
 
-\item{group}{An optional integer vector (\code{int}) representing the output group number for each raster.}
+\item{group}{An optional integer vector (\code{int}) representing the output group
+number for each raster.}
 
-\item{threshold}{An optional numeric vector (\code{float}) representing the threshold value below which
-input files are cut to zero.}
+\item{threshold}{An optional numeric vector (\code{float}) representing threshold
+values for each raster. If thresholding is applied, values in the input
+raster below the threshold are set to zero. Layers that contain only zeros
+after thresholding are removed from the analysis.}
 }
 \value{
-A text file containing a feature list of rasters along with any additional attributes
-specified by the user.
+A text file containing a feature list of rasters along with any
+additional attributes specified by the user.
 }
 \description{
-This function generates a feature list from raster files in a specified directory,
-adding optional attributes to the list based on user-defined parameters. The resulting
-feature list is written to a text file. Supported raster formats include GeoTIFF
-(.tif, .tiff), ERDAS Imagine (.img), and ASCII Grid (.asc).
+This function generates a feature list from raster files in a specified
+directory, adding optional attributes to the list based on user-defined
+parameters. The resulting feature list is written to a text file. Supported
+raster formats include GeoTIFF (.tif, .tiff), ERDAS Imagine (.img), and ASCII
+Grid (.asc).
 }
 \examples{
 \dontrun{
 feature_list(spp_file_dir = "path/to/raster/files")
 }
+}
+\seealso{
+\code{\link[=settings_file]{settings_file()}}, \code{\link[=command_file]{command_file()}}
 }
