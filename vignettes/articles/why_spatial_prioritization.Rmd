@@ -12,7 +12,7 @@ knitr::opts_chunk$set(
 
 This vignette introduces spatial conservation prioritization, a powerful approach for deciding **where** conservation actions matter most.
 
-## The Geography of Conservation Decisions
+## The geography of conservation decisions
 
 Spatial conservation decisions are ultimately decisions about **where to act.**
 Even when conservation goals are global, the real impact happens in specific places, whether it's a forest, a coral reef, a river basin, or a broader landscape. Because space is finite, conservation always involves **making choices**.
@@ -139,9 +139,9 @@ Choosing where to act inevitably involves navigating difficult trade-offs.
 
 ---
 
-## From Spatial Patterns to Decision Challenges
+## From spatial patterns to decision challenges
 
-Over the past decades, conservation science has made enormous progress in data availability. Species distribution models, habitat maps, remote sensing products, and global biodiversity databases are now more accessible than ever. However, conservation planners are often challenged not by the **difficulty of turning complex, sometimes incomplete data into clear decisions**. A common first approach is to layer maps on top of one another to visualize species richness, threat levels, or habitat extent. While informative, this rarely leads to clear choices. 
+Over the past decades, conservation science has made enormous progress in data availability. Species distribution models, habitat maps, remote sensing products, and global biodiversity databases are now more accessible than ever. However, conservation planners are often challenged by the **difficulty of turning complex, sometimes incomplete data into clear decisions**. A common first approach is to layer maps on top of one another to visualize species richness, threat levels, or habitat extent. While informative, this rarely leads to clear choices. 
 
 When multiple features are considered simultaneously, **conflicts emerge**:
 
@@ -155,7 +155,7 @@ This often leads to a familiar frustration:
 The problem lies not in the data alone, but in the **lack of a structured way to resolve trade-offs across space**.
 
 
-## Moving Beyond Yes or No: The Need to Prioritize
+## Moving beyond yes or no: The need to prioritize
 
 Many conservation decisions are often seen as simple **binary choices**: protect or not protect, include or exclude. But in reality, conservation planning rarely works this way. Decisions are usually **incremental**, i.e. actions happen over time, budgets change, and priorities evolve as new information becomes available. In this dynamic context, **flexibility is key**.
 
@@ -171,7 +171,7 @@ This shift from **selection** to **prioritization** fundamentally changes the pr
 
 ---
 
-## Ordering Space by Importance
+## Ordering space by importance
 
 Spatial conservation prioritization offers a structured way to deal with complex trade-offs by **ordering space according to relative importance**. Instead of dividing the world into “protected” and “unprotected” areas, prioritization produces a **continuous ranking**. Every location receives a value that reflects how much it contributes to overall conservation goals.
 
@@ -273,7 +273,7 @@ This figure shows how the species distributions illustrated earlier could hypoth
 
 ---
 
-## Zonation as a Practical Implementation
+## Zonation as a practical implementation
 
 Spatial conservation prioritization requires methods that can systematically compare locations while accounting for multiple biodiversity features. **Zonation** is one such method. Zonation produces a **hierarchical ranking of the landscape**, from the most to the least valuable areas for conservation. Rather than selecting sites one by one, it progressively removes the least valuable areas, revealing which locations remain most important as the landscape is reduced.
 
@@ -289,9 +289,9 @@ Because the ranking is continuous, it supports flexible decision-making.
 
 ---
 
-## How This Package Fits In
+## How the ZonationR package fits in
 
-The **ZonationR** package is designed to support the use of Zonation within R workflows. It is important to clarify what it does, and what it does not do.
+The ZonationR package is designed to support the use of Zonation within R workflows. It is important to clarify what it does, and what it does not do.
 
 **What it does not do:**
 
@@ -308,7 +308,7 @@ By bringing Zonation into R, the package makes it easier to develop transparent 
 
 ---
 
-## Additional Resources
+## Additional resources
 
 For readers interested in more detailed discussions of the topics covered:  
 
