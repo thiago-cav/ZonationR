@@ -3,6 +3,7 @@
 ^LICENSE\.md$
 ^README\.Rmd$
 ^README_files$
+Makefile
 ^vignettes/articles$
 ^_pkgdown\.yml$
 ^docs$
