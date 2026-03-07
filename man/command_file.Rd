@@ -5,7 +5,7 @@
 \title{Create a Zonation command File}
 \usage{
 command_file(
-  os = "Windows",
+  os = "os_detection",
   zonation_path,
   flags = "",
   marginal_loss_mode = "CAZ2",
@@ -15,8 +15,8 @@ command_file(
 )
 }
 \arguments{
-\item{os}{Operating system. Default is "Windows"; set to "Linux" if using a
-Linux system.}
+\item{os}{Operating system. By default, the system is detected automatically.
+Alternatively, users can explicitly specify "Windows" or "Linux".}
 
 \item{zonation_path}{The specification for the path where Zonation 5 is
 installed.}

@@ -4,8 +4,8 @@
 #' the analysis options and related parameters. The file is saved with a `.cmd`
 #' (Windows) or `.sh` (Linux) suffix.
 #'
-#' @param os Operating system. Default is "Windows"; set to "Linux" if using a
-#'   Linux system.
+#' @param os Operating system. By default, the system is detected automatically.
+#'   Alternatively, users can explicitly specify "Windows" or "Linux".
 #' @param zonation_path The specification for the path where Zonation 5 is
 #'   installed.
 #' @param flags Flags that control which analysis options are used. Used to
@@ -40,7 +40,7 @@
 #' )
 #' }
 #' @export
-command_file <- function(os = "Windows",
+command_file <- function(os = "os_detection",
                          zonation_path,           # Required parameter
                          flags = "",
                          marginal_loss_mode = "CAZ2",
@@ -49,7 +49,7 @@ command_file <- function(os = "Windows",
                          output_dir = "output") {
 
   # Set the command_file parameter to a fixed value
-  command_file <- "command_file.cmd"  # or "command_file.sh" based on the OS
+  command_file <- "command_file"
 
   # Set results directory to a fixed value
   results_directory <- output_dir  # Directory for analysis results
@@ -57,6 +57,11 @@ command_file <- function(os = "Windows",
   # Validate required parameters
   if (missing(zonation_path)) {
     stop("'zonation_path' must be provided.")
+  }
+
+  # Detect OS automatically if requested
+  if (os == "os_detection") {
+    os <- if (.Platform$OS.type == "windows") "Windows" else "Linux"
   }
 
   allowed_modes <- c("CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", "RAND")
@@ -109,7 +114,7 @@ command_file <- function(os = "Windows",
                                "export PATH=", zonation_path, ":$PATH\n",
                                "zonation5")
   } else {
-    stop("Unsupported operating system. Use 'Windows' or 'Linux'.")
+    stop("Unknown value for 'os'. Please use 'Windows' or 'Linux'.")
   }
 
   # Add flags

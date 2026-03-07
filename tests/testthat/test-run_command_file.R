@@ -1,4 +1,5 @@
 test_that("run_command_file runs successfully", {
+  skip_if_not_installed("mockery")
   tmp <- withr::local_tempdir()   # clean, unique temp folder
   ext <- if (.Platform$OS.type == "windows") ".cmd" else ".sh"
   cmd_file <- file.path(tmp, paste0("test_command", ext))
@@ -15,6 +16,7 @@ test_that("run_command_file runs successfully", {
 })
 
 test_that("run_command_file errors on failure status", {
+  skip_if_not_installed("mockery")
   tmp <- withr::local_tempdir()   # another clean temp folder
   ext <- if (.Platform$OS.type == "windows") ".cmd" else ".sh"
   cmd_file <- file.path(tmp, paste0("test_command", ext))
