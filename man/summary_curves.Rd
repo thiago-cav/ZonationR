@@ -5,7 +5,8 @@
 \title{Plot summary performance curves from Zonation output}
 \usage{
 summary_curves(
-  data_path,
+  dir,
+  output_folder_name = "output",
   metrics,
   facet = FALSE,
   save_path = NULL,
@@ -15,8 +16,11 @@ summary_curves(
 )
 }
 \arguments{
-\item{data_path}{Character. Path to the Zonation output file
-(\code{summary_curves.csv}).}
+\item{dir}{Character. Path to the variant folder containing the \code{output}
+folder.}
+
+\item{output_folder_name}{Character. Name of the output folder inside
+\code{dir}. Default is "output".}
 
 \item{metrics}{Character vector. Names of the summary metrics to plot.
 Metrics can be overlaid only if they share the same units and value range.
@@ -50,20 +54,11 @@ saved to disk as a high-quality figure.
 }
 \examples{
 \dontrun{
-## Overlaid plot
-p <- summary_curves(
-  data_path = "path/to/summary_curves.csv",
-  metrics = c("mean", "max")
-)
+# Plot mean and max metrics overlaid
+summary_curves("01_baseline", metrics = c("mean", "max"))
 
-p + ggplot2::theme_classic()
-
-## Plot area and cost in separate panels
-summary_curves(
-  data_path = "path/to/summary_curves.csv",
-  metrics = c("remaining_area", "remaining_cost"),
-  facet = TRUE
-)
+# Plot area and cost metrics in separate panels
+summary_curves("01_baseline", metrics = c("remaining_area", "remaining_cost"), facet = TRUE)
 }
 
 }

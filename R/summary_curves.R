@@ -5,8 +5,10 @@
 #' which can be further customized by the user. Optionally, the plot can be
 #' saved to disk as a high-quality figure.
 #'
-#' @param data_path Character. Path to the Zonation output file
-#'   (\code{summary_curves.csv}).
+#' @param dir Character. Path to the variant folder containing the \code{output}
+#'   folder.
+#' @param output_folder_name Character. Name of the output folder inside
+#'   \code{dir}. Default is "output".
 #' @param metrics Character vector. Names of the summary metrics to plot.
 #'   Metrics can be overlaid only if they share the same units and value range.
 #'   Fraction-based metrics can be overlaid together, while
@@ -27,32 +29,27 @@
 #'
 #' @examples
 #' \dontrun{
-#' ## Overlaid plot
-#' p <- summary_curves(
-#'   data_path = "path/to/summary_curves.csv",
-#'   metrics = c("mean", "max")
-#' )
+#' # Plot mean and max metrics overlaid
+#' summary_curves("01_baseline", metrics = c("mean", "max"))
 #'
-#' p + ggplot2::theme_classic()
-#'
-#' ## Plot area and cost in separate panels
-#' summary_curves(
-#'   data_path = "path/to/summary_curves.csv",
-#'   metrics = c("remaining_area", "remaining_cost"),
-#'   facet = TRUE
-#' )
+#' # Plot area and cost metrics in separate panels
+#' summary_curves("01_baseline", metrics = c("remaining_area", "remaining_cost"), facet = TRUE)
 #' }
 #'
 #' @importFrom utils read.csv
 #' @importFrom rlang .data
 #' @export
-summary_curves <- function(data_path,
+summary_curves <- function(dir,
+                           output_folder_name = "output",
                            metrics,
                            facet = FALSE,
                            save_path = NULL,
                            dpi = 300,
                            width = 8,
                            height = 6) {
+
+  # Construct path to summary_curves.csv inside the variant folder
+  data_path <- file.path(dir, output_folder_name, "summary_curves.csv")
 
   if (!file.exists(data_path)) {
     stop("File not found: ", data_path, call. = FALSE)
@@ -117,13 +114,10 @@ summary_curves <- function(data_path,
     ggplot2::aes(x = .data$rank, y = .data$value, colour = .data$metric)
   ) +
     ggplot2::geom_line(linewidth = 0.8) +
+    ggplot2::scale_colour_viridis_d() +
     ggplot2::scale_x_continuous(name = "Priority rank") +
     ggplot2::labs(y = "Metric value", colour = "Metric") +
-    ggplot2::theme_minimal() +
-    ggplot2::theme(
-      panel.grid.minor = ggplot2::element_blank(),
-      axis.title = ggplot2::element_text(size = 12)
-    )
+    ggplot2::theme_minimal()
 
   if (facet) {
     p <- p + ggplot2::facet_wrap(~ metric, scales = "free_y")

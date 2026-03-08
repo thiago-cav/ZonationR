@@ -18,7 +18,8 @@ Imports:
     rlang,
     terra,
     tidyr,
-    utils
+    utils,
+    viridis
 Suggests: 
     knitr,
     mockery,

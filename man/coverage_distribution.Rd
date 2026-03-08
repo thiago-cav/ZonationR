@@ -5,7 +5,8 @@
 \title{Plot coverage distribution at a given rank}
 \usage{
 coverage_distribution(
-  data_path,
+  dir,
+  output_folder_name = "output",
   target_rank,
   save_path = NULL,
   dpi = 300,
@@ -14,14 +15,18 @@ coverage_distribution(
 )
 }
 \arguments{
-\item{data_path}{Character. Path to the Zonation output CSV file
-(\code{feature_curves.csv}) containing feature curves.}
+\item{dir}{Character. Path to the directory containing the Zonation output
+folder.}
+
+\item{output_folder_name}{Character. Name of the Zonation output folder
+inside \code{dir} (default: "output").}
 
 \item{target_rank}{Numeric. The rank value at which coverage distributions
 should be extracted and plotted.}
 
 \item{save_path}{Character. Optional file path to save the plot. The file
-format is inferred from the specified extension (e.g. ".tiff").}
+format is inferred from the specified extension (e.g. ".png", ".pdf",
+".tiff").}
 
 \item{dpi}{Numeric. Resolution (dots per inch) for saved figures. Default is
 300.}
@@ -42,18 +47,17 @@ plot can be saved to disk as a high-quality figure.
 }
 \examples{
 \dontrun{
-p <- coverage_distribution(
-  data_path = "C:/path/to/feature_curves.csv",
-  target_rank = 0.9
-)
-
+# Plot coverage histogram at rank 0.9
+p <- coverage_distribution("01_baseline", target_rank = 0.9)
 p + ggplot2::theme_classic()
 
-coverage_distribution(
-  data_path = "C:/path/to/feature_curves.csv",
-  target_rank = 0.9,
-  save_path = "coverage_histogram.png"
-)
+# Save as PNG
+coverage_distribution("01_baseline", target_rank = 0.9,
+                      save_path = "coverage_hist.png")
+
+# Save as PDF
+coverage_distribution("01_baseline", target_rank = 0.9,
+                      save_path = "coverage_hist.pdf")
 }
 
 }
