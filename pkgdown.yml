@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   articles/environment: environment.html
   articles/why_spatial_prioritization: why_spatial_prioritization.html
-last_built: 2026-03-07T07:30Z
+last_built: 2026-03-08T14:53Z
 urls:
   reference: https://thiago-cav.github.io/ZonationR/reference
   article: https://thiago-cav.github.io/ZonationR/articles
