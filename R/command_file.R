@@ -14,9 +14,9 @@
 #' @param marginal_loss_mode Character string specifying the marginal loss rule.
 #'   Available options are "CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", and "RAND".
 #'   Default is "CAZ2".
-#' @param gui_activated This parameter controls whether the Graphical User
-#'   Interface (GUI) is launched when running the command file. The default is
-#'   TRUE (GUI activated).
+#' @param gui_activated This parameter controls whether the Zonation Graphical User
+#'   Interface (GUI) is launched when running the command file. Default is
+#'   FALSE.
 #' @param settings_file Character string specifying the settings file. Default
 #'   is "settings_file.z5".
 #' @param output_dir A character string specifying the name of the output
@@ -36,7 +36,7 @@
 #' command_file(
 #'   zonation_path = "C:/Program Files (x86)/Zonation5",
 #'   marginal_loss_mode = "ABF",
-#'   gui_activated = FALSE
+#'   gui_activated = TRUE
 #' )
 #' }
 #' @export
@@ -44,7 +44,7 @@ command_file <- function(os = "os_detection",
                          zonation_path,           # Required parameter
                          flags = "",
                          marginal_loss_mode = "CAZ2",
-                         gui_activated = TRUE,
+                         gui_activated = FALSE,
                          settings_file = "settings_file.z5",
                          output_dir = "output") {
 

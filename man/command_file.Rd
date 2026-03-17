@@ -9,7 +9,7 @@ command_file(
   zonation_path,
   flags = "",
   marginal_loss_mode = "CAZ2",
-  gui_activated = TRUE,
+  gui_activated = FALSE,
   settings_file = "settings_file.z5",
   output_dir = "output"
 )
@@ -29,9 +29,9 @@ options are: a, w, g, h, x, X, t.}
 Available options are "CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", and "RAND".
 Default is "CAZ2".}
 
-\item{gui_activated}{This parameter controls whether the Graphical User
-Interface (GUI) is launched when running the command file. The default is
-TRUE (GUI activated).}
+\item{gui_activated}{This parameter controls whether the Zonation Graphical User
+Interface (GUI) is launched when running the command file. Default is
+FALSE.}
 
 \item{settings_file}{Character string specifying the settings file. Default
 is "settings_file.z5".}
@@ -56,7 +56,7 @@ command_file(
 command_file(
   zonation_path = "C:/Program Files (x86)/Zonation5",
   marginal_loss_mode = "ABF",
-  gui_activated = FALSE
+  gui_activated = TRUE
 )
 }
 }

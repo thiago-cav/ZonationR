@@ -39,7 +39,7 @@ feature_list <- function(spp_file_dir,
 
   # Hardcoded values
   filename <- "feature_list.txt"
-  recursive <- FALSE
+  recursive <- TRUE
   spp_file_pattern <- ".+\\.(tif|tiff|img|asc)$"
 
   # List rasters in the target directory
