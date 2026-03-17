@@ -37,6 +37,9 @@ the analysis options and related parameters. The file is saved with a .cmd
       <a href="../articles/environment.html">Prepare the environment</a>
     </li>
     <li>
+      <a href="../articles/getting_started_zonationr.html">Getting started with ZonationR</a>
+    </li>
+    <li>
       <a href="../articles/why_spatial_prioritization.html">Why spatial conservation prioritization?</a>
     </li>
   </ul></li>
@@ -72,7 +75,7 @@ the analysis options and related parameters. The file is saved with a <code>.cmd
 <span>  <span class="va">zonation_path</span>,</span>
 <span>  flags <span class="op">=</span> <span class="st">""</span>,</span>
 <span>  marginal_loss_mode <span class="op">=</span> <span class="st">"CAZ2"</span>,</span>
-<span>  gui_activated <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  gui_activated <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  settings_file <span class="op">=</span> <span class="st">"settings_file.z5"</span>,</span>
 <span>  output_dir <span class="op">=</span> <span class="st">"output"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -105,9 +108,9 @@ Default is "CAZ2".</p></dd>
 
 
 <dt id="arg-gui-activated">gui_activated<a class="anchor" aria-label="anchor" href="#arg-gui-activated"></a></dt>
-<dd><p>This parameter controls whether the Graphical User
-Interface (GUI) is launched when running the command file. The default is
-TRUE (GUI activated).</p></dd>
+<dd><p>This parameter controls whether the Zonation Graphical User
+Interface (GUI) is launched when running the command file. Default is
+FALSE.</p></dd>
 
 
 <dt id="arg-settings-file">settings_file<a class="anchor" aria-label="anchor" href="#arg-settings-file"></a></dt>
@@ -139,7 +142,7 @@ directory where the analysis results will be saved. Default is "output".</p></dd
 <span class="r-in"><span><span class="fu">command_file</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  zonation_path <span class="op">=</span> <span class="st">"C:/Program Files (x86)/Zonation5"</span>,</span></span>
 <span class="r-in"><span>  marginal_loss_mode <span class="op">=</span> <span class="st">"ABF"</span>,</span></span>
-<span class="r-in"><span>  gui_activated <span class="op">=</span> <span class="cn">FALSE</span></span></span>
+<span class="r-in"><span>  gui_activated <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
