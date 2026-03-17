@@ -1,28 +1,37 @@
-#' Cost (remaining cost) at specific landscape proportions
+#' Summarize remaining cost at specified landscape proportions
 #'
-#' Reads Zonation \code{summary_curves.csv}, finds the row closest to each
+#' Reads a Zonation \code{summary_curves.csv} file, finds the row closest to each
 #' value in \code{landscape_prop}, and returns remaining cost and percentage of
 #' maximum cost at those proportions. Optionally writes the result to
-#' \code{dir/sz_output/performance_table_cost.csv}.
+#' \code{dir/performance/cost_summary.csv}.
 #'
 #' @param dir Character. Path to the directory containing the Zonation output
 #'   folder.
-#' @param output_folder_name Character. Name of the Zonation output folder
-#'   (e.g. the run name).
+#' @param output_folder_name Character. Name of the output folder inside
+#'   \code{dir}. Default is "output".
 #' @param landscape_prop Numeric vector. Landscape proportions (rank values) at
 #'   which to report cost (e.g. \code{c(0.03, 0.2, 0.5)}).
 #' @param save_output Logical. If TRUE, the result is written as a CSV to
-#'   \code{dir/sz_output/performance_table_cost.csv}. Default FALSE.
+#'   \code{dir/performance/performance_table_cost.csv}. Default FALSE.
 #'
 #' @returns A data frame with columns \code{rank} (the requested proportion),
 #'   \code{remaining_cost}, and \code{percentage} (remaining cost as percentage
 #'   of the maximum remaining cost in the run).
 #'
+#' @examples
+#' \dontrun{
+#' # Summarize cost at 3%, 20%, and 50% landscape retention
+#' cost_summary("path/to/zonation/output", landscape_prop = c(0.03, 0.2, 0.5))
+#'
+#' # Save output to CSV
+#' cost_summary("path/to/zonation/output", landscape_prop = c(0.1, 0.5), save_output = TRUE)
+#' }
+#'
 #' @importFrom readr read_table
 #' @importFrom dplyr bind_rows
 #' @export
-sz_cost <- function(dir,
-                    output_folder_name,
+cost_summary <- function(dir,
+                    output_folder_name = "output",
                     landscape_prop,
                     save_output = FALSE) {
   cost_path <- file.path(dir, output_folder_name, "summary_curves.csv")
@@ -52,10 +61,10 @@ sz_cost <- function(dir,
   res_cost$percentage <- (res_cost$remaining_cost / max_cost) * 100
 
   if (save_output) {
-    fs::dir_create(dir, "sz_output")
+    fs::dir_create(dir, "performance")
     write.csv(
       res_cost,
-      paste0(dir, "/sz_output/", "performance_table_cost", ".csv")
+      paste0(dir, "/performance/", "cost_summary", ".csv")
     )
   }
   res_cost
