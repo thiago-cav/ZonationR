@@ -1,9 +1,11 @@
 url: https://thiago-cav.github.io/ZonationR/
 
 template:
-  bootstrap: 5
   params:
     bootswatch: sandstone
+    type: dark
+  bootstrap: 5
+  light-switch: true
 
 reference:
   - title: Preflight
@@ -25,3 +27,9 @@ reference:
     desc: Importing outputs for further analysis and interpretation.
     contents:
       - has_concept("postprocessing")
+
+
+navbar:
+  structure:
+    left:  [intro, reference, articles]
+    right: [search, github, lightswitch]
