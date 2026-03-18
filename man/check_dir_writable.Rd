@@ -26,5 +26,10 @@ It is intended for use before writing output files.
 \dontrun{
 check_dir_writable(tempdir())
 }
-
 }
+\seealso{
+Other preflight: 
+\code{\link{check_raster_uniformity}()},
+\code{\link{check_zonation_executable}()}
+}
+\concept{preflight}

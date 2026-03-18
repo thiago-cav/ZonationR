@@ -21,12 +21,13 @@
 #' @seealso
 #' [feature_list()], [command_file()]
 #'
-#' @export
-#'
 #' @examples
 #' \dontrun{
 #' settings_file(feature_list_file = "feature_list.txt")
 #' }
+#'
+#' @family preprocessing
+#' @export
 settings_file <- function(feature_list_file,
                           external_solution_file = NULL,
                           analysis_area_mask_layer = NULL,

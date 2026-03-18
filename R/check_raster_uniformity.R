@@ -16,6 +16,8 @@
 #' \dontrun{
 #' check_raster_uniformity("path/to/rasters")
 #' }
+#' @family preflight
+#'
 #' @export
 check_raster_uniformity <- function(spp_file_dir) {
 

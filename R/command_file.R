@@ -1,4 +1,4 @@
-#' Create a Zonation command File
+#' Create a Zonation command file
 #'
 #' This function generates a command file for running Zonation and specifies
 #' the analysis options and related parameters. The file is saved with a `.cmd`
@@ -39,6 +39,8 @@
 #'   gui_activated = TRUE
 #' )
 #' }
+#'
+#' @family preprocessing
 #' @export
 command_file <- function(os = "os_detection",
                          zonation_path,           # Required parameter

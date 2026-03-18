@@ -38,6 +38,7 @@
 #'
 #' @importFrom utils read.csv
 #' @importFrom rlang .data
+#' @family postprocessing
 #' @export
 summary_curves <- function(dir,
                            output_folder_name = "output",

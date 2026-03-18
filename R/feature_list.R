@@ -26,12 +26,12 @@
 #'
 #' @importFrom utils write.table
 #'
-#' @export
-#'
 #' @examples
 #' \dontrun{
 #' feature_list(spp_file_dir = "path/to/raster/files")
 #' }
+#' @family preprocessing
+#' @export
 feature_list <- function(spp_file_dir,
                          weight = NULL,
                          group = NULL,

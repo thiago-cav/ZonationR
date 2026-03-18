@@ -54,3 +54,9 @@ check_zonation_executable(zonation_path = "C:/Program Files (x86)/Zonation5")
 check_zonation_executable(zonation_path = "~/Applications")
 }
 }
+\seealso{
+Other preflight: 
+\code{\link{check_dir_writable}()},
+\code{\link{check_raster_uniformity}()}
+}
+\concept{preflight}

@@ -29,6 +29,7 @@
 #'   - The system PATH
 #'
 #' @export
+#' @family preflight
 #'
 #' @examples
 #' \dontrun{

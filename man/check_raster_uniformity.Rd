@@ -30,3 +30,9 @@ Supported raster formats: \code{.tif}, \code{.tiff}, \code{.img}, \code{.asc}.
 check_raster_uniformity("path/to/rasters")
 }
 }
+\seealso{
+Other preflight: 
+\code{\link{check_dir_writable}()},
+\code{\link{check_zonation_executable}()}
+}
+\concept{preflight}

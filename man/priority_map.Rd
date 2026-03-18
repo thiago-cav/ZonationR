@@ -80,3 +80,11 @@ priority_map(
 
 
 }
+\seealso{
+Other postprocessing: 
+\code{\link{coverage_distribution}()},
+\code{\link{feature_curves}()},
+\code{\link{rank_similarity}()},
+\code{\link{summary_curves}()}
+}
+\concept{postprocessing}

@@ -51,3 +51,11 @@ rank_similarity(r1, r2, method = "schoener")
 rank_similarity(r1, r2, method = "jaccard", threshold = 0.7)
 
 }
+\seealso{
+Other postprocessing: 
+\code{\link{coverage_distribution}()},
+\code{\link{feature_curves}()},
+\code{\link{priority_map}()},
+\code{\link{summary_curves}()}
+}
+\concept{postprocessing}

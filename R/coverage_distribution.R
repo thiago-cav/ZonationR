@@ -41,6 +41,7 @@
 #' @importFrom tidyr pivot_longer
 #' @importFrom dplyr filter
 #' @importFrom rlang .data
+#' @family postprocessing
 #' @export
 coverage_distribution <- function(dir,
                                   output_folder_name = "output",

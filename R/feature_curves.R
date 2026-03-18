@@ -1,9 +1,9 @@
-#' Plot feature curves
+#' Plot feature performance curves
 #'
 #' Reads the Zonation \code{feature_curves.csv} and \code{features_info.csv}
 #' files, standardizes the feature names, and plots representation vs priority
 #' rank for each feature. Supports a single color with transparency or the
-#' viridis palette. Legend display can be toggled.
+#' viridis palette.
 #'
 #' @param dir Character. Path to the directory containing the Zonation output
 #'   folder.
@@ -43,6 +43,7 @@
 #' @importFrom tidyr pivot_longer
 #' @importFrom tools file_path_sans_ext
 #' @importFrom rlang .data
+#' @family postprocessing
 #' @export
 feature_curves <- function(
     dir,

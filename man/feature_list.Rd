@@ -39,4 +39,9 @@ feature_list(spp_file_dir = "path/to/raster/files")
 }
 \seealso{
 \code{\link[=settings_file]{settings_file()}}, \code{\link[=command_file]{command_file()}}
+
+Other preprocessing: 
+\code{\link{command_file}()},
+\code{\link{settings_file}()}
 }
+\concept{preprocessing}

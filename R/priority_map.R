@@ -56,6 +56,7 @@
 #' @importFrom ggspatial annotation_north_arrow annotation_scale
 #'   north_arrow_orienteering
 #' @importFrom viridis viridis
+#' @family postprocessing
 #' @export
 priority_map <- function(
     dir,

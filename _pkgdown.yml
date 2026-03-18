@@ -1,5 +1,27 @@
 url: https://thiago-cav.github.io/ZonationR/
 
 template:
+  bootstrap: 5
   params:
     bootswatch: sandstone
+
+reference:
+  - title: Preflight
+    desc: Initial checks such as verifying input files and confirming Zonation 5 executable availability.
+    contents:
+      - has_concept("preflight")
+
+  - title: Preprocessing
+    desc: Preparing input data and generating necessary configuration files.
+    contents:
+      - has_concept("preprocessing")
+
+  - title: Execution
+    desc: Running the prioritization analysis directly from R.
+    contents:
+      - has_concept("execution")
+
+  - title: Postprocessing
+    desc: Importing outputs for further analysis and interpretation.
+    contents:
+      - has_concept("postprocessing")

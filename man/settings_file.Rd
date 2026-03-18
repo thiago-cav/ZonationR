@@ -41,7 +41,13 @@ software.
 \dontrun{
 settings_file(feature_list_file = "feature_list.txt")
 }
+
 }
 \seealso{
 \code{\link[=feature_list]{feature_list()}}, \code{\link[=command_file]{command_file()}}
+
+Other preprocessing: 
+\code{\link{command_file}()},
+\code{\link{feature_list}()}
 }
+\concept{preprocessing}

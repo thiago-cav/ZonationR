@@ -2,7 +2,7 @@
 % Please edit documentation in R/command_file.R
 \name{command_file}
 \alias{command_file}
-\title{Create a Zonation command File}
+\title{Create a Zonation command file}
 \usage{
 command_file(
   os = "os_detection",
@@ -59,7 +59,13 @@ command_file(
   gui_activated = TRUE
 )
 }
+
 }
 \seealso{
 \code{\link[=feature_list]{feature_list()}}, \code{\link[=settings_file]{settings_file()}}
+
+Other preprocessing: 
+\code{\link{feature_list}()},
+\code{\link{settings_file}()}
 }
+\concept{preprocessing}

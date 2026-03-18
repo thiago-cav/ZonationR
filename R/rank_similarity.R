@@ -31,6 +31,7 @@
 #' rank_similarity(r1, r2, method = "jaccard", threshold = 0.7)
 #'
 #' @import terra
+#' @family postprocessing
 #' @export
 rank_similarity <- function(r1 = NULL, r2 = NULL, rstack = NULL, method = c("schoener", "jaccard"), threshold = NULL) {
 

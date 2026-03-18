@@ -18,7 +18,9 @@
 #' \dontrun{
 #' check_dir_writable(tempdir())
 #' }
+#' @family preflight
 #'
+#' @export
 check_dir_writable <- function(out_dir) {
   if (!dir.exists(out_dir)) {
     stop("Output directory '", out_dir, "' does not exist.")
@@ -35,4 +37,4 @@ check_dir_writable <- function(out_dir) {
   stop("Output directory '", out_dir, "' is not writable.")
 }
 
- 
+

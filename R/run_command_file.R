@@ -7,12 +7,12 @@
 #' @param folder A character string specifying the path to the folder containing
 #'   the Zonation command file.
 #'
-#' @export
-#'
 #' @examples
 #' \dontrun{
 #' run_command_file("C:/path/to/folder")
 #' }
+#' @family execution
+#' @export
 run_command_file <- function(folder) {
 
   # Check if the specified folder exists

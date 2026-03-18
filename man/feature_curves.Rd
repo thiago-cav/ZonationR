@@ -2,7 +2,7 @@
 % Please edit documentation in R/feature_curves.R
 \name{feature_curves}
 \alias{feature_curves}
-\title{Plot feature curves}
+\title{Plot feature performance curves}
 \usage{
 feature_curves(
   dir,
@@ -51,7 +51,7 @@ A \code{ggplot} object representing feature curves. If
 Reads the Zonation \code{feature_curves.csv} and \code{features_info.csv}
 files, standardizes the feature names, and plots representation vs priority
 rank for each feature. Supports a single color with transparency or the
-viridis palette. Legend display can be toggled.
+viridis palette.
 }
 \examples{
 \dontrun{
@@ -66,3 +66,11 @@ feature_curves("01_baseline", palette = "blue", alpha = 0.2)
 }
 
 }
+\seealso{
+Other postprocessing: 
+\code{\link{coverage_distribution}()},
+\code{\link{priority_map}()},
+\code{\link{rank_similarity}()},
+\code{\link{summary_curves}()}
+}
+\concept{postprocessing}
