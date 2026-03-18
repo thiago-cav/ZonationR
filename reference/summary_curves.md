@@ -1,4 +1,4 @@
-# Plot summary performance curves from Zonation output
+# Plot summary performance curves
 
 This function reads a Zonation summary curves file and plots one or more
 summary metrics against the priority rank. The output is a ggplot
@@ -9,7 +9,8 @@ plot can be saved to disk as a high-quality figure.
 
 ``` r
 summary_curves(
-  data_path,
+  dir,
+  output_folder_name = "output",
   metrics,
   facet = FALSE,
   save_path = NULL,
@@ -21,9 +22,14 @@ summary_curves(
 
 ## Arguments
 
-- data_path:
+- dir:
 
-  Character. Path to the Zonation output file (`summary_curves.csv`).
+  Character. Path to the variant folder containing the `output` folder.
+
+- output_folder_name:
+
+  Character. Name of the output folder inside `dir`. Default is
+  "output".
 
 - metrics:
 
@@ -61,23 +67,22 @@ summary_curves(
 A `ggplot` object visualizing one or more Zonation summary metrics
 plotted against priority rank.
 
+## See also
+
+Other postprocessing:
+[`coverage_distribution()`](https://thiago-cav.github.io/ZonationR/reference/coverage_distribution.md),
+[`feature_curves()`](https://thiago-cav.github.io/ZonationR/reference/feature_curves.md),
+[`priority_map()`](https://thiago-cav.github.io/ZonationR/reference/priority_map.md),
+[`rank_similarity()`](https://thiago-cav.github.io/ZonationR/reference/rank_similarity.md)
+
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-## Overlaid plot
-p <- summary_curves(
-  data_path = "path/to/summary_curves.csv",
-  metrics = c("mean", "max")
-)
+# Plot mean and max metrics overlaid
+summary_curves("01_baseline", metrics = c("mean", "max"))
 
-p + ggplot2::theme_classic()
-
-## Plot area and cost in separate panels
-summary_curves(
-  data_path = "path/to/summary_curves.csv",
-  metrics = c("remaining_area", "remaining_cost"),
-  facet = TRUE
-)
+# Plot area and cost metrics in separate panels
+summary_curves("01_baseline", metrics = c("remaining_area", "remaining_cost"), facet = TRUE)
 } # }
 ```

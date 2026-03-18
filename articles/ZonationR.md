@@ -1,0 +1,133 @@
+# Getting started with ZonationR
+
+This vignette provides a brief introduction to *ZonationR* for
+beginners. Users will:
+
+1.  Set up example biodiversity data.
+2.  Prepare Zonation input files (feature list, settings, command file).
+3.  Run a single prioritization analysis.
+
+> If you are new to spatial conservation prioritization or want a gentle
+> overview to understand the basics, see [Why spatial conservation
+> prioritization?](https://thiago-cav.github.io/ZonationR/articles/why_spatial_prioritization.md).
+
+#### **Installation**
+
+You can install the development version of *ZonationR* from
+[GitHub](https://github.com/thiago-cav/ZonationR) with:
+
+``` r
+if (!require(devtools)) install.packages("devtools")
+devtools::install_github("thiago-cav/ZonationR")
+```
+
+After installing, load the package so we can access its functions:
+
+``` r
+# Load necessary libraries
+library(ZonationR)
+```
+
+#### **Before you begin**
+
+*ZonationR* is an interface to Zonation, which means that Zonation must
+be able to read and write files on disk. To ensure this works smoothly,
+it is recommended that you run the analysis inside an **RStudio
+project** whose directory is writable. Before running the example below,
+please make sure that:
+
+- **Zonation 5 is installed** on your system  
+- You know the **path to the Zonation 5 installation directory**  
+- Your **current R project directory is writable**
+
+To install the Zonation 5 software on your computer.
+
+1.  Visit the [official Zonation 5
+    website](https://zonationteam.github.io/Zonation5).
+
+2.  Download the appropriate installer or executable for your operating
+    system (e.g., Windows, Linux).
+
+3.  Install or unpack the software, and note the installation path.
+    You’ll need it later.
+
+#### **Prepare input data**
+
+First, we copy the example biodiversity data provided with the package
+into a local directory. These raster layers will be used as features in
+the Zonation analysis.
+
+``` r
+#----------------------------------------------------
+# Create a folder for biodiversity input data
+#----------------------------------------------------
+dir.create("biodiversity", showWarnings = FALSE)
+
+extdata_path <- system.file("extdata", "biodiversity", package = "ZonationR")
+file.copy(list.files(extdata_path, full.names = TRUE),
+          "biodiversity", overwrite = TRUE)
+```
+
+#### **Preflight checks**
+
+Now let’s check our setup! You can use the preflight functions in
+*ZonationR* to make sure everything is ready before creating input files
+or running Zonation. For example, you can quickly see if R can find the
+Zonation 5 executable on your computer.
+
+``` r
+# Run the preflight check
+z_check <- check_zonation_executable()
+
+# Print the message
+cat(z_check$message)
+```
+
+This information (Installation directory) will be used later when
+creating the Zonation command file (see below). Zonation analyses also
+requires that input feature layers (e.g., species distribution rasters)
+share the same extent, resolution, and projection. *ZonationR* includes
+a function to check whether layers are harmonized.
+
+``` r
+# Run another preflight check
+raster_check <- check_raster_uniformity()
+
+# Print the message
+cat(raster_check$message)
+```
+
+#### **Zonation 5 setup**
+
+Next, we create the three compulsory input files required by Zonation 5.
+The `zonation_path` argument must point to the directory where Zonation
+5 is installed on your system.
+
+``` r
+# Create feature list file
+feature_list(spp_file_dir = "biodiversity")
+
+# Create settings file
+settings_file(feature_list_file = "feature_list.txt")
+
+# Create the Zonation command file
+command_file(zonation_path = "C:/Program Files (x86)/Zonation5")
+```
+
+#### **Run the prioritization**
+
+Finally, we run the Zonation 5 analysis.
+
+``` r
+# Run the Zonation 5 analysis
+run_command_file(".")
+```
+
+Awesome! You just ran your first Zonation prioritization analysis 🎉 All
+outputs (priority map, performance curves, and other files) are in the
+`output` folder.
+
+#### **Keep Exploring**
+
+Want to take it further? Run multiple scenarios, tweak feature
+weightings, or explore other settings in the ZonationR vignette…

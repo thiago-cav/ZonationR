@@ -3,7 +3,7 @@
 This vignette introduces spatial conservation prioritization, a powerful
 approach for deciding **where** conservation actions matter most.
 
-## The Geography of Conservation Decisions
+### The geography of conservation decisions
 
 Spatial conservation decisions are ultimately decisions about **where to
 act.** Even when conservation goals are global, the real impact happens
@@ -14,7 +14,8 @@ involves **making choices**.
 > Protecting one area usually means not protecting another, at least not
 > immediately or to the same extent.
 
-This simple yet crucial reality shapes modern conservation planning:
+This simple yet crucial reality shapes modern conservation planning
+because:
 
 - **Biodiversity is unevenly distributed** across the globe.
 - **Threats vary spatially**, affecting some areas more than others.
@@ -30,20 +31,35 @@ Therefore, conservation operates under constraints such as:
 These constraints are **not failures**, they are the **starting point**
 for effective, strategic conservation planning.
 
+![](why_spatial_prioritization_files/figure-html/spatial-conservation-figure-1.png)
+
+The figure illustrates a common conservation dilemma. Three species
+overlap in the central area, creating a location with high biodiversity
+value, while a fourth species occurs in isolation. When conservation
+action is limited to only a few places, should we prioritize areas that
+protect many species at once, or areas that are critical for a species
+found nowhere else?
+
+> Consider the black-outlined cells and the question marks: if we can
+> only select two locations for protection, which one would you pick as
+> the second? Why might choosing only two out of the three candidate
+> locations be challenging?
+
+Choosing where to act inevitably involves navigating difficult
+trade-offs.
+
 ------------------------------------------------------------------------
 
-## From Spatial Patterns to Decision Challenges
+### From spatial patterns to decision challenges
 
 Over the past decades, conservation science has made enormous progress
 in data availability. Species distribution models, habitat maps, remote
 sensing products, and global biodiversity databases are now more
 accessible than ever. However, conservation planners are often
-challenged not by a lack of data, but by the **difficulty of turning
-complex, sometimes incomplete data into clear decisions**.
-
-A common first approach is to layer maps on top of one another:
-visualizing species richness, threat levels, or habitat extent. While
-informative, this rarely leads to clear choices.
+challenged by the **difficulty of turning complex, sometimes incomplete
+data into clear decisions**. A common first approach is to layer maps on
+top of one another to visualize species richness, threat levels, or
+habitat extent. While informative, this rarely leads to clear choices.
 
 When multiple features are considered simultaneously, **conflicts
 emerge**:
@@ -60,14 +76,14 @@ This often leads to a familiar frustration:
 The problem lies not in the data alone, but in the **lack of a
 structured way to resolve trade-offs across space**.
 
-## Moving Beyond Yes or No: The Need to Prioritize
+### Moving beyond yes or no: The need to prioritize
 
 Many conservation decisions are often seen as simple **binary choices**:
 protect or not protect, include or exclude. But in reality, conservation
-planning rarely works this way. Decisions are usually **incremental** —
-actions happen over time, budgets change, and priorities evolve as new
-information becomes available. In this dynamic context, **flexibility is
-key**.
+planning rarely works this way. Decisions are usually **incremental**,
+i.e. actions happen over time, budgets change, and priorities evolve as
+new information becomes available. In this dynamic context,
+**flexibility is key**.
 
 Instead of asking *“Should this area be protected?”* planners often need
 to ask:
@@ -87,27 +103,108 @@ uncertainty and constraints.
 
 ------------------------------------------------------------------------
 
-## Ordering space by importance
+### Ordering space by importance
 
-Spatial conservation prioritization addresses this challenge by ordering
-locations according to their relative importance for biodiversity
-conservation. Instead of dividing space into protected and unprotected
-areas, it produces a ranking that reflects how much each location
-contributes to overall conservation goals. This ordering is inherently
-comparative. The importance of a given place depends on how it
-complements other places, how many features it supports, and how
-irreplaceable it is within the broader landscape. A ranked solution
-allows decision-makers to explore different levels of conservation
-action, adjust boundaries, and evaluate trade-offs transparently.
+Spatial conservation prioritization offers a structured way to deal with
+complex trade-offs by **ordering space according to relative
+importance**. Instead of dividing the world into “protected” and
+“unprotected” areas, prioritization produces a **continuous ranking**.
+Every location receives a value that reflects how much it contributes to
+overall conservation goals.
 
-## Zonation as a practical implementation
+This approach changes how we think about conservation decisions:
 
-Explain that: • Zonation produces a spatial ranking of conservation
-importance • It integrates multiple biodiversity features • It supports
-transparent and reproducible decision-making
+- Areas are no longer simply selected or rejected.
+- Their importance is understood **relative to the rest of the
+  landscape**.
+- Decisions can adapt to different budget levels or policy scenarios.
 
-## How this package fits in
+Importantly, a place is not valuable in isolation. Spatial conservation
+prioritization evaluates its contribution through well-established
+theoretical principles:
 
-Clarify that ZonationR: • does not replace Zonation • helps structure
-and run analyses from R • is designed for learning, teaching, and
-reproducible workflows
+1.  **Complementarity** — how well a location adds value to the existing
+    network.  
+2.  **Representation** — how many biodiversity features it supports.  
+3.  **Irreplaceability** — how difficult it would be to substitute
+    elsewhere.
+
+Because the result is a ranking rather than a fixed boundary, planners
+can ask:
+
+> What if we protect the top 10% of the landscape?  
+> What changes if we expand protection to 20%?  
+> Where do trade-offs become most visible?
+
+![](why_spatial_prioritization_files/figure-html/spatial-conservation-figure2-1.png)
+
+This figure shows how the species distributions illustrated earlier
+could hypothetically translate into a continuous priority map. The color
+gradient reflects relative conservation importance, with bright yellow
+cells representing the highest-priority locations. Peaks occur both in
+areas of high species richness and in locations critical for unique
+species, reflecting the principles of complementarity and
+irreplaceability in spatial prioritization.
+
+------------------------------------------------------------------------
+
+### Zonation as a practical implementation
+
+Spatial conservation prioritization requires methods that can
+systematically compare locations while accounting for multiple
+biodiversity features. **Zonation** is one such method. Zonation
+produces a **hierarchical ranking of the landscape**, from the most to
+the least valuable areas for conservation. Rather than selecting sites
+one by one, it progressively removes the least valuable areas, revealing
+which locations remain most important as the landscape is reduced.
+
+This process allows Zonation to:
+
+- **Consider multiple biodiversity features at once**,  
+- **Evaluate areas based on how they complement each other**,  
+- **Highlight trade-offs clearly and transparently**.
+
+Because the ranking is continuous, it supports flexible decision-making.
+
+> In this way, Zonation turns complex spatial data into structured,
+> defensible conservation guidance.
+
+------------------------------------------------------------------------
+
+### How the ZonationR package fits in
+
+The ZonationR package is designed to support the use of Zonation within
+R workflows. It is important to clarify what it does, and what it does
+not do.
+
+**What it does not do:**
+
+- Replace the Zonation software  
+- Modify the underlying prioritization algorithm
+
+**What it helps you do:**
+
+- Prepare and structure input data  
+- Run and manage analyses from R  
+- Organize outputs in reproducible workflows
+
+By bringing Zonation into R, the package makes it easier to develop
+transparent analytical pipelines, teach spatial conservation
+prioritization, and document every step of the decision process.
+
+------------------------------------------------------------------------
+
+### Additional resources
+
+For readers interested in more detailed discussions of the topics
+covered:
+
+- **Core concepts in systematic conservation planning** [Kukkala et al.,
+  2013](https://onlinelibrary.wiley.com/doi/full/10.1111/brv.12008)
+
+- **Trade-offs between different prioritization approaches** [Cavalcante
+  et al.,
+  2025](https://www.sciencedirect.com/science/article/pii/S0006320725004057)
+
+- **Zonation 5 algorithm details** [Moilanen et al.,
+  2021](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13819)

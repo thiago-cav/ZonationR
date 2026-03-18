@@ -10,7 +10,8 @@ figure.
 
 ``` r
 coverage_distribution(
-  data_path,
+  dir,
+  output_folder_name = "output",
   target_rank,
   save_path = NULL,
   dpi = 300,
@@ -21,10 +22,15 @@ coverage_distribution(
 
 ## Arguments
 
-- data_path:
+- dir:
 
-  Character. Path to the Zonation output CSV file (`feature_curves.csv`)
-  containing feature curves.
+  Character. Path to the directory containing the Zonation output
+  folder.
+
+- output_folder_name:
+
+  Character. Name of the Zonation output folder inside `dir` (default:
+  "output").
 
 - target_rank:
 
@@ -34,7 +40,7 @@ coverage_distribution(
 - save_path:
 
   Character. Optional file path to save the plot. The file format is
-  inferred from the specified extension (e.g. ".tiff").
+  inferred from the specified extension (e.g. ".png", ".pdf", ".tiff").
 
 - dpi:
 
@@ -53,21 +59,28 @@ coverage_distribution(
 A `ggplot` object showing the distribution of feature coverage values at
 the specified priority rank.
 
+## See also
+
+Other postprocessing:
+[`feature_curves()`](https://thiago-cav.github.io/ZonationR/reference/feature_curves.md),
+[`priority_map()`](https://thiago-cav.github.io/ZonationR/reference/priority_map.md),
+[`rank_similarity()`](https://thiago-cav.github.io/ZonationR/reference/rank_similarity.md),
+[`summary_curves()`](https://thiago-cav.github.io/ZonationR/reference/summary_curves.md)
+
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-p <- coverage_distribution(
-  data_path = "C:/path/to/feature_curves.csv",
-  target_rank = 0.9
-)
-
+# Plot coverage histogram at rank 0.9
+p <- coverage_distribution("01_baseline", target_rank = 0.9)
 p + ggplot2::theme_classic()
 
-coverage_distribution(
-  data_path = "C:/path/to/feature_curves.csv",
-  target_rank = 0.9,
-  save_path = "coverage_histogram.png"
-)
+# Save as PNG
+coverage_distribution("01_baseline", target_rank = 0.9,
+                      save_path = "coverage_hist.png")
+
+# Save as PDF
+coverage_distribution("01_baseline", target_rank = 0.9,
+                      save_path = "coverage_hist.pdf")
 } # }
 ```

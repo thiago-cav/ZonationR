@@ -1,4 +1,4 @@
-# Create a Settings File for a Zonation Analysis
+# Create a settings file for a Zonation analysis
 
 This function generates a settings file with various parameters related
 to the input data and analysis configuration. The resulting settings
@@ -52,6 +52,10 @@ A `.z5` file containing the specified settings.
 
 [`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md),
 [`command_file()`](https://thiago-cav.github.io/ZonationR/reference/command_file.md)
+
+Other preprocessing:
+[`command_file()`](https://thiago-cav.github.io/ZonationR/reference/command_file.md),
+[`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md)
 
 ## Examples
 

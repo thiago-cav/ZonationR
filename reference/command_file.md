@@ -1,4 +1,4 @@
-# Create a Zonation command File
+# Create a Zonation command file
 
 This function generates a command file for running Zonation and
 specifies the analysis options and related parameters. The file is saved
@@ -8,11 +8,11 @@ with a `.cmd` (Windows) or `.sh` (Linux) suffix.
 
 ``` r
 command_file(
-  os = "Windows",
+  os = "os_detection",
   zonation_path,
   flags = "",
   marginal_loss_mode = "CAZ2",
-  gui_activated = TRUE,
+  gui_activated = FALSE,
   settings_file = "settings_file.z5",
   output_dir = "output"
 )
@@ -22,8 +22,8 @@ command_file(
 
 - os:
 
-  Operating system. Default is "Windows"; set to "Linux" if using a
-  Linux system.
+  Operating system. By default, the system is detected automatically.
+  Alternatively, users can explicitly specify "Windows" or "Linux".
 
 - zonation_path:
 
@@ -43,9 +43,8 @@ command_file(
 
 - gui_activated:
 
-  This parameter controls whether the Graphical User Interface (GUI) is
-  launched when running the command file. The default is TRUE (GUI
-  activated).
+  This parameter controls whether the Zonation Graphical User Interface
+  (GUI) is launched when running the command file. Default is FALSE.
 
 - settings_file:
 
@@ -66,6 +65,10 @@ A Zonation command file containing the specified analysis options.
 [`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md),
 [`settings_file()`](https://thiago-cav.github.io/ZonationR/reference/settings_file.md)
 
+Other preprocessing:
+[`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md),
+[`settings_file()`](https://thiago-cav.github.io/ZonationR/reference/settings_file.md)
+
 ## Examples
 
 ``` r
@@ -77,7 +80,7 @@ command_file(
 command_file(
   zonation_path = "C:/Program Files (x86)/Zonation5",
   marginal_loss_mode = "ABF",
-  gui_activated = FALSE
+  gui_activated = TRUE
 )
 } # }
 ```
