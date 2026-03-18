@@ -5,17 +5,17 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>A toolkit for integrating and executing Zonation 5 software directly from R • ZonationR</title>
+<title>A toolkit for integrating and executing Zonation software directly from R • ZonationR</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" sizes="any" href="favicon.ico">
 <link rel="manifest" href="site.webmanifest">
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="A toolkit for integrating and executing Zonation 5 software directly from R">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="A toolkit for integrating and executing Zonation software directly from R">
 <meta name="description" content="This package provides an interface to seamlessly integrate and execute Zonation 5 software directly from R, enabling efficient spatial prioritization and conservation planning workflows with enhanced reproducibility and automation.">
 <meta property="og:description" content="This package provides an interface to seamlessly integrate and execute Zonation 5 software directly from R, enabling efficient spatial prioritization and conservation planning workflows with enhanced reproducibility and automation.">
 <meta property="og:image" content="https://thiago-cav.github.io/ZonationR/logo.png">
@@ -24,7 +24,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-primary" data-bs-theme="dark" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">ZonationR</a>
 
@@ -51,6 +51,14 @@
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/thiago-cav/ZonationR/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -61,13 +69,13 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
 <img src="logo.png" class="logo" alt=""><h1 id="zonationr-">
-<strong>ZonationR</strong> 
+<em>ZonationR</em> 
 <a class="anchor" aria-label="anchor" href="#zonationr-"></a>
 </h1>
 </div>
 <div class="section level2">
-<h2 id="a-toolkit-for-integrating-and-executing-zonation-5-software-directly-from-r">
-<strong>A toolkit for integrating and executing Zonation 5 software directly from R</strong><a class="anchor" aria-label="anchor" href="#a-toolkit-for-integrating-and-executing-zonation-5-software-directly-from-r"></a>
+<h2 id="a-toolkit-for-integrating-and-executing-zonation-software-directly-from-r">
+<strong>A toolkit for integrating and executing Zonation software directly from R</strong><a class="anchor" aria-label="anchor" href="#a-toolkit-for-integrating-and-executing-zonation-software-directly-from-r"></a>
 </h2>
 <!-- badges: start -->
 
@@ -75,81 +83,57 @@
 <h4 id="overview">
 <strong>Overview</strong><a class="anchor" aria-label="anchor" href="#overview"></a>
 </h4>
-<p>ZonationR is an R package that provides an interface to integrate and execute Zonation 5 software directly from R. The package was developed to support teaching and learning, lowering the entry barrier for R users to get started with Zonation and explore spatial prioritization techniques, while also supporting reproducible and automated workflows.</p>
-<p>Standard Zonation workflows typically require manual preparation of input files, execution through a graphical interface or command line, and separate post-processing in R or GIS software. These steps increase complexity and can hinder learning, reproducibility, and efficient workflow development. ZonationR addresses these challenges by enabling direct access to Zonation 5 from R and automating input generation, execution, and output handling within a transparent, script-based workflow that remains fully consistent with the original Zonation software.</p>
+<p><em>ZonationR</em> is an R package that provides a seamless interface to the Zonation software, enabling users to execute spatial conservation prioritization workflows directly from R.</p>
+<p>The package is designed to:</p>
+<ul>
+<li>
+<strong>Support learning and teaching</strong> by lowering the entry barrier for R users exploring Zonation.<br>
+</li>
+<li>
+<strong>Streamline workflows</strong> by automating input preparation, execution, and post-processing.<br>
+</li>
+<li>
+<strong>Enable reproducibility</strong> through transparent script-based workflows that remains fully consistent with the original Zonation software.</li>
+</ul>
+<p>Traditionally, Zonation workflows require manual input preparation, running the software via GUI or command line, and separate post-processing in R or GIS. <em>ZonationR</em> simplifies this process by integrating all steps into R, enabling transparent and automated workflows.</p>
+</div>
+<div class="section level4">
+<h4 id="features">
+<strong>Features</strong><a class="anchor" aria-label="anchor" href="#features"></a>
+</h4>
+<ul>
+<li>Automated generation of Zonation input files from R.<br>
+</li>
+<li>Execution of Zonation 5 directly from R scripts.<br>
+</li>
+<li>Post-processing of Zonation outputs, including raster maps and summary tables.<br>
+</li>
+<li>Support for reproducible teaching examples and research workflows.</li>
+</ul>
 </div>
 <div class="section level4">
 <h4 id="installation">
 <strong>Installation</strong><a class="anchor" aria-label="anchor" href="#installation"></a>
 </h4>
-<p>You can install the development version of <em>ZonationR</em> from <a href="https://github.com/thiago-cav/ZonationR" class="external-link">GitHub</a> with:</p>
+<p>You can install the development version of <em>ZonationR</em> from <strong><a href="https://github.com/thiago-cav/ZonationR" class="external-link">GitHub</a></strong> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"thiago-cav/ZonationR"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="before-you-begin">
-<strong>Before you begin</strong><a class="anchor" aria-label="anchor" href="#before-you-begin"></a>
-</h4>
-<p><em>ZonationR</em> is an interface to Zonation 5, which means that Zonation must be able to read and write files on disk. To ensure this works smoothly, it is recommended that you run the analysis inside an <strong>R project</strong> whose directory is writable.</p>
-<p>Before running the examples below, please make sure that:</p>
-<ul>
-<li>
-<strong>Zonation 5 is installed</strong> on your system<br>
-</li>
-<li>You know the <strong>path to the Zonation 5 installation directory</strong><br>
-</li>
-<li>Your <strong>current R project directory is writable</strong>
-</li>
-</ul>
-<p>All input and output files generated by <em>ZonationR</em> will be created within the current R project directory.</p>
-</div>
-<div class="section level4">
-<h4 id="getting-started">
-<strong>Getting started</strong><a class="anchor" aria-label="anchor" href="#getting-started"></a>
-</h4>
-<p>This is a basic example to get a setup running with <em>ZonationR</em>. All files are created within the current R project, and the biodiversity input data used here are provided with the package.</p>
+<p>Load the package:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Load necessary libraries</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/thiago-cav/ZonationR" class="external-link">ZonationR</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/thiago-cav/ZonationR" class="external-link">ZonationR</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="prepare-input-data">
-<strong>Prepare input data</strong><a class="anchor" aria-label="anchor" href="#prepare-input-data"></a>
+<h4 id="getting-help">
+<strong>Getting help</strong><a class="anchor" aria-label="anchor" href="#getting-help"></a>
 </h4>
-<p>First, we copy the example biodiversity data provided with the package into a local directory. These raster layers will be used as features in the Zonation analysis.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#----------------------------------------------------</span></span>
-<span><span class="co"># Create a folder for biodiversity input data</span></span>
-<span><span class="co">#----------------------------------------------------</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"biodiversity"</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">extdata_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"biodiversity"</span>, package <span class="op">=</span> <span class="st">"ZonationR"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">extdata_path</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
-<span>          <span class="st">"biodiversity"</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>If you find a clear bug, please open an issue with a minimal reproducible example on <strong><a href="https://github.com/thiago-cav/ZonationR/issues" class="external-link">GitHub</a></strong>.</p>
 </div>
 <div class="section level4">
-<h4 id="zonation-5-setup">
-<strong>Zonation 5 setup</strong><a class="anchor" aria-label="anchor" href="#zonation-5-setup"></a>
+<h4 id="references">
+<strong>References</strong><a class="anchor" aria-label="anchor" href="#references"></a>
 </h4>
-<p>Next, we create the three compulsory input files required by Zonation 5. The <code>zonation_path</code> argument must point to the directory where Zonation 5 is installed on your system.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create feature list file</span></span>
-<span><span class="fu"><a href="reference/feature_list.html">feature_list</a></span><span class="op">(</span>spp_file_dir <span class="op">=</span> <span class="st">"biodiversity"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Create settings file</span></span>
-<span><span class="fu"><a href="reference/settings_file.html">settings_file</a></span><span class="op">(</span>feature_list_file <span class="op">=</span> <span class="st">"feature_list.txt"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Create the Zonation command file</span></span>
-<span><span class="fu"><a href="reference/command_file.html">command_file</a></span><span class="op">(</span>zonation_path <span class="op">=</span> <span class="st">"C:/Program Files (x86)/Zonation5"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="run-the-prioritization">
-<strong>Run the prioritization</strong><a class="anchor" aria-label="anchor" href="#run-the-prioritization"></a>
-</h4>
-<p>Finally, we run the Zonation 5 analysis. All outputs will be written to the project directory following the standard Zonation folder structure.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/run_command_file.html">run_command_file</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span></span></code></pre></div>
+<p>For detailed documentation, tutorials, and example workflows, see the <strong><a href="https://thiago-cav.github.io/ZonationR/">ZonationR website</a></strong>.</p>
 </div>
 </div>
 </div>
@@ -181,6 +165,8 @@
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Thiago Cavalcante <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-5357-9659" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Bruno Ribeiro <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-7755-6715" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Karlo Guidoni-Martins <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-8458-8467" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 
@@ -198,7 +184,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by Thiago Cavalcante.</p>
+  <p>Developed by Thiago Cavalcante, Bruno Ribeiro, Karlo Guidoni-Martins.</p>
 </div>
 
 <div class="pkgdown-footer-right">
