@@ -2,7 +2,7 @@
 % Please edit documentation in R/summary_curves.R
 \name{summary_curves}
 \alias{summary_curves}
-\title{Plot summary performance curves from Zonation output}
+\title{Plot summary performance curves}
 \usage{
 summary_curves(
   dir,

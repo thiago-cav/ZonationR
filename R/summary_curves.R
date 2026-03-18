@@ -1,4 +1,4 @@
-#' Plot summary performance curves from Zonation output
+#' Plot summary performance curves
 #'
 #' This function reads a Zonation summary curves file and plots one or more
 #' summary metrics against the priority rank. The output is a ggplot object,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/settings_file.R
 \name{settings_file}
 \alias{settings_file}
-\title{Create a settings file for a Zonation Analysis}
+\title{Create a settings file for a Zonation analysis}
 \usage{
 settings_file(
   feature_list_file,

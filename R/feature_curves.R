@@ -1,4 +1,4 @@
-#' Plot Feature Curves from Zonation Output
+#' Plot feature curves
 #'
 #' Reads the Zonation \code{feature_curves.csv} and \code{features_info.csv}
 #' files, standardizes the feature names, and plots representation vs priority

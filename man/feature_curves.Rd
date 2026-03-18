@@ -2,7 +2,7 @@
 % Please edit documentation in R/feature_curves.R
 \name{feature_curves}
 \alias{feature_curves}
-\title{Plot Feature Curves from Zonation Output}
+\title{Plot feature curves}
 \usage{
 feature_curves(
   dir,

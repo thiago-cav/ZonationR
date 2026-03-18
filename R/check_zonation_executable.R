@@ -1,4 +1,4 @@
-#' Check for Zonation 5 Executable
+#' Check for Zonation 5 executable
 #'
 #' This function checks if the Zonation 5 executable is available on the system.
 #' It can verify a specific path provided by the user or search common installation

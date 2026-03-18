@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_zonation_executable.R
 \name{check_zonation_executable}
 \alias{check_zonation_executable}
-\title{Check for Zonation 5 Executable}
+\title{Check for Zonation 5 executable}
 \usage{
 check_zonation_executable(zonation_path = NULL, os = NULL)
 }
