@@ -1,0 +1,175 @@
+# Working with variants in ZonationR
+
+This vignette demonstrates how to explore multiple prioritization
+scenarios using *ZonationR*. Users will:
+
+1.  Run a baseline prioritization.
+2.  Modify the marginal loss rule (e.g., CAZMAX).
+3.  Apply species/feature weighting.
+4.  Restrict the analysis to a geographic mask (e.g., subset of
+    countries).
+5.  Include a cost layer (e.g., human impact).
+
+Following Zonation best practices, analyses are developed incrementally
+through variants. Each variant modifies specific inputs or settings and
+is run in its own folder. Folder names are based on key settings used in
+each scenario. For example, `03_cazmax_w` indicates the third variant
+used the CAZMAX marginal loss rule with species/feature weights:
+
+![Folder structure for organizing a \*ZonationR\* workflow with multiple
+variants.](img/folder_structure.png)
+
+Folder structure for organizing a *ZonationR* workflow with multiple
+variants.
+
+This staged workflow keeps each variant **isolated, reproducible, and
+easy to compare**. In R, we use
+[`withr::with_dir()`](https://withr.r-lib.org/reference/with_dir.html)
+to temporarily change the working directory for each variant, keeping
+the project organized while running multiple scenarios.
+
+### Setup
+
+``` r
+# Install withr if not already installed
+if (!require(withr)) install.packages("withr")
+
+# Load necessary libraries
+library(ZonationR)
+library(withr)
+```
+
+### Variant 1
+
+We begin with a baseline prioritization using default settings (same as
+in Get started).
+
+``` r
+# Run baseline variant in folder 01_baseline
+dir.create("01_baseline", showWarnings = FALSE)
+withr::with_dir("01_baseline", {
+  feature_list(spp_file_dir = "../biodiversity")
+  settings_file(feature_list_file = "feature_list.txt")
+  command_file(zonation_path = "C:/Program Files (x86)/Zonation5")
+  run_command_file(".")
+})
+```
+
+### Variant 2
+
+In this variant, we use Core-Area Zonation (CAZMAX) as the marginal loss
+rule. CAZMAX aims to always cover high-occurrence locations for all
+features, even if this comes at the cost of lower average coverage.
+
+``` r
+# Create the folder
+dir.create("02_cazmax", showWarnings = FALSE)
+
+withr::with_dir("02_cazmax", {
+  feature_list(spp_file_dir = "../biodiversity")
+  settings_file(feature_list_file = "feature_list.txt")
+  command_file(zonation_path      = "C:/Program Files (x86)/Zonation5",
+               marginal_loss_mode = "CAZMAX" # We edit the marginal loss rule here
+  )
+  run_command_file(".")
+})
+```
+
+### Variant 3
+
+We can assign unique weights to features (e.g., species) to increase the
+priority of areas where those features occur. This allows emphasizing
+key species or biodiversity features in the prioritization. For this
+purpose, we use the ‘weight’ argument in the
+[`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md)
+function.
+
+``` r
+# Create the folder
+dir.create("03_cazmax_w", showWarnings = FALSE)
+
+# List files from the folder
+spp_files <- list.files("biodiversity", pattern = "\\.tif$", full.names = TRUE)
+
+# Create a weight vector: default weight = 1 for all species
+weights <- rep(1, length(spp_files))
+
+# Set higher weights for selected key species
+# For example, species 3, 7, and 10 are more important
+weights[c(3, 7, 10)] <- 5.0
+
+# Run the prioritization
+withr::with_dir("03_cazmax_w", {
+  feature_list(spp_file_dir = "../biodiversity",
+               weight = weights) # setting weights
+  settings_file(feature_list_file = "feature_list.txt")
+  command_file(zonation_path = "C:/Program Files (x86)/Zonation5",
+               marginal_loss_mode = "CAZMAX",
+               flags = "w" # Flag w (use weights)
+  )
+  run_command_file(".")
+})
+```
+
+### Variant 4
+
+In this variant, we restrict the prioritization to a subset of European
+countries. Only areas within the mask are considered for the ranking
+process. This approach is useful for focused conservation planning in a
+defined geographic region.
+
+``` r
+dir.create("04_cazmax_wa", showWarnings = FALSE)
+
+withr::with_dir("04_cazmax_wa", {
+  feature_list(spp_file_dir = "../biodiversity",
+               weight = weights)
+  settings_file(feature_list_file = "feature_list.txt",
+                analysis_area_mask_layer = "../other_layers/area_mask.tif")
+  command_file(zonation_path = "C:/Program Files (x86)/Zonation5",
+               marginal_loss_mode = "CAZMAX",
+               flags = "wa" # Flag a for analysis area mask
+  )
+  run_command_file(".")
+})
+```
+
+### Variant 5
+
+In this variant, we include a cost layer using the Global Human
+Modification (GHM) dataset. Cells with higher human impact are
+penalized, reducing their priority in the ranking.
+
+``` r
+dir.create("05_cazmax_waX", showWarnings = FALSE)
+
+withr::with_dir("05_cazmax_waX", {
+  feature_list(spp_file_dir = "../biodiversity",
+               weight = weights)
+  settings_file(feature_list_file = "feature_list.txt",
+                analysis_area_mask_layer = "../other_layers/area_mask.tif",
+                cost_layer = "../other_layers/gHM_Europe.tif") # We add the cost layer here
+  command_file(zonation_path = "C:/Program Files (x86)/Zonation5",
+               marginal_loss_mode = "CAZMAX",
+               flags = "waX" # using X to activate the cost analysis
+  )
+  run_command_file(".")
+})
+```
+
+### Key Takeaways
+
+This workflow demonstrated how to construct a **variant-based
+prioritization analysis** using *ZonationR*:
+
+| Variant | Description                                                  |
+|---------|--------------------------------------------------------------|
+| 01      | Baseline prioritization using default settings               |
+| 02      | Prioritization with CAZMAX marginal loss rule                |
+| 03      | CAZMAX rule plus feature/species weighting applied           |
+| 04      | CAZMAX with weighting and restricted to a geographic mask    |
+| 05      | CAZMAX with weighting, geographic mask, and cost layer (GHM) |
+
+Developing analyses in incremental variants improves **transparency,
+reproducibility, and scenario comparison** in spatial conservation
+planning.
