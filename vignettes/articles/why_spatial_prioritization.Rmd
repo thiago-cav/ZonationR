@@ -121,7 +121,7 @@ ggplot() +
   ) +
   
   coord_equal() +
-  theme_minimal(base_size = 14) +
+  theme_classic(base_size = 14) +
   theme(
     panel.grid = element_blank(),
     axis.title = element_blank(),
@@ -259,7 +259,7 @@ ggplot(grid, aes(x, y, fill = priority)) +
             color = "black", linewidth = 0.5, inherit.aes = FALSE) +
   
   coord_equal() +
-  theme_minimal(base_size = 14) +
+  theme_classic(base_size = 14) +
   theme(
     panel.grid = element_blank(),
     axis.title = element_blank(),
