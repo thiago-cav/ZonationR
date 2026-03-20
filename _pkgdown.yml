@@ -1,10 +1,8 @@
 url: https://thiago-cav.github.io/ZonationR/
 
 template:
-  params:
-    bootswatch: sandstone
-    type: dark
   bootstrap: 5
+  bootswatch: sandstone
   light-switch: true
 
 reference:

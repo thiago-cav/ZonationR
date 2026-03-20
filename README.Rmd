@@ -1,16 +1,16 @@
 ---
-output: 
-  github_document:
-    toc: false
-    toc_depth: 2
+output: github_document
 ---
-```{r, setup, include=FALSE, eval=FALSE}
-knitr::opts_chunk$set(
-  eval = FALSE,
-  message = FALSE,
-  warning = FALSE
-)
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
 ```
 
 # *ZonationR* <a href="https://thiago-cav.github.io/ZonationR/"><img src="man/figures/logo.png" align="right" height="120" alt="ZonationR website" /></a>

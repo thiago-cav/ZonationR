@@ -1,4 +1,6 @@
 
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # *ZonationR* <a href="https://thiago-cav.github.io/ZonationR/"><img src="man/figures/logo.png" align="right" height="120" alt="ZonationR website" /></a>
 
 ## **A toolkit for integrating and executing Zonation software directly from R**
