@@ -34,7 +34,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../index.html"><span class="fa fa-home"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="../index.html" aria-label="Home page"><span class="fa fa-home"></span></a></li>
 <li class="active nav-item"><a class="nav-link" href="../articles/ZonationR.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Functions</a></li>
 <li class="nav-item dropdown">
@@ -72,37 +72,40 @@
 
     
     
-<p>This vignette provides a brief introduction to <em>ZonationR</em> for
-beginners. Users will:</p>
+<p>This vignette provides a brief introduction to <em>ZonationR</em>.
+Users will:</p>
 <ol style="list-style-type: decimal">
 <li>Set up example biodiversity data.</li>
-<li>Prepare Zonation input files (feature list, settings, command
-file).</li>
+<li>Prepare Zonation input files.</li>
 <li>Run a single prioritization analysis.</li>
 </ol>
 <blockquote>
 <p>If you are new to spatial conservation prioritization or want a
-gentle overview to understand the basics, see <a href="why_spatial_prioritization.html">Why spatial conservation
+gentle overview to understand the basics, see the vignette <a href="why_spatial_prioritization.html">Why spatial conservation
 prioritization?</a>.</p>
 </blockquote>
+<div class="section level3">
+<h3 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
+</h3>
 <div class="section level4">
-<h4 id="installation">
-<strong>Installation</strong><a class="anchor" aria-label="anchor" href="#installation"></a>
+<h4 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h4>
 <p>You can install the development version of <em>ZonationR</em> from <a href="https://github.com/thiago-cav/ZonationR" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"thiago-cav/ZonationR"</span><span class="op">)</span></span></code></pre></div>
-<p>After installing, load the package so we can access its
-functions:</p>
+</div>
+<div class="section level4">
+<h4 id="libraries">Libraries<a class="anchor" aria-label="anchor" href="#libraries"></a>
+</h4>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load necessary libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/thiago-cav/ZonationR" class="external-link">ZonationR</a></span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="before-you-begin">
-<strong>Before you begin</strong><a class="anchor" aria-label="anchor" href="#before-you-begin"></a>
-</h4>
+</div>
+<div class="section level3">
+<h3 id="before-you-begin">Before you begin<a class="anchor" aria-label="anchor" href="#before-you-begin"></a>
+</h3>
 <p><em>ZonationR</em> is an interface to Zonation, which means that
 Zonation must be able to read and write files on disk. To ensure this
 works smoothly, it is recommended that you run the analysis inside an
@@ -128,10 +131,9 @@ operating system (e.g., Windows, Linux).</p></li>
 You’ll need it later.</p></li>
 </ol>
 </div>
-<div class="section level4">
-<h4 id="prepare-input-data">
-<strong>Prepare input data</strong><a class="anchor" aria-label="anchor" href="#prepare-input-data"></a>
-</h4>
+<div class="section level3">
+<h3 id="prepare-input-data">Prepare input data<a class="anchor" aria-label="anchor" href="#prepare-input-data"></a>
+</h3>
 <p>First, we copy the example biodiversity data provided with the
 package into a local directory. These raster layers will be used as
 features in the Zonation analysis.</p>
@@ -145,10 +147,9 @@ features in the Zonation analysis.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span><span class="va">extdata_path</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
 <span>          <span class="st">"biodiversity"</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="preflight-checks">
-<strong>Preflight checks</strong><a class="anchor" aria-label="anchor" href="#preflight-checks"></a>
-</h4>
+<div class="section level3">
+<h3 id="preflight-checks">Preflight checks<a class="anchor" aria-label="anchor" href="#preflight-checks"></a>
+</h3>
 <p>Now let’s check our setup! You can use the preflight functions in
 <em>ZonationR</em> to check that key requirements are met before
 creating input files or running Zonation. For example, you can quickly
@@ -156,7 +157,7 @@ see if R can find the Zonation 5 executable on your computer. The
 installation path will be used later when creating the Zonation command
 file.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Run the preflight check</span></span>
+<code class="sourceCode R"><span><span class="co"># Run one preflight check</span></span>
 <span><span class="va">z_check</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_zonation_executable.html">check_zonation_executable</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Print the message</span></span>
@@ -172,10 +173,9 @@ that your working directory is writable.</p>
 <span><span class="va">raster_check</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_raster_uniformity.html">check_raster_uniformity</a></span><span class="op">(</span><span class="st">"biodiversity"</span><span class="op">)</span></span>
 <span><span class="va">directory_check</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/check_dir_writable.html">check_dir_writable</a></span><span class="op">(</span><span class="st">"."</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="zonation-5-setup">
-<strong>Zonation 5 setup</strong><a class="anchor" aria-label="anchor" href="#zonation-5-setup"></a>
-</h4>
+<div class="section level3">
+<h3 id="zonation-input-files">Zonation input files<a class="anchor" aria-label="anchor" href="#zonation-input-files"></a>
+</h3>
 <p>Next, we create the three compulsory input files required by Zonation
 5. The <code>zonation_path</code> argument must point to the directory
 where Zonation 5 is installed on your system.</p>
@@ -189,10 +189,9 @@ where Zonation 5 is installed on your system.</p>
 <span><span class="co"># Create the Zonation command file</span></span>
 <span><span class="fu"><a href="../reference/command_file.html">command_file</a></span><span class="op">(</span>zonation_path <span class="op">=</span> <span class="st">"C:/Program Files (x86)/Zonation5"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level4">
-<h4 id="run-the-prioritization">
-<strong>Run the prioritization</strong><a class="anchor" aria-label="anchor" href="#run-the-prioritization"></a>
-</h4>
+<div class="section level3">
+<h3 id="run-the-prioritization">Run the prioritization<a class="anchor" aria-label="anchor" href="#run-the-prioritization"></a>
+</h3>
 <p>Finally, we run the Zonation 5 analysis.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Run the Zonation 5 analysis</span></span>
@@ -201,10 +200,9 @@ where Zonation 5 is installed on your system.</p>
 All outputs (priority map, performance curves, and other files) are in
 the <code>output</code> folder.</p>
 </div>
-<div class="section level4">
-<h4 id="keep-exploring">
-<strong>Keep Exploring</strong><a class="anchor" aria-label="anchor" href="#keep-exploring"></a>
-</h4>
+<div class="section level3">
+<h3 id="keep-exploring">Keep exploring<a class="anchor" aria-label="anchor" href="#keep-exploring"></a>
+</h3>
 <p>Want to take it further? Run multiple scenarios, tweak feature
 weightings, or explore other settings in the the vignette <a href="variants-workflow.html">Working with variants in
 ZonationR</a>.<br><br></p>

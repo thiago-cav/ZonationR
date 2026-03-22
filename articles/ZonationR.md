@@ -1,17 +1,19 @@
 # Getting started with ZonationR
 
-This vignette provides a brief introduction to *ZonationR* for
-beginners. Users will:
+This vignette provides a brief introduction to *ZonationR*. Users will:
 
 1.  Set up example biodiversity data.
-2.  Prepare Zonation input files (feature list, settings, command file).
+2.  Prepare Zonation input files.
 3.  Run a single prioritization analysis.
 
 > If you are new to spatial conservation prioritization or want a gentle
-> overview to understand the basics, see [Why spatial conservation
+> overview to understand the basics, see the vignette [Why spatial
+> conservation
 > prioritization?](https://thiago-cav.github.io/ZonationR/articles/why_spatial_prioritization.md).
 
-#### **Installation**
+### Setup
+
+#### Installation
 
 You can install the development version of *ZonationR* from
 [GitHub](https://github.com/thiago-cav/ZonationR) with:
@@ -21,14 +23,14 @@ if (!require(devtools)) install.packages("devtools")
 devtools::install_github("thiago-cav/ZonationR")
 ```
 
-After installing, load the package so we can access its functions:
+#### Libraries
 
 ``` r
 # Load necessary libraries
 library(ZonationR)
 ```
 
-#### **Before you begin**
+### Before you begin
 
 *ZonationR* is an interface to Zonation, which means that Zonation must
 be able to read and write files on disk. To ensure this works smoothly,
@@ -51,7 +53,7 @@ To install the Zonation 5 software on your computer.
 3.  Install or unpack the software, and note the installation path.
     You’ll need it later.
 
-#### **Prepare input data**
+### Prepare input data
 
 First, we copy the example biodiversity data provided with the package
 into a local directory. These raster layers will be used as features in
@@ -68,7 +70,7 @@ file.copy(list.files(extdata_path, full.names = TRUE),
           "biodiversity", overwrite = TRUE)
 ```
 
-#### **Preflight checks**
+### Preflight checks
 
 Now let’s check our setup! You can use the preflight functions in
 *ZonationR* to check that key requirements are met before creating input
@@ -77,7 +79,7 @@ find the Zonation 5 executable on your computer. The installation path
 will be used later when creating the Zonation command file.
 
 ``` r
-# Run the preflight check
+# Run one preflight check
 z_check <- check_zonation_executable()
 
 # Print the message
@@ -98,7 +100,7 @@ raster_check <- check_raster_uniformity("biodiversity")
 directory_check <- check_dir_writable(".")
 ```
 
-#### **Zonation 5 setup**
+### Zonation input files
 
 Next, we create the three compulsory input files required by Zonation 5.
 The `zonation_path` argument must point to the directory where Zonation
@@ -115,7 +117,7 @@ settings_file(feature_list_file = "feature_list.txt")
 command_file(zonation_path = "C:/Program Files (x86)/Zonation5")
 ```
 
-#### **Run the prioritization**
+### Run the prioritization
 
 Finally, we run the Zonation 5 analysis.
 
@@ -128,7 +130,7 @@ Awesome! You just ran your first Zonation prioritization analysis 🎉 All
 outputs (priority map, performance curves, and other files) are in the
 `output` folder.
 
-#### **Keep Exploring**
+### Keep exploring
 
 Want to take it further? Run multiple scenarios, tweak feature
 weightings, or explore other settings in the the vignette [Working with

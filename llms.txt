@@ -1,8 +1,6 @@
 # *ZonationR*
 
-## **A toolkit for integrating and executing Zonation software directly from R**
-
-#### **Overview**
+### Overview
 
 *ZonationR* is an R package that provides a seamless interface to the
 Zonation software, enabling users to execute spatial conservation
@@ -23,7 +21,7 @@ post-processing in R or GIS. *ZonationR* simplifies this process by
 integrating all steps into R, enabling transparent and automated
 workflows.
 
-#### **Features**
+### Features
 
 - Automated generation of Zonation input files from R.  
 - Execution of Zonation 5 directly from R scripts.  
@@ -31,7 +29,7 @@ workflows.
   tables.  
 - Support for reproducible teaching examples and research workflows.
 
-#### **Installation**
+### Installation
 
 You can install the development version of *ZonationR* from
 **[GitHub](https://github.com/thiago-cav/ZonationR)** with:
@@ -47,13 +45,13 @@ Load the package:
 library(ZonationR)
 ```
 
-#### **Getting help**
+### Getting help
 
 If you find a clear bug, please open an issue with a minimal
 reproducible example on
 **[GitHub](https://github.com/thiago-cav/ZonationR/issues)**.
 
-#### **References**
+### Documentation
 
 For detailed documentation, tutorials, and example workflows, see the
 **[ZonationR website](https://thiago-cav.github.io/ZonationR/)**.

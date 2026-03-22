@@ -34,7 +34,7 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="../index.html"><span class="fa fa-home"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="../index.html" aria-label="Home page"><span class="fa fa-home"></span></a></li>
 <li class="nav-item"><a class="nav-link" href="../articles/ZonationR.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Functions</a></li>
 <li class="active nav-item dropdown">
@@ -76,18 +76,16 @@
 scenarios using <em>ZonationR</em>. Users will:</p>
 <ol style="list-style-type: decimal">
 <li>Run a baseline prioritization.</li>
-<li>Modify the marginal loss rule (e.g., CAZMAX).</li>
-<li>Apply species/feature weighting.</li>
-<li>Restrict the analysis to a geographic mask (e.g., subset of
-countries).</li>
-<li>Include a cost layer (e.g., human impact).</li>
+<li>Modify the marginal loss rule.</li>
+<li>Apply feature weights.</li>
+<li>Restrict the analysis to a geographic mask.</li>
+<li>Include cost considerations.</li>
 </ol>
 Following Zonation best practices, analyses are developed incrementally
 through variants. Each variant modifies specific inputs or settings and
 is run in its own folder. Folder names are based on key settings used in
 each scenario. For example, <strong>03_cazmax_w</strong> indicates the
-third variant used the CAZMAX marginal loss rule with species/feature
-weights:
+third variant used the CAZMAX marginal loss rule with feature weights:
 <div class="figure" style="text-align: center">
 <img src="img/folder_structure.png" class="r-plt" alt="Folder structure for organizing a *ZonationR* workflow with multiple variants." width="70%"><p class="caption">
 Folder structure for organizing a <em>ZonationR</em> workflow with
@@ -113,8 +111,7 @@ multiple scenarios.</p>
 <div class="section level3">
 <h3 id="variant-1">Variant 1<a class="anchor" aria-label="anchor" href="#variant-1"></a>
 </h3>
-<p>We begin with a baseline prioritization using default settings (same
-as in Get started).</p>
+<p>We begin with a baseline prioritization using default settings.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Run baseline variant in folder 01_baseline</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"01_baseline"</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -183,8 +180,8 @@ For this purpose, we use the <code>weight</code> argument in the
 <h3 id="variant-4">Variant 4<a class="anchor" aria-label="anchor" href="#variant-4"></a>
 </h3>
 <p>In this variant, we restrict the prioritization to a subset of
-European countries. Only areas within the mask are considered for the
-ranking process. This approach is useful for focused conservation
+European countries. Only areas within the area mask are considered for
+the ranking process. This approach is useful for focused conservation
 planning in a defined geographic region.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"04_cazmax_wa"</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
@@ -224,7 +221,7 @@ penalized, reducing their priority in the ranking.</p>
 <span><span class="op">}</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="key-takeaways">Key Takeaways<a class="anchor" aria-label="anchor" href="#key-takeaways"></a>
+<h3 id="key-takeaways">Key takeaways<a class="anchor" aria-label="anchor" href="#key-takeaways"></a>
 </h3>
 <p>This workflow demonstrated how to construct a <strong>variant-based
 prioritization analysis</strong> using <em>ZonationR</em>:</p>

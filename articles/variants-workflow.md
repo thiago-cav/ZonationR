@@ -4,17 +4,16 @@ This vignette demonstrates how to explore multiple prioritization
 scenarios using *ZonationR*. Users will:
 
 1.  Run a baseline prioritization.
-2.  Modify the marginal loss rule (e.g., CAZMAX).
-3.  Apply species/feature weighting.
-4.  Restrict the analysis to a geographic mask (e.g., subset of
-    countries).
-5.  Include a cost layer (e.g., human impact).
+2.  Modify the marginal loss rule.
+3.  Apply feature weights.
+4.  Restrict the analysis to a geographic mask.
+5.  Include cost considerations.
 
 Following Zonation best practices, analyses are developed incrementally
 through variants. Each variant modifies specific inputs or settings and
 is run in its own folder. Folder names are based on key settings used in
 each scenario. For example, **03_cazmax_w** indicates the third variant
-used the CAZMAX marginal loss rule with species/feature weights:
+used the CAZMAX marginal loss rule with feature weights:
 
 ![Folder structure for organizing a \*ZonationR\* workflow with multiple
 variants.](img/folder_structure.png)
@@ -41,8 +40,7 @@ library(withr)
 
 ### Variant 1
 
-We begin with a baseline prioritization using default settings (same as
-in Get started).
+We begin with a baseline prioritization using default settings.
 
 ``` r
 # Run baseline variant in folder 01_baseline
@@ -114,9 +112,9 @@ withr::with_dir("03_cazmax_w", {
 ### Variant 4
 
 In this variant, we restrict the prioritization to a subset of European
-countries. Only areas within the mask are considered for the ranking
-process. This approach is useful for focused conservation planning in a
-defined geographic region.
+countries. Only areas within the area mask are considered for the
+ranking process. This approach is useful for focused conservation
+planning in a defined geographic region.
 
 ``` r
 dir.create("04_cazmax_wa", showWarnings = FALSE)
@@ -157,7 +155,7 @@ withr::with_dir("05_cazmax_waX", {
 })
 ```
 
-### Key Takeaways
+### Key takeaways
 
 This workflow demonstrated how to construct a **variant-based
 prioritization analysis** using *ZonationR*:
