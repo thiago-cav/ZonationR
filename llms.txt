@@ -1,4 +1,4 @@
-# *ZonationR*
+# ZonationR
 
 ### Overview
 
