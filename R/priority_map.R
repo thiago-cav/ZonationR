@@ -108,7 +108,7 @@ priority_map <- function(
       ggplot2::geom_tile(data = raster_df, ggplot2::aes(
         x = .data$x, y = .data$y, fill = .data$rankmap
       )) +
-      ggplot2::scale_fill_manual(values = pal, name = "Ranking")
+      ggplot2::scale_fill_manual(values = pal, name = "rank")
 
   } else {
     # continuous raster
@@ -117,7 +117,7 @@ priority_map <- function(
       x = .data$x, y = .data$y, fill = .data$rankmap
     )) +
       ggplot2::geom_tile() +
-      ggplot2::scale_fill_viridis_c(name = "Ranking", option = "H")
+      ggplot2::scale_fill_viridis_c(name = "rank", option = "H")
   }
 
   # legend position

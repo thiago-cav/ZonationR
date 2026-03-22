@@ -1,0 +1,23 @@
+Arguments given: --mode=CAZ2 settings_file.z5 output
+Settings filename: settings_file.z5
+Feature list filename: C:\Users\thiag.DESKTOP-KU3A435\Documents\zonationR_workflow\01_baseline\feature_list.txt
+Map dimensions (width * height): 828*540
+Number of grid cells in map (width * height): 447120
+Number of grid cells in map with data: 130210
+Input feature layer count: 67
+Feature layer count: 67
+Positive weight feature count: 67
+Negative weight feature count: 0
+Zero weight feature count: 0
+Total number of pixels with data across features: 3727838
+Mean feature extent across study area: 99.97%
+Memory usage of feature data: 7.90MB
+Mean quantization error: 0.0101536%
+Time used to read and preprocess layer data: 2s
+Time used in prioritization: 2s
+Number of iterations: 68
+Final convergence level: 0.00968720%
+Area under curve: 0.722295
+Total time used: 5s
+Number of errors: 0
+Number of warnings: 0

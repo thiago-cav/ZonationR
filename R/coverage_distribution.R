@@ -59,16 +59,19 @@ coverage_distribution <- function(dir,
   data <- read.csv(data_path, sep = "", stringsAsFactors = FALSE)
   data$rank <- as.numeric(data$rank)
 
+  filtered_data <- dplyr::filter(data, abs(.data$rank - target_rank) < 1e-4)
+    if (nrow(filtered_data) > 1) {
+    filtered_data <- filtered_data[1, , drop = FALSE]  # keep only first matching row
+  }
+
   long_data <- tidyr::pivot_longer(
-    data,
+    filtered_data,
     cols = -rank,
     names_to = "feature",
     values_to = "coverage"
   )
 
-  filtered_data <- dplyr::filter(long_data, abs(.data$rank - target_rank) < 1e-4)
-
-  p <- ggplot2::ggplot(filtered_data, ggplot2::aes(x = .data$coverage)) +
+  p <- ggplot2::ggplot(long_data, ggplot2::aes(x = .data$coverage)) +
     ggplot2::geom_histogram(
       breaks = seq(0, 1, by = 0.1),
       fill = "darkgrey",
