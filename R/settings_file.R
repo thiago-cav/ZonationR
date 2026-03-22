@@ -18,9 +18,6 @@
 #'
 #' @returns A `.z5` file containing the specified settings.
 #'
-#' @seealso
-#' [feature_list()], [command_file()]
-#'
 #' @examples
 #' \dontrun{
 #' settings_file(feature_list_file = "feature_list.txt")

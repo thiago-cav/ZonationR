@@ -51,7 +51,6 @@ To install the Zonation 5 software on your computer.
 
 3. Install or unpack the software, and note the installation path. You’ll need it later. 
 
-
 #### **Prepare input data**
 
 First, we copy the example biodiversity data provided with the package into a local directory. These raster layers will be used as features in the Zonation analysis.
@@ -71,7 +70,7 @@ file.copy(list.files(extdata_path, full.names = TRUE),
 
 #### **Preflight checks**
 
-Now let’s check our setup! You can use the preflight functions in *ZonationR* to make sure everything is ready before creating input files or running Zonation. For example, you can quickly see if R can find the Zonation 5 executable on your computer.
+Now let’s check our setup! You can use the preflight functions in *ZonationR* to check that key requirements are met before creating input files or running Zonation. For example, you can quickly see if R can find the Zonation 5 executable on your computer. The installation path will be used later when creating the Zonation command file. 
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
 # Run the preflight check
@@ -82,17 +81,14 @@ cat(z_check$message)
 
 ```
 
-This information (Installation directory) will be used later when creating the Zonation command file (see below). Zonation analyses also requires that input feature layers (e.g., species distribution rasters) share the same extent, resolution, and  projection. *ZonationR* includes a function to check whether layers are harmonized.
+Zonation analyses require that input feature layers (e.g., species distribution rasters) share the same extent, resolution, and projection. The *ZonationR* package provides the function `check_raster_uniformity()` to verify that your layers are harmonized. You can also use `check_dir_writable()` to ensure that your working directory is writable.
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
-# Run another preflight check
-raster_check <- check_raster_uniformity()
-
-# Print the message
-cat(raster_check$message)
+# Run the other preflight checks
+raster_check <- check_raster_uniformity("biodiversity")
+directory_check <- check_dir_writable(".")
 
 ```
-
 
 #### **Zonation 5 setup**
 
@@ -126,7 +122,7 @@ Awesome! You just ran your first Zonation prioritization analysis 🎉 All outpu
 
 #### **Keep Exploring**
 
-Want to take it further? Run multiple scenarios, tweak feature weightings, or explore other settings in the ZonationR vignette...
+Want to take it further? Run multiple scenarios, tweak feature weightings, or explore other settings in the the vignette [Working with variants in ZonationR](variants-workflow.html).<br><br>
 
 
 

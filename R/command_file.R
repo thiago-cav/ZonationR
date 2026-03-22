@@ -24,8 +24,6 @@
 #'
 #' @returns A Zonation command file containing the specified analysis options.
 #'
-#' @seealso
-#' [feature_list()], [settings_file()]
 #'
 #' @examples
 #' \dontrun{

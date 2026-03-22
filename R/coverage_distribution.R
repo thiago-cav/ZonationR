@@ -87,8 +87,7 @@ coverage_distribution <- function(dir,
     ggplot2::labs(y = "Feature Count") +
     ggplot2::theme_minimal() +
     ggplot2::theme(
-      panel.grid.minor = ggplot2::element_blank(),
-      axis.title = ggplot2::element_text(size = 12)
+      panel.grid.minor = ggplot2::element_blank()
     )
 
   # ---- save optional ----

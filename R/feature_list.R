@@ -21,8 +21,6 @@
 #' @returns A text file containing a feature list of rasters along with any
 #'   additional attributes specified by the user.
 #'
-#' @seealso
-#' [settings_file()], [command_file()]
 #'
 #' @importFrom utils write.table
 #'

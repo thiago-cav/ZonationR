@@ -62,8 +62,6 @@ command_file(
 
 }
 \seealso{
-\code{\link[=feature_list]{feature_list()}}, \code{\link[=settings_file]{settings_file()}}
-
 Other preprocessing: 
 \code{\link{feature_list}()},
 \code{\link{settings_file}()}

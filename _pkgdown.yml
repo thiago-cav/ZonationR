@@ -2,8 +2,14 @@ url: https://thiago-cav.github.io/ZonationR/
 
 template:
   bootstrap: 5
-  bootswatch: sandstone
-  light-switch: true
+  theme: gruvbox-dark       # dark syntax highlight for code blocks
+  bslib:
+    bg: "#1E1E1E"           # page background dark
+    fg: "#D4D4D4"           # main text color (light gray)
+    primary: "#3CCF4E"      # links in green
+    code-bg: "#2D2D2D"      # code block background
+    code-color: "#C5E478"   # inline code color
+    navbar-dark-bg: "#111111"  # navbar dark background
 
 reference:
   - title: Preflight
@@ -27,7 +33,43 @@ reference:
       - has_concept("postprocessing")
 
 
+# navbar:
+#   structure:
+#     left:  [intro, reference, articles]
+#     right: [search, github, lightswitch]
+
+# navbar:
+#   structure:
+#     left: [intro, reference, articles]
+#     right: [search, github]
+#   components:
+#     articles:
+#       text: Articles
+#       menu:
+#         - text: "Variants workflow"
+#           href: articles/variants-workflow.html
+#         - text: "Zonation outputs"
+#           href: articles/zonation-outputs.html
+#         - text: "Why spatial prioritization"
+#           href: articles/why_spatial_prioritization.html
+
 navbar:
   structure:
-    left:  [intro, reference, articles]
-    right: [search, github, lightswitch]
+    left: [home, intro, functions, articles]
+    right: [search, github]
+  components:
+    home:
+      icon: fa-home
+      href: index.html
+    functions:
+      text: "Functions"
+      href: reference/index.html   # must include href
+    articles:
+      text: Articles
+      menu:
+        - text: "Variants workflow"
+          href: articles/variants-workflow.html
+        - text: "Zonation outputs"
+          href: articles/zonation-outputs.html
+        - text: "Why spatial prioritization"
+          href: articles/why_spatial_prioritization.html
