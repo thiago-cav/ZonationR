@@ -21,7 +21,7 @@ Here, we use the baseline variant output folder from the vignette [Working with 
 ### Setup
 
 #### Installation 
-```{r eval=F, message=FALSE, warning=FALSE}
+```{r eval=T, message=FALSE, warning=FALSE}
 # Install these packages if not already installed
 if (!require(ggplot2)) install.packages("ggplot2")
 if (!require(patchwork)) install.packages("patchwork")
