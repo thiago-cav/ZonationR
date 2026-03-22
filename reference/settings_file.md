@@ -50,9 +50,6 @@ A `.z5` file containing the specified settings.
 
 ## See also
 
-[`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md),
-[`command_file()`](https://thiago-cav.github.io/ZonationR/reference/command_file.md)
-
 Other preprocessing:
 [`command_file()`](https://thiago-cav.github.io/ZonationR/reference/command_file.md),
 [`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md)

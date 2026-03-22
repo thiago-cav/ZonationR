@@ -13,7 +13,7 @@ scenarios using *ZonationR*. Users will:
 Following Zonation best practices, analyses are developed incrementally
 through variants. Each variant modifies specific inputs or settings and
 is run in its own folder. Folder names are based on key settings used in
-each scenario. For example, `03_cazmax_w` indicates the third variant
+each scenario. For example, **03_cazmax_w** indicates the third variant
 used the CAZMAX marginal loss rule with species/feature weights:
 
 ![Folder structure for organizing a \*ZonationR\* workflow with multiple
@@ -57,8 +57,8 @@ withr::with_dir("01_baseline", {
 
 ### Variant 2
 
-In this variant, we use Core-Area Zonation (CAZMAX) as the marginal loss
-rule. CAZMAX aims to always cover high-occurrence locations for all
+In this variant, we change the marginal loss rule to Core-Area Zonation
+(CAZMAX). CAZMAX aims to always cover high-occurrence locations for all
 features, even if this comes at the cost of lower average coverage.
 
 ``` r
@@ -80,7 +80,7 @@ withr::with_dir("02_cazmax", {
 We can assign unique weights to features (e.g., species) to increase the
 priority of areas where those features occur. This allows emphasizing
 key species or biodiversity features in the prioritization. For this
-purpose, we use the ‘weight’ argument in the
+purpose, we use the `weight` argument in the
 [`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md)
 function.
 

@@ -43,9 +43,6 @@ additional attributes specified by the user.
 
 ## See also
 
-[`settings_file()`](https://thiago-cav.github.io/ZonationR/reference/settings_file.md),
-[`command_file()`](https://thiago-cav.github.io/ZonationR/reference/command_file.md)
-
 Other preprocessing:
 [`command_file()`](https://thiago-cav.github.io/ZonationR/reference/command_file.md),
 [`settings_file()`](https://thiago-cav.github.io/ZonationR/reference/settings_file.md)

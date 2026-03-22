@@ -71,9 +71,10 @@ file.copy(list.files(extdata_path, full.names = TRUE),
 #### **Preflight checks**
 
 Now let’s check our setup! You can use the preflight functions in
-*ZonationR* to make sure everything is ready before creating input files
-or running Zonation. For example, you can quickly see if R can find the
-Zonation 5 executable on your computer.
+*ZonationR* to check that key requirements are met before creating input
+files or running Zonation. For example, you can quickly see if R can
+find the Zonation 5 executable on your computer. The installation path
+will be used later when creating the Zonation command file.
 
 ``` r
 # Run the preflight check
@@ -83,18 +84,18 @@ z_check <- check_zonation_executable()
 cat(z_check$message)
 ```
 
-This information (Installation directory) will be used later when
-creating the Zonation command file (see below). Zonation analyses also
-requires that input feature layers (e.g., species distribution rasters)
-share the same extent, resolution, and projection. *ZonationR* includes
-a function to check whether layers are harmonized.
+Zonation analyses require that input feature layers (e.g., species
+distribution rasters) share the same extent, resolution, and projection.
+The *ZonationR* package provides the function
+[`check_raster_uniformity()`](https://thiago-cav.github.io/ZonationR/reference/check_raster_uniformity.md)
+to verify that your layers are harmonized. You can also use
+[`check_dir_writable()`](https://thiago-cav.github.io/ZonationR/reference/check_dir_writable.md)
+to ensure that your working directory is writable.
 
 ``` r
-# Run another preflight check
-raster_check <- check_raster_uniformity()
-
-# Print the message
-cat(raster_check$message)
+# Run the other preflight checks
+raster_check <- check_raster_uniformity("biodiversity")
+directory_check <- check_dir_writable(".")
 ```
 
 #### **Zonation 5 setup**
@@ -130,4 +131,7 @@ outputs (priority map, performance curves, and other files) are in the
 #### **Keep Exploring**
 
 Want to take it further? Run multiple scenarios, tweak feature
-weightings, or explore other settings in the ZonationR vignette…
+weightings, or explore other settings in the the vignette [Working with
+variants in
+ZonationR](https://thiago-cav.github.io/ZonationR/articles/variants-workflow.md).  
+  

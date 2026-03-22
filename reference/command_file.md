@@ -62,9 +62,6 @@ A Zonation command file containing the specified analysis options.
 
 ## See also
 
-[`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md),
-[`settings_file()`](https://thiago-cav.github.io/ZonationR/reference/settings_file.md)
-
 Other preprocessing:
 [`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md),
 [`settings_file()`](https://thiago-cav.github.io/ZonationR/reference/settings_file.md)
