@@ -41,6 +41,7 @@ navbar:
     home:
       icon: fa-home
       href: index.html
+      aria-label: "Home page"
     functions:
       text: "Functions"
       href: reference/index.html   # must include href
