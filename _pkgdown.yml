@@ -33,26 +33,6 @@ reference:
       - has_concept("postprocessing")
 
 
-# navbar:
-#   structure:
-#     left:  [intro, reference, articles]
-#     right: [search, github, lightswitch]
-
-# navbar:
-#   structure:
-#     left: [intro, reference, articles]
-#     right: [search, github]
-#   components:
-#     articles:
-#       text: Articles
-#       menu:
-#         - text: "Variants workflow"
-#           href: articles/variants-workflow.html
-#         - text: "Zonation outputs"
-#           href: articles/zonation-outputs.html
-#         - text: "Why spatial prioritization"
-#           href: articles/why_spatial_prioritization.html
-
 navbar:
   structure:
     left: [home, intro, functions, articles]
