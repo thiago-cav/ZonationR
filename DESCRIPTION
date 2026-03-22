@@ -1,5 +1,5 @@
 Package: ZonationR
-Title: A toolkit for integrating and executing Zonation software directly from R
+Title: Toolkit for integrating Zonation workflows in R
 Version: 0.0.0.9000
 Authors@R: c(
     person("Thiago", "Cavalcante", , "thiagocav.ferreira@gmail.com", role = c("aut", "cre"),
@@ -9,10 +9,10 @@ Authors@R: c(
     person("Karlo", "Guidoni-Martins", , "kguidonimartins@gmail.com", role = "aut",
            comment = c(ORCID = "0000-0002-8458-8467"))
             )
-Description: This package provides an interface to seamlessly integrate 
-    and execute Zonation 5 software directly from R, enabling efficient spatial 
-    prioritization and conservation planning workflows with enhanced reproducibility 
-    and automation.
+Description: An interface to Zonation software, enabling users to run spatial 
+ conservation prioritization workflows in R. It streamlines input preparation, 
+ execution, and post-processing, while supporting reproducibility and lowering the 
+ entry barrier for learning and teaching.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
