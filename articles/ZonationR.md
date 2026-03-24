@@ -133,7 +133,7 @@ outputs (priority map, performance curves, and other files) are in the
 ### Keep exploring
 
 Want to take it further? Run multiple scenarios, tweak feature
-weightings, or explore other settings in the the vignette [Working with
+weightings, or explore other settings in the vignette [Working with
 variants in
 ZonationR](https://thiago-cav.github.io/ZonationR/articles/variants-workflow.md).  
   
