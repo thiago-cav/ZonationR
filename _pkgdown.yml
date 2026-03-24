@@ -35,7 +35,7 @@ reference:
 
 navbar:
   structure:
-    left: [home, intro, functions, articles]
+    left: [home, intro, functions, articles, news]
     right: [search, github]
   components:
     home:
@@ -54,3 +54,6 @@ navbar:
           href: articles/zonation-outputs.html
         - text: "Why spatial prioritization"
           href: articles/why_spatial_prioritization.html
+    news:
+      text: News
+      href: news/index.html

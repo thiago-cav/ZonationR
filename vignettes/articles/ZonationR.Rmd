@@ -123,7 +123,7 @@ Awesome! You just ran your first Zonation prioritization analysis 🎉 All outpu
 
 ### Keep exploring
 
-Want to take it further? Run multiple scenarios, tweak feature weightings, or explore other settings in the the vignette [Working with variants in ZonationR](variants-workflow.html).<br><br>
+Want to take it further? Run multiple scenarios, tweak feature weightings, or explore other settings in the vignette [Working with variants in ZonationR](variants-workflow.html).<br><br>
 
 
 
