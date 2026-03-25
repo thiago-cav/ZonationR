@@ -55,19 +55,30 @@ To install the Zonation 5 software on your computer.
 
 ### Prepare input data
 
-First, we copy the example biodiversity data provided with the package
-into a local directory. These raster layers will be used as features in
-the Zonation analysis.
+For this example, we use the
+[Zonation5RData](https://github.com/kguidonimartins/Zonation5RData)
+package, which provides GeoTIFF layers for workflows with Zonation and
+*ZonationR*. To use the biodiversity layers in the **RStudio project**,
+we first create a folder and then copy the raster files from the
+package.
 
 ``` r
+# Install the Zonation5RData package from GitHub:
+devtools::install_github("kguidonimartins/Zonation5RData")
+
+# Load the package
+library(Zonation5RData)
+
 #----------------------------------------------------
 # Create a folder for biodiversity input data
 #----------------------------------------------------
 dir.create("biodiversity", showWarnings = FALSE)
 
-extdata_path <- system.file("extdata", "biodiversity", package = "ZonationR")
-file.copy(list.files(extdata_path, full.names = TRUE),
-          "biodiversity", overwrite = TRUE)
+# Get the paths to biodiversity rasters included in the package
+files <- zonation5rdata_list("biodiversity", full.names = TRUE)
+
+# Copy the raster files to the local biodiversity folder
+file.copy(files, "biodiversity", overwrite = TRUE)
 ```
 
 ### Preflight checks
@@ -96,8 +107,8 @@ to ensure that your working directory is writable.
 
 ``` r
 # Run the other preflight checks
-raster_check <- check_raster_uniformity("biodiversity")
-directory_check <- check_dir_writable(".")
+check_raster_uniformity("biodiversity")
+check_dir_writable(".")
 ```
 
 ### Zonation input files
