@@ -35,7 +35,34 @@ if (!require(withr)) install.packages("withr")
 
 # Load necessary libraries
 library(ZonationR)
+library(Zonation5RData)
 library(withr)
+```
+
+### Prepare input data
+
+In this tutorial, we use the
+[Zonation5RData](https://github.com/kguidonimartins/Zonation5RData)
+package, which provides GeoTIFF layers for workflows with Zonation and
+*ZonationR*. To use the layers in the **RStudio project**, we first
+create folders and then copy the raster files from the package.
+
+``` r
+# Create folders to store the input data
+dir.create("biodiversity", showWarnings = FALSE)
+dir.create("other_layers", showWarnings = FALSE)
+
+# Get the paths to biodiversity rasters included in the package
+files_biod <- zonation5rdata_list("biodiversity", full.names = TRUE)
+
+# Copy the biodiversity rasters to the local biodiversity folder
+file.copy(files_biod, "biodiversity", overwrite = TRUE)
+
+# Get the paths to the additional layers included in the package
+files_other <- zonation5rdata_list("other_layers", full.names = TRUE)
+
+# Copy these rasters to the local other_layers folder
+file.copy(files_other, "other_layers", overwrite = TRUE)
 ```
 
 ### Variant 1
