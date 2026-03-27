@@ -63,9 +63,7 @@ devtools::install_github("kguidonimartins/Zonation5RData")
 # Load the package
 library(Zonation5RData)
 
-#----------------------------------------------------
 # Create a folder for biodiversity input data
-#----------------------------------------------------
 dir.create("biodiversity", showWarnings = FALSE)
 
 # Get the paths to biodiversity rasters included in the package
