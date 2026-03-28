@@ -72,6 +72,7 @@ plotted against priority rank.
 Other postprocessing:
 [`coverage_distribution()`](https://thiago-cav.github.io/ZonationR/reference/coverage_distribution.md),
 [`feature_curves()`](https://thiago-cav.github.io/ZonationR/reference/feature_curves.md),
+[`feature_representation()`](https://thiago-cav.github.io/ZonationR/reference/feature_representation.md),
 [`priority_map()`](https://thiago-cav.github.io/ZonationR/reference/priority_map.md),
 [`rank_similarity()`](https://thiago-cav.github.io/ZonationR/reference/rank_similarity.md)
 

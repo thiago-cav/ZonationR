@@ -81,11 +81,6 @@ Specifically, users will:</p>
 <li>Inspect performance curves.</li>
 <li>Assess the distribution of feature coverage.</li>
 </ol>
-<p>Here, we use the baseline variant output folder from the vignette <a href="variants-workflow.html">Variants worflow</a> to illustrate some of
-the post-processing functions. You can either use the output folder data
-provided by the package, as shown below, or, if you are following the
-multiple variants tutorial, you can use any output folder from
-there.</p>
 <div class="section level3">
 <h3 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
 </h3>
@@ -95,22 +90,38 @@ there.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install these packages if not already installed</span></span>
 <span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"patchwork"</span><span class="op">)</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/" class="external-link">here</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"here"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"patchwork"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="libraries-and-example-data">Libraries and example data<a class="anchor" aria-label="anchor" href="#libraries-and-example-data"></a>
+<h4 id="libraries">Libraries<a class="anchor" aria-label="anchor" href="#libraries"></a>
 </h4>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load necessary libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/thiago-cav/ZonationR" class="external-link">ZonationR</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://here.r-lib.org/" class="external-link">here</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Path to example baseline variant</span></span>
-<span><span class="va">baseline_folder</span> <span class="op">&lt;-</span> <span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org/reference/here.html" class="external-link">here</a></span><span class="op">(</span><span class="st">"inst"</span>, <span class="st">"extdata"</span>, <span class="st">"01_baseline"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span></span></code></pre></div>
 </div>
+</div>
+<div class="section level3">
+<h3 id="prepare-input-data">Prepare input data<a class="anchor" aria-label="anchor" href="#prepare-input-data"></a>
+</h3>
+<p>Here, we use the baseline variant output folder from the vignette <a href="variants-workflow.html">Variants worflow</a> to illustrate some of
+the post-processing functions. You can either use the output folder data
+provided by the <a href="https://github.com/kguidonimartins/Zonation5RData" class="external-link">Zonation5RData</a>
+package, as shown below, or, if you are following the multiple variants
+tutorial, you can use any output folder from there.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create a folder to store the input data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"01_baseline"</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get the paths to the files</span></span>
+<span><span class="va">files_output</span> <span class="op">&lt;-</span> <span class="fu">zonation5rdata_list</span><span class="op">(</span><span class="st">"01_baseline"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Copy to the local folder</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="va">files_output</span>, <span class="st">"01_baseline"</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Define a variable for the baseline folder</span></span>
+<span><span class="va">baseline_folder</span> <span class="op">&lt;-</span> <span class="st">"01_baseline"</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="priority-map">Priority map<a class="anchor" aria-label="anchor" href="#priority-map"></a>
@@ -128,11 +139,11 @@ understand the spatial distribution of conservation value, potential
 trade-offs, and the conservation effectiveness. We can use the
 <code><a href="../reference/priority_map.html">priority_map()</a></code> function to visualize the ranking values
 across the landscape:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/priority_map.html">priority_map</a></span><span class="op">(</span><span class="va">baseline_folder</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/priority-map1-1.png" class="r-plt" alt="" width="700" style="display: block; margin: auto;"></p>
+<p><img src="img/priority_map1.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"></p>
 <p>In addition to visualizing the continuous priority values, we can
 also adjust the map to make important areas stand out more clearly. The
 <code>classify</code> argument in <code><a href="../reference/priority_map.html">priority_map()</a></code> allows
@@ -140,21 +151,21 @@ choosing whether to display the map as continuous or divided into
 classes. If <code>classify = TRUE</code>, the map is divided into
 discrete classes, and we can define custom breaks and labels to make it
 easier to see which areas have higher or lower priority.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">breaks</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="va">labels</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"very low"</span>, <span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"very high"</span><span class="op">)</span></span>
 <span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/priority_map.html">priority_map</a></span><span class="op">(</span><span class="va">baseline_folder</span>, classify <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>                   breaks <span class="op">=</span> <span class="va">breaks</span>, labels <span class="op">=</span> <span class="va">labels</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/priority-map2-1.png" class="r-plt" alt="" width="700" style="display: block; margin: auto;"></p>
+<p><img src="img/priority_map2.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"></p>
 <p>The visualization functions in <em>ZonationR</em> return
 <code>ggplot2</code> objects, which means that users can further
 customize the plots using the <code>ggplot2</code> ecosystem. For
 example, we can apply a different color palette to the map:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="va">p2</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_d</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="st">"rank"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/priority-map3-1.png" class="r-plt" alt="" width="700" style="display: block; margin: auto;"></p>
+<p><img src="img/priority_map3.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="performance-curves">Performance curves<a class="anchor" aria-label="anchor" href="#performance-curves"></a>
@@ -176,44 +187,44 @@ species<br>
 <strong>min</strong> - performance of the worst-performing
 species</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summary_curves.html">summary_curves</a></span><span class="op">(</span><span class="va">baseline_folder</span>, metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"mean"</span>, <span class="st">"max"</span>, <span class="st">"min"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Summary Curves"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p3</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/curves1-1.png" class="r-plt" alt="" width="700" style="display: block; margin: auto;"></p>
+<p><img src="img/summary_curves.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"></p>
 <p>We can also visualize additional metrics from the summary curves file
 using separate panels (facets). The <code>facet</code> argument should
 be set to <code>TRUE</code> when plotting metrics that have different
 units or value ranges.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p4</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summary_curves.html">summary_curves</a></span><span class="op">(</span><span class="va">baseline_folder</span>,</span>
 <span>                     metrics <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"remaining_area"</span>, <span class="st">"mean"</span><span class="op">)</span>,</span>
 <span>                     facet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p4</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/curves2-1.png" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
+<p><img src="img/summary_curves_facet.png" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
 <p>Besides looking at overall performance with
 <code><a href="../reference/summary_curves.html">summary_curves()</a></code>, one could also be interested in how each
 feature is represented across the priority ranking, which can be
 explored using the <code><a href="../reference/feature_curves.html">feature_curves()</a></code> function:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p5</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/feature_curves.html">feature_curves</a></span><span class="op">(</span><span class="va">baseline_folder</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Feature curves"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p5</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/curves3-1.png" class="r-plt" alt="" width="700" style="display: block; margin: auto;"></p>
+<p><img src="img/feature_curves.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"></p>
 <p>As with <code><a href="../reference/priority_map.html">priority_map()</a></code>, the functions
 <code><a href="../reference/summary_curves.html">summary_curves()</a></code> and <code><a href="../reference/feature_curves.html">feature_curves()</a></code> return
 <code>ggplot2</code> objects, allowing further customization of the
 plots. For example, we can add a vertical line to highlight the top 10%
 (<code>rank = 0.9</code>) priority cells.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p5</span> <span class="op">&lt;-</span> <span class="va">p5</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html" class="external-link">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0.9</span>, linetype <span class="op">=</span> <span class="st">"dashed"</span>, color <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p5</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/curves4-1.png" class="r-plt" alt="" width="700" style="display: block; margin: auto;"></p>
+<p><img src="img/feature_curves_vline.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"></p>
 <blockquote>
 <p>The vertical line at 0.9 represents the top 10% priority areas.
 Intersection with the curves shows the proportion of each feature
@@ -224,7 +235,7 @@ should be interpreted together. For example, we could use the
 <code><a href="../reference/priority_map.html">priority_map()</a></code> function to plot a classified map showing
 only the top 10% priority areas, alongside the corresponding feature
 curves.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Define the threshold for the top 10% priority cells</span></span>
 <span><span class="va">threshold</span> <span class="op">&lt;-</span> <span class="fl">0.90</span></span>
 <span></span>
@@ -249,7 +260,7 @@ curves.</p>
 <span><span class="va">p1_combined</span> <span class="op">&lt;-</span> <span class="va">top10_map</span> <span class="op">+</span> <span class="va">p5</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p1_combined</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/priority-map4-1.png" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
+<p><img src="img/top10_map_feature_curves.png" class="r-plt" alt="" width="100%"></p>
 <p>By combining the classified map and the feature curves side by side,
 we can see which areas are top-priority and how well each species is
 represented within those areas (i.e., the curves intersecting the red
@@ -267,22 +278,22 @@ species reaching that coverage level (y-axis). For example, a bar
 reaching 30 on the y-axis at the coverage range 0.1-0.2 means that 30
 species have between 10% and 20% of their range included in the selected
 priority fraction.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p6</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/coverage_distribution.html">coverage_distribution</a></span><span class="op">(</span><span class="va">baseline_folder</span>, target_rank <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Coverage at the top 10%"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>hjust <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p6</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/coverage-1.png" class="r-plt" alt="" width="700" style="display: block; margin: auto;"></p>
+<p><img src="img/coverage_distribution.png" class="r-plt" alt="" width="70%" style="display: block; margin: auto;"></p>
 <blockquote>
 <p>An overview of Zonation results can be created by combining maps and
 other outputs.</p>
 </blockquote>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">p2_combined</span> <span class="op">&lt;-</span> <span class="va">top10_map</span> <span class="op">+</span> <span class="va">p5</span> <span class="op">/</span> <span class="va">p6</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p2_combined</span><span class="op">)</span></span></code></pre></div>
-<p><img src="zonation-outputs_files/figure-html/combined1-1.png" class="r-plt" alt="" width="100%"></p>
+<p><img src="img/combined_plot.png" class="r-plt" alt="" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="key-takeaways">Key takeaways<a class="anchor" aria-label="anchor" href="#key-takeaways"></a>

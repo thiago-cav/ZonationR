@@ -38,6 +38,8 @@ Importing outputs for further analysis and interpretation.
   : Plot coverage distribution at a given rank
 - [`feature_curves()`](https://thiago-cav.github.io/ZonationR/reference/feature_curves.md)
   : Plot feature performance curves
+- [`feature_representation()`](https://thiago-cav.github.io/ZonationR/reference/feature_representation.md)
+  : Calculate feature representation within an area
 - [`priority_map()`](https://thiago-cav.github.io/ZonationR/reference/priority_map.md)
   : Plot priority ranking maps
 - [`rank_similarity()`](https://thiago-cav.github.io/ZonationR/reference/rank_similarity.md)

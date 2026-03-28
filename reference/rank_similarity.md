@@ -51,6 +51,7 @@ pairwise coefficients if using `rstack`.
 Other postprocessing:
 [`coverage_distribution()`](https://thiago-cav.github.io/ZonationR/reference/coverage_distribution.md),
 [`feature_curves()`](https://thiago-cav.github.io/ZonationR/reference/feature_curves.md),
+[`feature_representation()`](https://thiago-cav.github.io/ZonationR/reference/feature_representation.md),
 [`priority_map()`](https://thiago-cav.github.io/ZonationR/reference/priority_map.md),
 [`summary_curves()`](https://thiago-cav.github.io/ZonationR/reference/summary_curves.md)
 
@@ -66,9 +67,9 @@ terra::values(r2) <- runif(terra::ncell(r2))
 
 # Schoener's D
 rank_similarity(r1, r2, method = "schoener")
-#> [1] 0.5700877
+#> [1] 0.6923096
 
 # Jaccard index with threshold
 rank_similarity(r1, r2, method = "jaccard", threshold = 0.7)
-#> [1] 0.07692308
+#> [1] 0.1333333
 ```
