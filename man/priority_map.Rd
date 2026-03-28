@@ -84,6 +84,7 @@ priority_map(
 Other postprocessing: 
 \code{\link{coverage_distribution}()},
 \code{\link{feature_curves}()},
+\code{\link{feature_representation}()},
 \code{\link{rank_similarity}()},
 \code{\link{summary_curves}()}
 }

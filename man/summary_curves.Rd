@@ -66,6 +66,7 @@ summary_curves("01_baseline", metrics = c("remaining_area", "remaining_cost"), f
 Other postprocessing: 
 \code{\link{coverage_distribution}()},
 \code{\link{feature_curves}()},
+\code{\link{feature_representation}()},
 \code{\link{priority_map}()},
 \code{\link{rank_similarity}()}
 }
