@@ -62,6 +62,7 @@ the specified priority rank.
 ## See also
 
 Other postprocessing:
+[`cost_summary()`](https://thiago-cav.github.io/ZonationR/reference/cost_summary.md),
 [`feature_curves()`](https://thiago-cav.github.io/ZonationR/reference/feature_curves.md),
 [`feature_representation()`](https://thiago-cav.github.io/ZonationR/reference/feature_representation.md),
 [`priority_map()`](https://thiago-cav.github.io/ZonationR/reference/priority_map.md),

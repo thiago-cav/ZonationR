@@ -49,6 +49,7 @@ pairwise coefficients if using `rstack`.
 ## See also
 
 Other postprocessing:
+[`cost_summary()`](https://thiago-cav.github.io/ZonationR/reference/cost_summary.md),
 [`coverage_distribution()`](https://thiago-cav.github.io/ZonationR/reference/coverage_distribution.md),
 [`feature_curves()`](https://thiago-cav.github.io/ZonationR/reference/feature_curves.md),
 [`feature_representation()`](https://thiago-cav.github.io/ZonationR/reference/feature_representation.md),

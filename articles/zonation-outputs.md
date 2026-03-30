@@ -23,6 +23,7 @@ if (!require(patchwork)) install.packages("patchwork")
 ``` r
 # Load necessary libraries
 library(ZonationR)
+library(Zonation5RData)
 library(ggplot2)
 library(patchwork)
 ```

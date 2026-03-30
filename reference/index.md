@@ -34,6 +34,8 @@ Running the prioritization analysis directly from R.
 
 Importing outputs for further analysis and interpretation.
 
+- [`cost_summary()`](https://thiago-cav.github.io/ZonationR/reference/cost_summary.md)
+  : Summarize remaining cost at specified landscape proportions
 - [`coverage_distribution()`](https://thiago-cav.github.io/ZonationR/reference/coverage_distribution.md)
   : Plot coverage distribution at a given rank
 - [`feature_curves()`](https://thiago-cav.github.io/ZonationR/reference/feature_curves.md)
