@@ -63,6 +63,7 @@ coverage_distribution("01_baseline", target_rank = 0.9,
 }
 \seealso{
 Other postprocessing: 
+\code{\link{cost_summary}()},
 \code{\link{feature_curves}()},
 \code{\link{feature_representation}()},
 \code{\link{priority_map}()},

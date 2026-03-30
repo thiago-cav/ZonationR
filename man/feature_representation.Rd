@@ -54,6 +54,7 @@ result$representation_in_area
 }
 \seealso{
 Other postprocessing: 
+\code{\link{cost_summary}()},
 \code{\link{coverage_distribution}()},
 \code{\link{feature_curves}()},
 \code{\link{priority_map}()},

@@ -53,6 +53,7 @@ rank_similarity(r1, r2, method = "jaccard", threshold = 0.7)
 }
 \seealso{
 Other postprocessing: 
+\code{\link{cost_summary}()},
 \code{\link{coverage_distribution}()},
 \code{\link{feature_curves}()},
 \code{\link{feature_representation}()},

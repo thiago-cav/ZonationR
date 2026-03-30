@@ -31,9 +31,9 @@ if (!require(patchwork)) install.packages("patchwork")
 ```{r setup, eval=F, message=FALSE, warning=FALSE}
 # Load necessary libraries
 library(ZonationR)
+library(Zonation5RData)
 library(ggplot2)
 library(patchwork)
-
 ```
 
 ### Prepare input data

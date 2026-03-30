@@ -68,6 +68,7 @@ feature_curves("01_baseline", palette = "blue", alpha = 0.2)
 }
 \seealso{
 Other postprocessing: 
+\code{\link{cost_summary}()},
 \code{\link{coverage_distribution}()},
 \code{\link{feature_representation}()},
 \code{\link{priority_map}()},

@@ -64,6 +64,7 @@ summary_curves("01_baseline", metrics = c("remaining_area", "remaining_cost"), f
 }
 \seealso{
 Other postprocessing: 
+\code{\link{cost_summary}()},
 \code{\link{coverage_distribution}()},
 \code{\link{feature_curves}()},
 \code{\link{feature_representation}()},
