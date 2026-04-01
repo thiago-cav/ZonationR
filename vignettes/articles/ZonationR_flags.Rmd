@@ -1,0 +1,93 @@
+---
+title: "Analysis flags in ZonationR"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+```{r setup, include=FALSE}
+library(knitr)
+library(kableExtra)
+```
+
+*ZonationR* provides a set of single-letter flags that control analysis options through `command_file()`. Certain flags require specific columns in the feature list (e.g., `weight` or `group`), while others need additional raster inputs supplied via `settings_file()`. As **additional material to the function documentation**, this vignette provides a guide to the available analysis flags and their relationships to feature and settings inputs, helping users better understand how to configure *ZonationR* workflows.
+
+### Feature list
+
+The `feature_list()` function produces a file specifying biodiversity features (e.g., species or habitat distributions). Users can assign weights, groups, and thresholds to control prioritization. Columns in the feature list, such as `weight`, `group`, and `threshold`, are used by the prioritization algorithm according to the flags set in `command_file()`.
+
+```{r feature-list-table, echo=FALSE}
+library(knitr)
+library(kableExtra)
+
+feature_list_table <- data.frame(
+  Argument = c("filename", "weight", "group", "threshold"),
+  ParameterFlags = c("-", "w", "g", "t"),
+  DataType = c("string", "floating-point", "integer", "floating-point"),
+  Explanation = c(
+    "Feature distribution file name",
+    "Feature weight",
+    "Output group number",
+    "Numeric threshold below which values are cut to zero"
+  )
+)
+
+kable(feature_list_table, caption = "Table 1. Arguments accepted by `feature_list()` and their parameter flags") %>%
+  kable_styling(full_width = FALSE, bootstrap_options = c("striped", "hover", "condensed"))
+```
+
+### Settings file
+
+The `settings_file()` function generates a configuration file that defines the inputs for a Zonation analysis. Some spatial inputs, such as analysis area masks or hierarchic masks, are optional but require activation via the corresponding flags in `command_file()`. File inputs include the feature list (i.e., the output from the `feature_list()` function), optional external solutions (`external solution`), analysis area masks (`analysis area mask layer`), hierarchic masks (`hierarchic mask layer`), and cost layers (`cost layer`).
+
+```{r settings-file-table, echo=FALSE}
+settings_file_table <- data.frame(
+  FileParameter = c(
+    "feature list file", "external solution", "analysis area mask layer",
+    "hierarchic mask layer", "cost layer"
+  ),
+  CommandFlag = c("always required", "--mode=LOAD", "a", "h", "x, X"),
+  RequiredFileType = c("plain text file", "floating-point raster", "integer raster", "integer raster", "floating-point raster")
+)
+
+kable(settings_file_table, caption = "Table 2. Arguments accepted by `settings_file()`") %>%
+  kable_styling(full_width = FALSE, bootstrap_options = c("striped", "hover", "condensed"))
+```
+
+### Command file
+
+Analysis options in *ZonationR* are controlled via single-letter flags specified in `command_file()`. Some flags require corresponding columns in the feature list (e.g., `weight`, `group`, `threshold`), while others require additional raster inputs supplied through `settings_file()`. The table below summarizes the available flags, the required feature list columns, and any additional raster inputs needed.
+
+```{r flags-table, echo=FALSE}
+flags_table <- data.frame(
+  Flag = c("a", "w", "g", "h", "x", "X", "t"),
+  Explanation = c(
+    "Use analysis area mask",
+    "Apply feature weights",
+    "Use output groups",
+    "Hierarchic analysis",
+    "Include cost in outputs only",
+    "Include cost in prioritization",
+    "Apply thresholding"
+  ),
+  FeatureListColumn = c("-", "weight", "group", "-", "-", "-", "threshold"),
+  AdditionalRaster = c(
+    "1 integer raster (analysis area)",
+    "-",
+    "-",
+    "1 integer raster (hierarchic mask)",
+    "1 floating-point raster",
+    "1 floating-point raster",
+    "-"
+  )
+)
+
+kable(flags_table, caption = "Table 3. Analysis flags available in *ZonationR* and their requirements") %>%
+  kable_styling(full_width = FALSE, bootstrap_options = c("striped", "hover", "condensed")) %>%
+  row_spec(0, bold = TRUE)
+```

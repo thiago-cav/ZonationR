@@ -52,6 +52,8 @@ navbar:
           href: articles/variants-workflow.html
         - text: "Zonation outputs"
           href: articles/zonation-outputs.html
+        - text: "Analysis flags in ZonationR"
+          href: articles/ZonationR_flags.html
         - text: "Why spatial prioritization"
           href: articles/why_spatial_prioritization.html
     news:
