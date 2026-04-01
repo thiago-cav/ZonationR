@@ -52,8 +52,8 @@ if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages("pak")
 }
 
-# Install Zonation5 from GitHub
-pak::pak("thiago-cav/Zonation5R")
+# Install ZonationR from GitHub
+pak::pak("thiago-cav/ZonationR")
 ```
 
 Load the package:
