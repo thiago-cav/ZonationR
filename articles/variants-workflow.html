@@ -102,8 +102,10 @@ multiple scenarios.</p>
 <h3 id="setup">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
 </h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Install withr if not already installed</span></span>
-<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://withr.r-lib.org" class="external-link">withr</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"withr"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># Install 'withr' package if not already installed</span></span>
+<span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"withr"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"withr"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
 <span></span>
 <span><span class="co"># Load necessary libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/thiago-cav/ZonationR" class="external-link">ZonationR</a></span><span class="op">)</span></span>
@@ -113,7 +115,7 @@ multiple scenarios.</p>
 <div class="section level3">
 <h3 id="prepare-input-data">Prepare input data<a class="anchor" aria-label="anchor" href="#prepare-input-data"></a>
 </h3>
-<p>In this tutorial, we use the <a href="https://github.com/kguidonimartins/Zonation5RData" class="external-link">Zonation5RData</a>
+<p>In this tutorial, we use the <a href="https://github.com/thiago-cav/Zonation5RData" class="external-link">Zonation5RData</a>
 package, which provides GeoTIFF layers for workflows with Zonation and
 <em>ZonationR</em>. To use the layers in the <strong>RStudio
 project</strong>, we first create folders and then copy the raster files

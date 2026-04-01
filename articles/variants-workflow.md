@@ -30,8 +30,10 @@ the project organized while running multiple scenarios.
 ### Setup
 
 ``` r
-# Install withr if not already installed
-if (!require(withr)) install.packages("withr")
+# Install 'withr' package if not already installed
+if (!requireNamespace("withr", quietly = TRUE)) {
+  install.packages("withr")
+}
 
 # Load necessary libraries
 library(ZonationR)
@@ -42,8 +44,8 @@ library(withr)
 ### Prepare input data
 
 In this tutorial, we use the
-[Zonation5RData](https://github.com/kguidonimartins/Zonation5RData)
-package, which provides GeoTIFF layers for workflows with Zonation and
+[Zonation5RData](https://github.com/thiago-cav/Zonation5RData) package,
+which provides GeoTIFF layers for workflows with Zonation and
 *ZonationR*. To use the layers in the **RStudio project**, we first
 create folders and then copy the raster files from the package.
 

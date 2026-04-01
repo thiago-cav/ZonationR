@@ -13,9 +13,14 @@ Specifically, users will:
 #### Installation
 
 ``` r
-# Install these packages if not already installed
-if (!require(ggplot2)) install.packages("ggplot2")
-if (!require(patchwork)) install.packages("patchwork")
+# Install required packages if not already installed
+if (!requireNamespace("ggplot2", quietly = TRUE)) {
+  install.packages("ggplot2")
+}
+
+if (!requireNamespace("patchwork", quietly = TRUE)) {
+  install.packages("patchwork")
+}
 ```
 
 #### Libraries
@@ -35,9 +40,9 @@ Here, we use the baseline variant output folder from the vignette
 worflow](https://thiago-cav.github.io/ZonationR/articles/variants-workflow.md)
 to illustrate some of the post-processing functions. You can either use
 the output folder data provided by the
-[Zonation5RData](https://github.com/kguidonimartins/Zonation5RData)
-package, as shown below, or, if you are following the multiple variants
-tutorial, you can use any output folder from there.
+[Zonation5RData](https://github.com/thiago-cav/Zonation5RData) package,
+as shown below, or, if you are following the multiple variants tutorial,
+you can use any output folder from there.
 
 ``` r
 # Create a folder to store the input data
