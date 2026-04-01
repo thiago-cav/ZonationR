@@ -10,11 +10,6 @@ knitr::opts_chunk$set(
 ```
 
 
-```{r setup, include=FALSE}
-library(knitr)
-library(kableExtra)
-```
-
 *ZonationR* provides a set of single-letter flags that control analysis options through `command_file()`. Certain flags require specific columns in the feature list (e.g., `weight` or `group`), while others need additional raster inputs supplied via `settings_file()`. As **additional material to the function documentation**, this vignette provides a guide to the available analysis flags and their relationships to feature and settings inputs, helping users better understand how to configure *ZonationR* workflows.
 
 ### Feature list
@@ -22,9 +17,6 @@ library(kableExtra)
 The `feature_list()` function produces a file specifying biodiversity features (e.g., species or habitat distributions). Users can assign weights, groups, and thresholds to control prioritization. Columns in the feature list, such as `weight`, `group`, and `threshold`, are used by the prioritization algorithm according to the flags set in `command_file()`.
 
 ```{r feature-list-table, echo=FALSE}
-library(knitr)
-library(kableExtra)
-
 feature_list_table <- data.frame(
   Argument = c("filename", "weight", "group", "threshold"),
   ParameterFlags = c("-", "w", "g", "t"),
@@ -37,8 +29,10 @@ feature_list_table <- data.frame(
   )
 )
 
-kable(feature_list_table, caption = "Table 1. Arguments accepted by `feature_list()` and their parameter flags") %>%
-  kable_styling(full_width = FALSE, bootstrap_options = c("striped", "hover", "condensed"))
+knitr::kable(
+  feature_list_table,
+  caption = "Table 1. Arguments accepted by `feature_list()` and their parameter flags"
+)
 ```
 
 ### Settings file
@@ -55,8 +49,10 @@ settings_file_table <- data.frame(
   RequiredFileType = c("plain text file", "floating-point raster", "integer raster", "integer raster", "floating-point raster")
 )
 
-kable(settings_file_table, caption = "Table 2. Arguments accepted by `settings_file()`") %>%
-  kable_styling(full_width = FALSE, bootstrap_options = c("striped", "hover", "condensed"))
+knitr::kable(
+  settings_file_table,
+  caption = "Table 2. Arguments accepted by `settings_file()`"
+)
 ```
 
 ### Command file
@@ -87,7 +83,8 @@ flags_table <- data.frame(
   )
 )
 
-kable(flags_table, caption = "Table 3. Analysis flags available in *ZonationR* and their requirements") %>%
-  kable_styling(full_width = FALSE, bootstrap_options = c("striped", "hover", "condensed")) %>%
-  row_spec(0, bold = TRUE)
+knitr::kable(
+  flags_table,
+  caption = "Table 3. Analysis flags available in *ZonationR* and their requirements"
+)
 ```
