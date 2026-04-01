@@ -45,14 +45,11 @@ as shown below, or, if you are following the multiple variants tutorial,
 you can use any output folder from there.
 
 ``` r
-# Create a folder to store the input data
-dir.create("01_baseline", showWarnings = FALSE)
+# Create a local copy of the example baseline folder
+src <- zonation5rdata_path("01_baseline")
 
-# Get the paths to the files
-files_output <- zonation5rdata_list("01_baseline", full.names = TRUE)
-
-# Copy to the local folder
-file.copy(files_output, "01_baseline", overwrite = TRUE)
+# Copy the whole directory, preserving the structure
+file.copy(src, ".", recursive = TRUE, overwrite = TRUE)
 
 # Define a variable for the baseline folder
 baseline_folder <- "01_baseline"

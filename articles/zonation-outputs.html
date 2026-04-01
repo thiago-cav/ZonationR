@@ -118,14 +118,11 @@ provided by the <a href="https://github.com/thiago-cav/Zonation5RData" class="ex
 package, as shown below, or, if you are following the multiple variants
 tutorial, you can use any output folder from there.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Create a folder to store the input data</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"01_baseline"</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="co"># Create a local copy of the example baseline folder</span></span>
+<span><span class="va">src</span> <span class="op">&lt;-</span> <span class="fu">zonation5rdata_path</span><span class="op">(</span><span class="st">"01_baseline"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Get the paths to the files</span></span>
-<span><span class="va">files_output</span> <span class="op">&lt;-</span> <span class="fu">zonation5rdata_list</span><span class="op">(</span><span class="st">"01_baseline"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Copy to the local folder</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="va">files_output</span>, <span class="st">"01_baseline"</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co"># Copy the whole directory, preserving the structure</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="va">src</span>, <span class="st">"."</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Define a variable for the baseline folder</span></span>
 <span><span class="va">baseline_folder</span> <span class="op">&lt;-</span> <span class="st">"01_baseline"</span></span></code></pre></div>
