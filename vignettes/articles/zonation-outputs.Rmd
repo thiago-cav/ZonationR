@@ -20,10 +20,14 @@ This vignette demonstrates how to explore and interpret some of the main outputs
 
 #### Installation 
 ```{r eval=F, message=FALSE, warning=FALSE}
-# Install these packages if not already installed
-if (!require(ggplot2)) install.packages("ggplot2")
-if (!require(patchwork)) install.packages("patchwork")
+# Install required packages if not already installed
+if (!requireNamespace("ggplot2", quietly = TRUE)) {
+  install.packages("ggplot2")
+}
 
+if (!requireNamespace("patchwork", quietly = TRUE)) {
+  install.packages("patchwork")
+}
 ```
 
 #### Libraries
@@ -38,7 +42,7 @@ library(patchwork)
 
 ### Prepare input data
 
-Here, we use the baseline variant output folder from the vignette [Variants worflow](variants-workflow.html) to illustrate some of the post-processing functions. You can either use the output folder data provided by the [Zonation5RData](https://github.com/kguidonimartins/Zonation5RData) package, as shown below, or, if you are following the multiple variants tutorial, you can use any output folder from there. 
+Here, we use the baseline variant output folder from the vignette [Variants worflow](variants-workflow.html) to illustrate some of the post-processing functions. You can either use the output folder data provided by the [Zonation5RData](https://github.com/thiago-cav/Zonation5RData) package, as shown below, or, if you are following the multiple variants tutorial, you can use any output folder from there. 
 
 ```{r, eval = FALSE, message = FALSE, results = 'hide', warning = FALSE}
 # Create a folder to store the input data

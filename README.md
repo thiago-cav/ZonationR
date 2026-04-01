@@ -47,8 +47,13 @@ You can install the development version of *ZonationR* from
 **[GitHub](https://github.com/thiago-cav/ZonationR)** with:
 
 ``` r
-if (!require(devtools)) install.packages("devtools")
-devtools::install_github("thiago-cav/ZonationR")
+# Install pak if not already installed
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak")
+}
+
+# Install Zonation5 from GitHub
+pak::pak("thiago-cav/Zonation5R")
 ```
 
 Load the package:
