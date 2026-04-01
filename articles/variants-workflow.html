@@ -42,6 +42,7 @@
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/variants-workflow.html">Variants workflow</a></li>
     <li><a class="dropdown-item" href="../articles/zonation-outputs.html">Zonation outputs</a></li>
+    <li><a class="dropdown-item" href="../articles/ZonationR_flags.html">Analysis flags in ZonationR</a></li>
     <li><a class="dropdown-item" href="../articles/why_spatial_prioritization.html">Why spatial prioritization</a></li>
   </ul>
 </li>
@@ -178,7 +179,13 @@ coverage.</p>
 the priority of areas where those features occur. This allows
 emphasizing key species or biodiversity features in the prioritization.
 For this purpose, we use the <code>weight</code> argument in the
-<code><a href="../reference/feature_list.html">feature_list()</a></code> function.</p>
+<code><a href="../reference/feature_list.html">feature_list()</a></code> function. To ensure that these weights are
+applied during analysis, the <code>w</code> flag must also be included
+in the <code><a href="../reference/command_file.html">command_file()</a></code> call.</p>
+<blockquote>
+<p>For a complete reference of all available analysis flags and their
+requirements in ZonationR, please see the vignette <a href="ZonationR_flags.html">Analysis flags in ZonationR</a>.</p>
+</blockquote>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create the folder</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="st">"03_cazmax_w"</span>, showWarnings <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>

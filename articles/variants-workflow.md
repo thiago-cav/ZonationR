@@ -109,7 +109,14 @@ priority of areas where those features occur. This allows emphasizing
 key species or biodiversity features in the prioritization. For this
 purpose, we use the `weight` argument in the
 [`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md)
-function.
+function. To ensure that these weights are applied during analysis, the
+`w` flag must also be included in the
+[`command_file()`](https://thiago-cav.github.io/ZonationR/reference/command_file.md)
+call.
+
+> For a complete reference of all available analysis flags and their
+> requirements in ZonationR, please see the vignette [Analysis flags in
+> ZonationR](https://thiago-cav.github.io/ZonationR/articles/ZonationR_flags.md).
 
 ``` r
 # Create the folder
