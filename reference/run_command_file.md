@@ -18,6 +18,10 @@ run_command_file(folder)
   A character string specifying the path to the folder containing the
   Zonation command file.
 
+## Value
+
+Nothing is returned. The function is used to run the Zonation analysis.
+
 ## Examples
 
 ``` r
