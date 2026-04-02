@@ -13,26 +13,13 @@ This vignette provides a brief introduction to *ZonationR*. Users will:
 
 ### Setup
 
-#### Installation
-
-You can install the development version of *ZonationR* from
-[GitHub](https://github.com/thiago-cav/ZonationR) with:
-
 ``` r
-# Install pak if not already installed
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages("pak")
-}
+# Install the Zonation5RData package from GitHub:
+pak::pak("thiago-cav/Zonation5RData")
 
-# Install ZonationR from GitHub
-pak::pak("thiago-cav/ZonationR")
-```
-
-#### Libraries
-
-``` r
 # Load necessary libraries
 library(ZonationR)
+library(Zonation5RData)
 ```
 
 ### Before you begin
@@ -68,12 +55,6 @@ we first create a folder and then copy the raster files from the
 package.
 
 ``` r
-# Install the Zonation5RData package from GitHub:
-pak::pak("thiago-cav/Zonation5RData")
-
-# Load the package
-library(Zonation5RData)
-
 # Create a folder for biodiversity input data
 dir.create("biodiversity", showWarnings = FALSE)
 

@@ -31,8 +31,13 @@ workflows.
 
 ### Installation
 
-You can install the development version of *ZonationR* from
-**[GitHub](https://github.com/thiago-cav/ZonationR)** with:
+You can install ZonationR from CRAN:
+
+``` r
+install.packages("ZonationR")
+```
+
+Or install the development version from GitHub:
 
 ``` r
 # Install pak if not already installed
