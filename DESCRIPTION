@@ -9,10 +9,10 @@ Authors@R: c(
     person("Karlo", "Guidoni-Martins", , "kguidonimartins@gmail.com", role = "aut",
            comment = c(ORCID = "0000-0002-8458-8467"))
             )
-Description: An interface to Zonation software, enabling users to run spatial 
- conservation prioritization workflows in R. It streamlines input preparation, 
+Description: An interface to 'Zonation' software, enabling users to run spatial 
+ conservation prioritization workflows in 'R'. It streamlines input preparation, 
  execution, and post-processing, while supporting reproducibility and lowering the 
- entry barrier for learning and teaching.
+ entry barrier for learning, teaching, and research in conservation planning.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
