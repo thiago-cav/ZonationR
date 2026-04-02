@@ -1,5 +1,5 @@
 Package: ZonationR
-Title: Toolkit for integrating Zonation workflows in R
+Title: Interface to Zonation for Reproducible Prioritization Workflows
 Version: 0.0.0.9000
 Authors@R: c(
     person("Thiago", "Cavalcante", , "thiagocav.ferreira@gmail.com", role = c("aut", "cre"),

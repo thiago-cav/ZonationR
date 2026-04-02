@@ -21,24 +21,13 @@ This vignette provides a brief introduction to *ZonationR*. Users will:
 
 ### Setup
 
-#### Installation 
-
-You can install the development version of *ZonationR* from [GitHub](https://github.com/thiago-cav/ZonationR) with:
-  
-```{r, eval=F}
-# Install pak if not already installed
-if (!requireNamespace("pak", quietly = TRUE)) {
-  install.packages("pak")
-}
-
-# Install ZonationR from GitHub
-pak::pak("thiago-cav/ZonationR")
-```
-
-#### Libraries
 ```{r, message = FALSE, results = 'hide', warning = FALSE}
+# Install the Zonation5RData package from GitHub:
+pak::pak("thiago-cav/Zonation5RData")
+
 # Load necessary libraries
 library(ZonationR)
+library(Zonation5RData)
 ```
 
 ### Before you begin
@@ -62,12 +51,6 @@ To install the Zonation 5 software on your computer.
 For this example, we use the [Zonation5RData](https://github.com/thiago-cav/Zonation5RData) package, which provides GeoTIFF layers for workflows with Zonation and *ZonationR*. To use the biodiversity layers in the **RStudio project**, we first create a folder and then copy the raster files from the package.
 
 ```{r, eval = FALSE, message = FALSE, results = 'hide', warning = FALSE}
-# Install the Zonation5RData package from GitHub:
-pak::pak("thiago-cav/Zonation5RData")
-
-# Load the package
-library(Zonation5RData)
-
 # Create a folder for biodiversity input data
 dir.create("biodiversity", showWarnings = FALSE)
 

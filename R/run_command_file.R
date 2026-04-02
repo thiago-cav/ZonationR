@@ -7,6 +7,8 @@
 #' @param folder A character string specifying the path to the folder containing
 #'   the Zonation command file.
 #'
+#' @return Nothing is returned. The function is used to run the Zonation
+#'   analysis.
 #' @examples
 #' \dontrun{
 #' run_command_file("C:/path/to/folder")

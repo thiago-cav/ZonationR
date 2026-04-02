@@ -7,7 +7,7 @@
 
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)  
-[![R-CMD-check](https://github.com/thiago-cav/Zonation5R/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/thiago-cav/Zonation5R/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/thiago-cav/ZonationR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/thiago-cav/ZonationR/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/thiago-cav/ZonationR/graph/badge.svg)](https://app.codecov.io/gh/thiago-cav/ZonationR)
 <!-- badges: end -->
@@ -43,8 +43,13 @@ workflows.
 
 ### Installation
 
-You can install the development version of *ZonationR* from
-**[GitHub](https://github.com/thiago-cav/ZonationR)** with:
+You can install ZonationR from CRAN:
+
+``` r
+install.packages("ZonationR")
+```
+
+Or install the development version from GitHub:
 
 ``` r
 # Install pak if not already installed
