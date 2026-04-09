@@ -13,13 +13,15 @@ The package is designed to:
 - **Streamline workflows** by automating input preparation, execution,
   and post-processing.  
 - **Enable reproducibility** through transparent script-based workflows
-  that remains fully consistent with the original Zonation software.
+  that remain fully consistent with the original Zonation software.
 
 Traditionally, Zonation workflows require manual input preparation,
 running the software via GUI or command line, and separate
 post-processing in R or GIS. *ZonationR* simplifies this process by
 integrating all steps into R, enabling transparent and automated
 workflows.
+
+![](reference/figures/zonationr-workflow.png)
 
 ### Features
 
@@ -55,11 +57,10 @@ Load the package:
 library(ZonationR)
 ```
 
-### Getting help
+### Documentation
 
-If you find a clear bug, please open an issue with a minimal
-reproducible example on
-**[GitHub](https://github.com/thiago-cav/ZonationR/issues)**.
+For detailed documentation, tutorials, and example workflows, see the
+**[ZonationR website](https://thiago-cav.github.io/ZonationR/)**.
 
 ### Contributing
 
@@ -77,7 +78,8 @@ We also use GitHub Actions for continuous integration, so please make
 sure the package passes `R CMD check` without errors or warnings before
 submitting a pull request.
 
-### Documentation
+### Getting help
 
-For detailed documentation, tutorials, and example workflows, see the
-**[ZonationR website](https://thiago-cav.github.io/ZonationR/)**.
+If you find a clear bug, please open an issue with a minimal
+reproducible example on
+**[GitHub](https://github.com/thiago-cav/ZonationR/issues)**.
