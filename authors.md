@@ -19,12 +19,12 @@ Source:
 
 Cavalcante T, Ribeiro B, Guidoni-Martins K, Kujala H (2026). *ZonationR:
 Interface to Zonation for Reproducible Prioritization Workflows*. R
-package version 0.0.0.9000, <https://github.com/thiago-cav/ZonationR>.
+package version 1.0.0, <https://github.com/thiago-cav/ZonationR>.
 
     @Manual{,
       title = {ZonationR: Interface to Zonation for Reproducible Prioritization Workflows},
       author = {Thiago Cavalcante and Bruno Ribeiro and Karlo Guidoni-Martins and Heini Kujala},
       year = {2026},
-      note = {R package version 0.0.0.9000},
+      note = {R package version 1.0.0},
       url = {https://github.com/thiago-cav/ZonationR},
     }
