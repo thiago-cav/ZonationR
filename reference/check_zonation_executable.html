@@ -108,7 +108,8 @@ system. Can be set to "Windows" or "Linux" manually.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">check_zonation_executable</span><span class="op">(</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="fu">check_zonation_executable</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $found</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
@@ -124,38 +125,7 @@ system. Can be set to "Windows" or "Linux" manually.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $message</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Zonation 5 executable not found.\nPlease install Zonation 5 from: https://zonationteam.github.io/Zonation5/\nOr provide the correct installation path using the 'zonation_path' parameter.\nFor Linux, you can download the AppImage from the website above.\nCommon locations to place it:\n  - ~/Applications\n  - ~/bin\n  - Or add it to your system PATH"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="fu">check_zonation_executable</span><span class="op">(</span>zonation_path <span class="op">=</span> <span class="st">"C:/Program Files (x86)/Zonation5"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $found</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $path</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $executable</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $os</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Linux"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $message</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Zonation 5 executable not found.\nPlease install Zonation 5 from: https://zonationteam.github.io/Zonation5/\nOr provide the correct installation path using the 'zonation_path' parameter.\nFor Linux, you can download the AppImage from the website above.\nCommon locations to place it:\n  - ~/Applications\n  - ~/bin\n  - Or add it to your system PATH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span><span class="fu">check_zonation_executable</span><span class="op">(</span>zonation_path <span class="op">=</span> <span class="st">"~/Applications"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $found</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] FALSE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $path</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $executable</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> NULL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $os</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Linux"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $message</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Zonation 5 executable not found.\nPlease install Zonation 5 from: https://zonationteam.github.io/Zonation5/\nOr provide the correct installation path using the 'zonation_path' parameter.\nFor Linux, you can download the AppImage from the website above.\nCommon locations to place it:\n  - ~/Applications\n  - ~/bin\n  - Or add it to your system PATH"</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
