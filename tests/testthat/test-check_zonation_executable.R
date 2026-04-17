@@ -175,19 +175,16 @@ test_that("check_zonation_executable detects OS automatically", {
   }
 })
 
-test_that("check_zonation_executable errors on macOS", {
-  # Skip if not on macOS (we can't test the error on non-macOS systems)
+test_that("check_zonation_executable handles macOS gracefully", {
+
   skip_on_os(c("windows", "linux"))
 
-  # Should error when macOS is detected
-  expect_error(
-    check_zonation_executable(),
-    "macOS is not currently supported"
-  )
+  result <- check_zonation_executable()
 
-  # Should also error if macOS is explicitly provided
-  expect_error(
-    check_zonation_executable(os = "macOS"),
-    "must be either 'Windows' or 'Linux'"
-  )
+  expect_type(result, "list")
+  expect_named(result, c("found", "path", "executable", "os", "message"))
+  expect_false(result$found)
+  expect_equal(result$os, "macOS")
+  expect_true(is.character(result$message))
+
 })
