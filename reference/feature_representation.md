@@ -75,5 +75,5 @@ terra::values(mask) <- sample(c(0,1), terra::ncell(mask), replace = TRUE)
 result <- feature_representation(features, mask)
 result$representation_in_area
 #> feature_1 feature_2 
-#> 0.4622109 0.4387114 
+#> 0.5617267 0.5653429 
 ```

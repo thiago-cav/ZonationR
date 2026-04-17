@@ -68,9 +68,9 @@ terra::values(r2) <- runif(terra::ncell(r2))
 
 # Schoener's D
 rank_similarity(r1, r2, method = "schoener")
-#> [1] 0.6923096
+#> [1] 0.642128
 
 # Jaccard index with threshold
 rank_similarity(r1, r2, method = "jaccard", threshold = 0.7)
-#> [1] 0.1333333
+#> [1] 0.2
 ```

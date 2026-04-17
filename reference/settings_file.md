@@ -57,7 +57,14 @@ Other preprocessing:
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-settings_file(feature_list_file = "feature_list.txt")
-} # }
+# \donttest{
+withr::with_tempdir({
+
+  tmp <- tempfile(fileext = ".txt")
+  writeLines("feature list file = feature_list.txt", tmp)
+
+  settings_file(feature_list_file = "feature_list.txt")
+})
+#> Settings file settings_file.z5 has been created.
+# }
 ```

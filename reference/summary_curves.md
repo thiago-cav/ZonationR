@@ -80,11 +80,31 @@ Other postprocessing:
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-# Plot mean and max metrics overlaid
-summary_curves("01_baseline", metrics = c("mean", "max"))
+# \donttest{
+withr::with_tempdir({
 
-# Plot area and cost metrics in separate panels
-summary_curves("01_baseline", metrics = c("remaining_area", "remaining_cost"), facet = TRUE)
-} # }
+  data_path <- system.file(
+    "extdata",
+    package = "ZonationR"
+  )
+
+  dir.create("output")
+
+  file.copy(
+    file.path(data_path, "summary_curves.csv"),
+    "output/summary_curves.csv",
+    overwrite = TRUE
+  )
+
+  p1 <- summary_curves(
+    dir = ".",
+    output_folder_name = "output",
+    metrics = c("mean", "max")
+  )
+
+  print(p1)
+
+})
+
+# }
 ```

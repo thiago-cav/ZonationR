@@ -36,7 +36,7 @@ Other preflight:
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-check_dir_writable(tempdir())
-} # }
+dir <- tempdir()
+check_dir_writable(dir)
+#> [1] TRUE
 ```

@@ -38,7 +38,20 @@ Other preflight:
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-check_raster_uniformity("path/to/rasters")
-} # }
+# \donttest{
+withr::with_tempdir({
+
+  r1 <- terra::rast(nrows = 5, ncols = 5)
+  terra::values(r1) <- runif(terra::ncell(r1))
+
+  r2 <- terra::rast(r1)
+  terra::values(r2) <- runif(terra::ncell(r2))
+
+  terra::writeRaster(r1, "r1.tif", overwrite = TRUE)
+  terra::writeRaster(r2, "r2.tif", overwrite = TRUE)
+
+  check_raster_uniformity(".")
+})
+#> All raster files in '.' are spatially uniform and compatible with Zonation.
+# }
 ```

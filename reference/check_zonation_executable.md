@@ -76,14 +76,52 @@ Other preflight:
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
-# Check common installation locations
 check_zonation_executable()
-
-# Check a specific path
+#> $found
+#> [1] FALSE
+#> 
+#> $path
+#> NULL
+#> 
+#> $executable
+#> NULL
+#> 
+#> $os
+#> [1] "Linux"
+#> 
+#> $message
+#> [1] "Zonation 5 executable not found.\nPlease install Zonation 5 from: https://zonationteam.github.io/Zonation5/\nOr provide the correct installation path using the 'zonation_path' parameter.\nFor Linux, you can download the AppImage from the website above.\nCommon locations to place it:\n  - ~/Applications\n  - ~/bin\n  - Or add it to your system PATH"
+#> 
 check_zonation_executable(zonation_path = "C:/Program Files (x86)/Zonation5")
-
-# Check on Linux
+#> $found
+#> [1] FALSE
+#> 
+#> $path
+#> NULL
+#> 
+#> $executable
+#> NULL
+#> 
+#> $os
+#> [1] "Linux"
+#> 
+#> $message
+#> [1] "Zonation 5 executable not found.\nPlease install Zonation 5 from: https://zonationteam.github.io/Zonation5/\nOr provide the correct installation path using the 'zonation_path' parameter.\nFor Linux, you can download the AppImage from the website above.\nCommon locations to place it:\n  - ~/Applications\n  - ~/bin\n  - Or add it to your system PATH"
+#> 
 check_zonation_executable(zonation_path = "~/Applications")
-} # }
+#> $found
+#> [1] FALSE
+#> 
+#> $path
+#> NULL
+#> 
+#> $executable
+#> NULL
+#> 
+#> $os
+#> [1] "Linux"
+#> 
+#> $message
+#> [1] "Zonation 5 executable not found.\nPlease install Zonation 5 from: https://zonationteam.github.io/Zonation5/\nOr provide the correct installation path using the 'zonation_path' parameter.\nFor Linux, you can download the AppImage from the website above.\nCommon locations to place it:\n  - ~/Applications\n  - ~/bin\n  - Or add it to your system PATH"
+#> 
 ```
