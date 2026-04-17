@@ -43,9 +43,9 @@ For Linux, the function searches for \code{zonation5} in:
 }
 }
 \examples{
+\donttest{
 check_zonation_executable()
-check_zonation_executable(zonation_path = "C:/Program Files (x86)/Zonation5")
-check_zonation_executable(zonation_path = "~/Applications")
+}
 
 }
 \seealso{

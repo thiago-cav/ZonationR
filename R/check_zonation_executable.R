@@ -32,9 +32,9 @@
 #' @family preflight
 #'
 #' @examples
+#' \donttest{
 #' check_zonation_executable()
-#' check_zonation_executable(zonation_path = "C:/Program Files (x86)/Zonation5")
-#' check_zonation_executable(zonation_path = "~/Applications")
+#' }
 #'
 check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
 
@@ -43,17 +43,27 @@ check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
     os_platform <- .Platform$OS.type
     if (os_platform == "unix") {
       # Check if it's macOS (not supported)
-      if (Sys.info()["sysname"] == "Darwin") {
-        stop("macOS is not currently supported. Zonation 5 is only available for Windows and Linux.\n",
-             "Please visit: https://zonationteam.github.io/Zonation5/")
+      if (Sys.info()[["sysname"]] == "Darwin") {
+        return(list(
+          found = FALSE,
+          path = NULL,
+          executable = NULL,
+          os = "macOS",
+          message = "Zonation 5 is not available on macOS. Visit: https://zonationteam.github.io/Zonation5/"
+        ))
       } else {
         os <- "Linux"
       }
     } else if (os_platform == "windows") {
       os <- "Windows"
     } else {
-      stop("Unsupported operating system. Zonation 5 is only available for Windows and Linux.\n",
-           "Please visit: https://zonationteam.github.io/Zonation5/")
+      return(list(
+        found = FALSE,
+        path = NULL,
+        executable = NULL,
+        os = "unsupported",
+        message = "Unsupported operating system. Zonation 5 is only available for Windows and Linux. Visit: https://zonationteam.github.io/Zonation5/"
+      ))
     }
   }
 
