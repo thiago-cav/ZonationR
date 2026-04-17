@@ -19,8 +19,14 @@
 #' @returns A `.z5` file containing the specified settings.
 #'
 #' @examples
-#' \dontrun{
-#' settings_file(feature_list_file = "feature_list.txt")
+#' \donttest{
+#' withr::with_tempdir({
+#'
+#'   tmp <- tempfile(fileext = ".txt")
+#'   writeLines("feature list file = feature_list.txt", tmp)
+#'
+#'   settings_file(feature_list_file = "feature_list.txt")
+#' })
 #' }
 #'
 #' @family preprocessing

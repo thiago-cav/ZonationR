@@ -43,16 +43,10 @@ For Linux, the function searches for \code{zonation5} in:
 }
 }
 \examples{
-\dontrun{
-# Check common installation locations
 check_zonation_executable()
-
-# Check a specific path
 check_zonation_executable(zonation_path = "C:/Program Files (x86)/Zonation5")
-
-# Check on Linux
 check_zonation_executable(zonation_path = "~/Applications")
-}
+
 }
 \seealso{
 Other preflight: 

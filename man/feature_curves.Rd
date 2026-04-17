@@ -54,15 +54,46 @@ rank for each feature. Supports a single color with transparency or the
 viridis palette.
 }
 \examples{
-\dontrun{
-# Plot gray lines with default transparency and no legend
-feature_curves("01_baseline")
+\donttest{
+withr::with_tempdir({
 
-# Plot using viridis palette with legend
-feature_curves("01_baseline", palette = "viridis", show_legend = TRUE)
+  data_path <- system.file(
+    "extdata",
+    package = "ZonationR"
+  )
 
-# Plot using custom blue color with more transparency
-feature_curves("01_baseline", palette = "blue", alpha = 0.2)
+  dir.create("output")
+
+  file.copy(
+    file.path(data_path, "feature_curves.csv"),
+    "output/feature_curves.csv",
+    overwrite = TRUE
+  )
+
+  file.copy(
+    file.path(data_path, "features_info.csv"),
+    "output/features_info.csv",
+    overwrite = TRUE
+  )
+
+  p1 <- feature_curves(
+    dir = ".",
+    output_folder_name = "output"
+  )
+
+  print(p1)
+
+  # Plot using viridis palette with legend
+  p2 <- feature_curves(
+    dir = ".",
+    output_folder_name = "output",
+    palette = "viridis",
+    show_legend = TRUE
+  )
+
+  print(p2)
+
+})
 }
 
 }

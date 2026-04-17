@@ -15,9 +15,9 @@
 #'   }
 #'
 #' @examples
-#' \dontrun{
-#' check_dir_writable(tempdir())
-#' }
+#' dir <- tempdir()
+#' check_dir_writable(dir)
+#'
 #' @family preflight
 #'
 #' @export

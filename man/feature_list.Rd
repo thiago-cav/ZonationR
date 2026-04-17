@@ -33,8 +33,14 @@ raster formats include GeoTIFF (.tif, .tiff), ERDAS Imagine (.img), and ASCII
 Grid (.asc).
 }
 \examples{
-\dontrun{
-feature_list(spp_file_dir = "path/to/raster/files")
+\donttest{
+withr::with_tempdir({
+
+  file.create("species1.tif")
+  file.create("species2.tif")
+
+  feature_list(spp_file_dir = ".")
+})
 }
 }
 \seealso{

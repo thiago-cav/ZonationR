@@ -26,16 +26,24 @@
 #'
 #'
 #' @examples
-#' \dontrun{
-#' command_file(
-#'   zonation_path = "C:/Program Files (x86)/Zonation5"
-#' )
+#' \donttest{
+#' withr::with_tempdir({
 #'
-#' command_file(
-#'   zonation_path = "C:/Program Files (x86)/Zonation5",
-#'   marginal_loss_mode = "ABF",
-#'   gui_activated = TRUE
-#' )
+#'   tmp_settings <- tempfile(fileext = ".z5")
+#'   writeLines("feature list file = feature_list.txt", tmp_settings)
+#'
+#'   command_file(
+#'     zonation_path = "path/to/zonation",
+#'     settings_file = tmp_settings
+#'   )
+#'
+#'   command_file(
+#'     zonation_path = "path/to/zonation",
+#'     marginal_loss_mode = "ABF",
+#'     gui_activated = TRUE,
+#'     settings_file = tmp_settings
+#'   )
+#' })
 #' }
 #'
 #' @family preprocessing

@@ -23,9 +23,9 @@ R process has permission to create and delete a temporary file in it.
 It is intended for use before writing output files.
 }
 \examples{
-\dontrun{
-check_dir_writable(tempdir())
-}
+dir <- tempdir()
+check_dir_writable(dir)
+
 }
 \seealso{
 Other preflight: 

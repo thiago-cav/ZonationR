@@ -61,21 +61,47 @@ a ggplot2 map. It can plot the raster as continuous values or classify it
 into discrete categories with custom breaks and labels.
 }
 \examples{
-\dontrun{
-p1 <- priority_map(dir = "01_baseline", classify = FALSE)
-print(p1)
+\donttest{
+withr::with_tempdir({
 
-breaks <- c(0, 0.25, 0.5, 0.75, 1)
-labels <- c("Low", "Medium", "High", "Very High")
-p2 <- priority_map(dir = "01_baseline", classify = TRUE,
-                   breaks = breaks, labels = labels)
-print(p2)
+  data_path <- system.file(
+    "extdata",
+    package = "ZonationR"
+  )
 
-# Save a continuous map
-priority_map(
-  dir = "01_baseline",
-  classify = FALSE,
-  save_path = "plots/baseline_map.png")
+  dir.create("output")
+
+  # copy example rankmap
+  file.copy(
+    file.path(data_path, "rankmap.tif"),
+    "output/rankmap.tif",
+    overwrite = TRUE
+  )
+
+  # ---- continuous map ----
+  p1 <- priority_map(
+    dir = ".",
+    output_folder_name = "output",
+    classify = FALSE
+  )
+
+  print(p1)
+
+  # ---- classified map ----
+  breaks <- c(0, 0.25, 0.5, 0.75, 1)
+  labels <- c("Low", "Medium", "High", "Very High")
+
+  p2 <- priority_map(
+    dir = ".",
+    output_folder_name = "output",
+    classify = TRUE,
+    breaks = breaks,
+    labels = labels
+  )
+
+  print(p2)
+
+})
 }
 
 

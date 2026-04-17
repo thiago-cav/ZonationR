@@ -39,11 +39,32 @@ remaining cost and percentage of maximum cost at those proportions.
 Optionally writes the result to \code{dir/performance/cost_summary.csv}.
 }
 \examples{
-\dontrun{
-cost_summary("path/to/zonation/output", landscape_prop = c(0.03, 0.2, 0.5))
+\donttest{
+withr::with_tempdir({
 
-# Save output to CSV
-cost_summary("path/to/zonation/output", landscape_prop = c(0.1, 0.5), save_output = TRUE)
+  dir.create("output")
+
+  # simulate Zonation-style summary_curves.csv structure
+  write.table(
+    data.frame(
+      rank = seq(0, 1, length.out = 10),
+      remaining_cost = runif(10, 50, 100),
+      dummy1 = runif(10),
+      dummy2 = runif(10)
+    ),
+    file = file.path("output", "summary_curves.csv"),
+    row.names = FALSE,
+    col.names = TRUE,
+    sep = " "
+  )
+
+  cost_summary(
+    dir = ".",
+    output_folder_name = "output",
+    landscape_prop = c(0.2, 0.5, 0.8)
+  )
+
+})
 }
 
 }

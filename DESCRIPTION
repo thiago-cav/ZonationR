@@ -1,6 +1,6 @@
 Package: ZonationR
-Title: Interface to Zonation for Reproducible Prioritization Workflows
-Version: 1.0.0
+Title: Interface to 'Zonation' for Reproducible Prioritization Workflows
+Version: 1.0.1
 Authors@R: c(
     person("Thiago", "Cavalcante", , "thiagocav.ferreira@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-5357-9659")),
@@ -14,7 +14,8 @@ Authors@R: c(
 Description: An interface to 'Zonation' software, enabling users to run spatial 
  conservation prioritization workflows in 'R'. It streamlines input preparation, 
  execution, and post-processing, while supporting reproducibility and lowering the 
- entry barrier for learning, teaching, and research in conservation planning.
+ entry barrier for learning, teaching, and research in conservation planning. 
+ The methods implemented in 'Zonation' are described in Moilanen et al. (2022) <doi:10.1111/2041-210X.13819>. 
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

@@ -38,8 +38,14 @@ saved with a \code{.z5} extension and can be used directly in the Zonation
 software.
 }
 \examples{
-\dontrun{
-settings_file(feature_list_file = "feature_list.txt")
+\donttest{
+withr::with_tempdir({
+
+  tmp <- tempfile(fileext = ".txt")
+  writeLines("feature list file = feature_list.txt", tmp)
+
+  settings_file(feature_list_file = "feature_list.txt")
+})
 }
 
 }

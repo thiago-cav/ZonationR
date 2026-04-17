@@ -46,18 +46,32 @@ ggplot object, which can be further customized by the user. Optionally, the
 plot can be saved to disk as a high-quality figure.
 }
 \examples{
-\dontrun{
-# Plot coverage histogram at rank 0.9
-p <- coverage_distribution("01_baseline", target_rank = 0.9)
-p + ggplot2::theme_classic()
+\donttest{
+withr::with_tempdir({
 
-# Save as PNG
-coverage_distribution("01_baseline", target_rank = 0.9,
-                      save_path = "coverage_hist.png")
+  data_path <- system.file(
+    "extdata",
+    "feature_curves.csv",
+    package = "ZonationR"
+  )
 
-# Save as PDF
-coverage_distribution("01_baseline", target_rank = 0.9,
-                      save_path = "coverage_hist.pdf")
+  dir.create("output")
+
+  file.copy(
+    data_path,
+    file.path("output", "feature_curves.csv"),
+    overwrite = TRUE
+  )
+
+  p <- coverage_distribution(
+    dir = ".",
+    output_folder_name = "output",
+    target_rank = 0.9
+  )
+
+  print(p)
+
+})
 }
 
 }

@@ -32,16 +32,10 @@
 #' @family preflight
 #'
 #' @examples
-#' \dontrun{
-#' # Check common installation locations
 #' check_zonation_executable()
-#'
-#' # Check a specific path
 #' check_zonation_executable(zonation_path = "C:/Program Files (x86)/Zonation5")
-#'
-#' # Check on Linux
 #' check_zonation_executable(zonation_path = "~/Applications")
-#' }
+#'
 check_zonation_executable <- function(zonation_path = NULL, os = NULL) {
 
   # Detect operating system if not provided
