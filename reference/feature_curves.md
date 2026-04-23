@@ -111,19 +111,7 @@ withr::with_tempdir({
   )
 
   print(p1)
-
-  # Plot using viridis palette with legend
-  p2 <- feature_curves(
-    dir = ".",
-    output_folder_name = "output",
-    palette = "viridis",
-    show_legend = TRUE
-  )
-
-  print(p2)
-
 })
-
 
 # }
 ```

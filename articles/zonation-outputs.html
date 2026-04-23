@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">ZonationR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Exploring Zonation outputs</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/thiago-cav/ZonationR/blob/v1.0.1/vignettes/articles/zonation-outputs.Rmd" class="external-link"><code>vignettes/articles/zonation-outputs.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/thiago-cav/ZonationR/blob/master/vignettes/articles/zonation-outputs.Rmd" class="external-link"><code>vignettes/articles/zonation-outputs.Rmd</code></a></small>
       <div class="d-none name"><code>zonation-outputs.Rmd</code></div>
     </div>
 
@@ -104,7 +104,7 @@ Specifically, users will:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Load necessary libraries</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/thiago-cav/ZonationR" class="external-link">ZonationR</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/thiago-cav/Zonation5RData" class="external-link">Zonation5RData</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">Zonation5RData</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -119,7 +119,7 @@ package, as shown below, or, if you are following the multiple variants
 tutorial, you can use any output folder from there.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Create a local copy of the example baseline folder</span></span>
-<span><span class="va">src</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/Zonation5RData/man/zonation5rdata_path.html" class="external-link">zonation5rdata_path</a></span><span class="op">(</span><span class="st">"01_baseline"</span><span class="op">)</span></span>
+<span><span class="va">src</span> <span class="op">&lt;-</span> <span class="fu">zonation5rdata_path</span><span class="op">(</span><span class="st">"01_baseline"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Copy the whole directory, preserving the structure</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="va">src</span>, <span class="st">"."</span>, recursive <span class="op">=</span> <span class="cn">TRUE</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
