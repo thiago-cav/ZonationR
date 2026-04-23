@@ -15,7 +15,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/thiago-cav/ZonationR/blob/master/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/thiago-cav/ZonationR/blob/v1.0.1/DESCRIPTION)
 
 Cavalcante T, Ribeiro B, Guidoni-Martins K, Kujala H (2026). *ZonationR:
 Interface to 'Zonation' for Reproducible Prioritization Workflows*. R

@@ -43,7 +43,7 @@ viridis palette."><meta property="og:image" content="https://thiago-cav.github.i
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Plot feature performance curves</h1>
-      <small class="dont-index">Source: <a href="https://github.com/thiago-cav/ZonationR/blob/master/R/feature_curves.R" class="external-link"><code>R/feature_curves.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/thiago-cav/ZonationR/blob/v1.0.1/R/feature_curves.R" class="external-link"><code>R/feature_curves.R</code></a></small>
       <div class="d-none name"><code>feature_curves.Rd</code></div>
     </div>
 
@@ -163,8 +163,20 @@ NULL (does not save).</p></dd>
 <span class="r-in"><span>  <span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p1</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="co"># Plot using viridis palette with legend</span></span></span>
+<span class="r-in"><span>  <span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu">feature_curves</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    dir <span class="op">=</span> <span class="st">"."</span>,</span></span>
+<span class="r-in"><span>    output_folder_name <span class="op">=</span> <span class="st">"output"</span>,</span></span>
+<span class="r-in"><span>    palette <span class="op">=</span> <span class="st">"viridis"</span>,</span></span>
+<span class="r-in"><span>    show_legend <span class="op">=</span> <span class="cn">TRUE</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">p2</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="op">}</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="feature_curves-1.png" alt="" width="700" height="433"></span>
+<span class="r-plt img"><img src="feature_curves-2.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
