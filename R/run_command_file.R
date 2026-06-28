@@ -48,7 +48,13 @@ run_command_file <- function(folder) {
   status <- system2(cmd_file, wait = TRUE)
 
   if (status != 0) {
-    stop("Command failed with exit status ", status)
+    stop(
+      paste0(
+        "Zonation run failed.\n",
+        "Check the console output above for error details and/or inspect the analysis and issues log file in the output folder."
+      ),
+      call. = FALSE
+    )
   }
 
   message("The analysis has been completed.")
