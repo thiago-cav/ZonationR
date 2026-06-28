@@ -23,16 +23,16 @@ as `weight`, `group`, and `threshold`, are used by the prioritization
 algorithm according to the flags set in
 [`command_file()`](https://thiago-cav.github.io/ZonationR/reference/command_file.md).
 
-| Argument  | ParameterFlags | DataType       | Explanation                                          |
-|:----------|:---------------|:---------------|:-----------------------------------------------------|
-| filename  | \-             | string         | Feature distribution file name                       |
-| weight    | w              | floating-point | Feature weight                                       |
-| group     | g              | integer        | Output group number                                  |
-| threshold | t              | floating-point | Numeric threshold below which values are cut to zero |
+| Argument | ParameterFlags | DataType | Explanation |
+|:---|:---|:---|:---|
+| filename | \- | string | Feature distribution file name |
+| weight | w | floating-point | Feature weight |
+| group | g | integer | Output group number |
+| threshold | t | floating-point | Numeric threshold below which values are cut to zero |
 
 Table 1. Arguments accepted by
 [`feature_list()`](https://thiago-cav.github.io/ZonationR/reference/feature_list.md)
-and their parameter flags
+and their parameter flags {.table}
 
 ### Settings file
 
@@ -59,6 +59,7 @@ area masks (`analysis area mask layer`), hierarchic masks
 
 Table 2. Arguments accepted by
 [`settings_file()`](https://thiago-cav.github.io/ZonationR/reference/settings_file.md)
+{.table}
 
 ### Command file
 
@@ -72,14 +73,15 @@ inputs supplied through
 The table below summarizes the available flags, the required feature
 list columns, and any additional raster inputs needed.
 
-| Flag | Explanation                    | FeatureListColumn | AdditionalRaster                   |
-|:-----|:-------------------------------|:------------------|:-----------------------------------|
-| a    | Use analysis area mask         | \-                | 1 integer raster (analysis area)   |
-| w    | Apply feature weights          | weight            | \-                                 |
-| g    | Use output groups              | group             | \-                                 |
-| h    | Hierarchic analysis            | \-                | 1 integer raster (hierarchic mask) |
-| x    | Include cost in outputs only   | \-                | 1 floating-point raster            |
-| X    | Include cost in prioritization | \-                | 1 floating-point raster            |
-| t    | Apply thresholding             | threshold         | \-                                 |
+| Flag | Explanation | FeatureListColumn | AdditionalRaster |
+|:---|:---|:---|:---|
+| a | Use analysis area mask | \- | 1 integer raster (analysis area) |
+| w | Apply feature weights | weight | \- |
+| g | Use output groups | group | \- |
+| h | Hierarchic analysis | \- | 1 integer raster (hierarchic mask) |
+| x | Include cost in outputs only | \- | 1 floating-point raster |
+| X | Include cost in prioritization | \- | 1 floating-point raster |
+| t | Apply thresholding | threshold | \- |
 
 Table 3. Analysis flags available in *ZonationR* and their requirements
+{.table}

@@ -13,6 +13,7 @@ Specifically, users will:
 #### Installation
 
 ``` r
+
 # Install required packages if not already installed
 if (!requireNamespace("ggplot2", quietly = TRUE)) {
   install.packages("ggplot2")
@@ -26,6 +27,7 @@ if (!requireNamespace("patchwork", quietly = TRUE)) {
 #### Libraries
 
 ``` r
+
 # Load necessary libraries
 library(ZonationR)
 library(Zonation5RData)
@@ -45,6 +47,7 @@ as shown below, or, if you are following the multiple variants tutorial,
 you can use any output folder from there.
 
 ``` r
+
 # Create a local copy of the example baseline folder
 src <- zonation5rdata_path("01_baseline")
 
@@ -72,6 +75,7 @@ conservation effectiveness. We can use the
 function to visualize the ranking values across the landscape:
 
 ``` r
+
 p1 <- priority_map(baseline_folder)
 
 print(p1)
@@ -89,6 +93,7 @@ and we can define custom breaks and labels to make it easier to see
 which areas have higher or lower priority.
 
 ``` r
+
 breaks <- c(0, 0.1, 0.5, 0.9, 1)
 labels <- c("very low", "low", "medium", "very high")
 p2 <- priority_map(baseline_folder, classify = TRUE,
@@ -104,6 +109,7 @@ which means that users can further customize the plots using the
 to the map:
 
 ``` r
+
 p2 <- p2 + scale_fill_viridis_d() + labs(fill = "rank")
 print(p2)
 ```
@@ -124,6 +130,7 @@ solution. It allows us to explore key metrics such as:
 - **min** - performance of the worst-performing species
 
 ``` r
+
 p3 <- summary_curves(baseline_folder, metrics = c("mean", "max", "min")) +
   ggtitle("Summary Curves") +
   theme(plot.title = element_text(hjust = 0.5))
@@ -138,6 +145,7 @@ using separate panels (facets). The `facet` argument should be set to
 `TRUE` when plotting metrics that have different units or value ranges.
 
 ``` r
+
 p4 <- summary_curves(baseline_folder,
                      metrics = c("remaining_area", "mean"),
                      facet = TRUE)
@@ -154,6 +162,7 @@ the priority ranking, which can be explored using the
 function:
 
 ``` r
+
 p5 <- feature_curves(baseline_folder) +
   ggtitle("Feature curves") +
   theme(plot.title = element_text(hjust = 0.5))
@@ -174,6 +183,7 @@ For example, we can add a vertical line to highlight the top 10%
 (`rank = 0.9`) priority cells.
 
 ``` r
+
 p5 <- p5 + geom_vline(xintercept = 0.9, linetype = "dashed", color = "red")
 
 print(p5)
@@ -192,6 +202,7 @@ function to plot a classified map showing only the top 10% priority
 areas, alongside the corresponding feature curves.
 
 ``` r
+
 # Define the threshold for the top 10% priority cells
 threshold <- 0.90
 
@@ -239,6 +250,7 @@ means that 30 species have between 10% and 20% of their range included
 in the selected priority fraction.
 
 ``` r
+
 p6 <- coverage_distribution(baseline_folder, target_rank = 0.9) +
   ggtitle("Coverage at the top 10%") +
   theme(plot.title = element_text(hjust = 0.5))
@@ -252,6 +264,7 @@ print(p6)
 > other outputs.
 
 ``` r
+
 p2_combined <- top10_map + p5 / p6
 
 print(p2_combined)

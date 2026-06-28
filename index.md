@@ -36,12 +36,14 @@ workflows.
 You can install ZonationR from CRAN:
 
 ``` r
+
 install.packages("ZonationR")
 ```
 
 Or install the development version from GitHub:
 
 ``` r
+
 # Install pak if not already installed
 if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages("pak")
@@ -54,6 +56,7 @@ pak::pak("thiago-cav/ZonationR")
 Load the package:
 
 ``` r
+
 library(ZonationR)
 ```
 

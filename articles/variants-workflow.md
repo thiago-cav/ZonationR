@@ -30,6 +30,7 @@ the project organized while running multiple scenarios.
 ### Setup
 
 ``` r
+
 # Install 'withr' package if not already installed
 if (!requireNamespace("withr", quietly = TRUE)) {
   install.packages("withr")
@@ -50,6 +51,7 @@ which provides GeoTIFF layers for workflows with Zonation and
 create folders and then copy the raster files from the package.
 
 ``` r
+
 # Create folders to store the input data
 dir.create("biodiversity", showWarnings = FALSE)
 dir.create("other_layers", showWarnings = FALSE)
@@ -72,6 +74,7 @@ file.copy(files_other, "other_layers", overwrite = TRUE)
 We begin with a baseline prioritization using default settings.
 
 ``` r
+
 # Run baseline variant in folder 01_baseline
 dir.create("01_baseline", showWarnings = FALSE)
 withr::with_dir("01_baseline", {
@@ -89,6 +92,7 @@ In this variant, we change the marginal loss rule to Core-Area Zonation
 features, even if this comes at the cost of lower average coverage.
 
 ``` r
+
 # Create the folder
 dir.create("02_cazmax", showWarnings = FALSE)
 
@@ -119,6 +123,7 @@ call.
 > ZonationR](https://thiago-cav.github.io/ZonationR/articles/ZonationR_flags.md).
 
 ``` r
+
 # Create the folder
 dir.create("03_cazmax_w", showWarnings = FALSE)
 
@@ -153,6 +158,7 @@ ranking process. This approach is useful for focused conservation
 planning in a defined geographic region.
 
 ``` r
+
 dir.create("04_cazmax_wa", showWarnings = FALSE)
 
 withr::with_dir("04_cazmax_wa", {
@@ -175,6 +181,7 @@ Modification (GHM) dataset. Cells with higher human impact are
 penalized, reducing their priority in the ranking.
 
 ``` r
+
 dir.create("05_cazmax_waX", showWarnings = FALSE)
 
 withr::with_dir("05_cazmax_waX", {

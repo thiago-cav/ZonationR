@@ -14,6 +14,7 @@ This vignette provides a brief introduction to *ZonationR*. Users will:
 ### Setup
 
 ``` r
+
 # Install the Zonation5RData package from GitHub:
 pak::pak("thiago-cav/Zonation5RData")
 
@@ -55,6 +56,7 @@ we first create a folder and then copy the raster files from the
 package.
 
 ``` r
+
 # Create a folder for biodiversity input data
 dir.create("biodiversity", showWarnings = FALSE)
 
@@ -74,6 +76,7 @@ find the Zonation 5 executable on your computer. The installation path
 will be used later when creating the Zonation command file.
 
 ``` r
+
 # Run one preflight check
 z_check <- check_zonation_executable()
 
@@ -90,6 +93,7 @@ to verify that your layers are harmonized. You can also use
 to ensure that your working directory is writable.
 
 ``` r
+
 # Run the other preflight checks
 check_raster_uniformity("biodiversity")
 check_dir_writable(".")
@@ -102,6 +106,7 @@ The `zonation_path` argument must point to the directory where Zonation
 5 is installed on your system.
 
 ``` r
+
 # Create feature list file
 feature_list(spp_file_dir = "biodiversity")
 
@@ -117,6 +122,7 @@ command_file(zonation_path = "C:/Program Files (x86)/Zonation5")
 Finally, we run the Zonation 5 analysis.
 
 ``` r
+
 # Run the Zonation 5 analysis
 run_command_file(".")
 ```
