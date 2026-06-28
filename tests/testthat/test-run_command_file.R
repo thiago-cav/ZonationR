@@ -28,7 +28,7 @@ test_that("run_command_file errors on failure status", {
 
   expect_error(
     ZonationR::run_command_file(tmp),
-    "Command failed"
+    "run failed"
   )
 })
 
