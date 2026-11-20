@@ -19,7 +19,6 @@ Description: An interface to 'Zonation' software, enabling users to run spatial
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 Imports: 
     dplyr,
     ggplot2,
@@ -41,3 +40,4 @@ BugReports: https://github.com/thiago-cav/ZonationR/issues
 Config/Needs/website: rmarkdown
 Depends: 
     R (>= 4.1.0)
+Config/roxygen2/version: 8.1.1

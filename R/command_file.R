@@ -11,6 +11,11 @@
 #' @param flags Flags that control which analysis options are used. Used to
 #'   include single letter codes that switch analysis options on. Available
 #'   options are: a, w, g, h, x, X, t.
+#' @param area Optional non-negative integer specifying the administrative unit
+#'   to analyze. The value corresponds to an integer ID in the analysis area
+#'   mask raster. Requires "a" to be included in `flags`.
+#'   Default is NULL, meaning no specific administrative unit is selected.
+#'   Setting `area = 0` applies the basic analysis area mask.
 #' @param marginal_loss_mode Character string specifying the marginal loss rule.
 #'   Available options are "CAZ1", "CAZ2", "ABF", "CAZMAX", "LOAD", and "RAND".
 #'   Default is "CAZ2".
@@ -54,7 +59,8 @@ command_file <- function(os = "os_detection",
                          marginal_loss_mode = "CAZ2",
                          gui_activated = FALSE,
                          settings_file = "settings_file.z5",
-                         output_dir = "output") {
+                         output_dir = "output",
+                         area = NULL) {
 
   # Set the command_file parameter to a fixed value
   command_file <- "command_file"
@@ -105,6 +111,23 @@ command_file <- function(os = "os_detection",
     }
   }
 
+  # Validate administrative unit selection
+  if (!is.null(area)) {
+
+    if (!is.numeric(area) ||
+        length(area) != 1L ||
+        is.na(area) ||
+        !is.finite(area) ||
+        area < 0 ||
+        area != floor(area)) {
+      stop("'area' must be a single non-negative integer.")
+    }
+
+    if (!grepl("a", flags, fixed = TRUE)) {
+      stop("Administrative unit selection requires 'a' in 'flags'.")
+    }
+  }
+
   # Ensure the output command file has the correct extension based on OS
   if (os == "Windows" && !grepl("\\.cmd$", command_file)) {
     command_file <- paste0(command_file, ".cmd")
@@ -128,6 +151,11 @@ command_file <- function(os = "os_detection",
   # Add flags
   if (flags != "") {
     command_template <- paste0(command_template, " -", flags)
+  }
+
+  # Add administrative unit selection
+  if (!is.null(area)) {
+    command_template <- paste0(command_template, " --area=", area)
   }
 
   # Add marginal loss mode

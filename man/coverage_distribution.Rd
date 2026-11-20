@@ -76,12 +76,12 @@ withr::with_tempdir({
 
 }
 \seealso{
-Other postprocessing: 
-\code{\link{cost_summary}()},
-\code{\link{feature_curves}()},
-\code{\link{feature_representation}()},
-\code{\link{priority_map}()},
-\code{\link{rank_similarity}()},
-\code{\link{summary_curves}()}
+Other postprocessing:
+\code{\link[=cost_summary]{cost_summary()}},
+\code{\link[=feature_curves]{feature_curves()}},
+\code{\link[=feature_representation]{feature_representation()}},
+\code{\link[=priority_map]{priority_map()}},
+\code{\link[=rank_similarity]{rank_similarity()}},
+\code{\link[=summary_curves]{summary_curves()}}
 }
 \concept{postprocessing}

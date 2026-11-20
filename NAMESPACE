@@ -15,30 +15,40 @@ export(run_command_file)
 export(settings_file)
 export(summary_curves)
 import(terra)
-importFrom(dplyr,bind_rows)
-importFrom(dplyr,filter)
-importFrom(ggplot2,aes)
-importFrom(ggplot2,coord_sf)
-importFrom(ggplot2,element_text)
-importFrom(ggplot2,geom_tile)
-importFrom(ggplot2,ggplot)
-importFrom(ggplot2,ggsave)
-importFrom(ggplot2,labs)
-importFrom(ggplot2,scale_fill_manual)
-importFrom(ggplot2,scale_fill_viridis_c)
-importFrom(ggplot2,theme)
-importFrom(ggplot2,theme_bw)
-importFrom(ggspatial,annotation_north_arrow)
-importFrom(ggspatial,annotation_scale)
-importFrom(ggspatial,north_arrow_orienteering)
+importFrom(dplyr,
+  bind_rows,
+  filter
+)
+importFrom(ggplot2,
+  aes,
+  coord_sf,
+  element_text,
+  geom_tile,
+  ggplot,
+  ggsave,
+  labs,
+  scale_fill_manual,
+  scale_fill_viridis_c,
+  theme,
+  theme_bw
+)
+importFrom(ggspatial,
+  annotation_north_arrow,
+  annotation_scale,
+  north_arrow_orienteering
+)
 importFrom(rlang,.data)
-importFrom(terra,classify)
-importFrom(terra,rast)
-importFrom(terra,setValues)
-importFrom(terra,values)
+importFrom(terra,
+  classify,
+  rast,
+  setValues,
+  values
+)
 importFrom(tidyr,pivot_longer)
 importFrom(tools,file_path_sans_ext)
-importFrom(utils,read.csv)
-importFrom(utils,write.csv)
-importFrom(utils,write.table)
+importFrom(utils,
+  read.csv,
+  write.csv,
+  write.table
+)
 importFrom(viridis,viridis)

@@ -1,5 +1,8 @@
 # ZonationR (development version)
 
+* Added support for administrative units analysis in `command_file()` through the 
+new `area` argument, allowing users to select individual administrative units.
+
 # ZonationR 1.0.1
 
 🚀 First CRAN release
