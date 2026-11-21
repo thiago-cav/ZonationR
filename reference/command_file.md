@@ -14,7 +14,8 @@ command_file(
   marginal_loss_mode = "CAZ2",
   gui_activated = FALSE,
   settings_file = "settings_file.z5",
-  output_dir = "output"
+  output_dir = "output",
+  area = NULL
 )
 ```
 
@@ -55,6 +56,14 @@ command_file(
 
   A character string specifying the name of the output directory where
   the analysis results will be saved. Default is "output".
+
+- area:
+
+  Optional non-negative integer specifying the administrative unit to
+  analyze. The value corresponds to an integer ID in the analysis area
+  mask raster. Requires "a" to be included in `flags`. Default is NULL,
+  meaning no specific administrative unit is selected. Setting
+  `area = 0` applies the basic analysis area mask.
 
 ## Value
 
