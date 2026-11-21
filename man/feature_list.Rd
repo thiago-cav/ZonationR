@@ -44,8 +44,8 @@ withr::with_tempdir({
 }
 }
 \seealso{
-Other preprocessing: 
-\code{\link{command_file}()},
-\code{\link{settings_file}()}
+Other preprocessing:
+\code{\link[=command_file]{command_file()}},
+\code{\link[=settings_file]{settings_file()}}
 }
 \concept{preprocessing}

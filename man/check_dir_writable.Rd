@@ -28,8 +28,8 @@ check_dir_writable(dir)
 
 }
 \seealso{
-Other preflight: 
-\code{\link{check_raster_uniformity}()},
-\code{\link{check_zonation_executable}()}
+Other preflight:
+\code{\link[=check_raster_uniformity]{check_raster_uniformity()}},
+\code{\link[=check_zonation_executable]{check_zonation_executable()}}
 }
 \concept{preflight}

@@ -49,8 +49,8 @@ check_zonation_executable()
 
 }
 \seealso{
-Other preflight: 
-\code{\link{check_dir_writable}()},
-\code{\link{check_raster_uniformity}()}
+Other preflight:
+\code{\link[=check_dir_writable]{check_dir_writable()}},
+\code{\link[=check_raster_uniformity]{check_raster_uniformity()}}
 }
 \concept{preflight}
